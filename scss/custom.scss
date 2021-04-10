@@ -1,0 +1,18 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "custom-colors";;
+
+// Create your own map
+
+$custom-colors: (
+    'primary-dark': $primary-dark,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+.rounded-button {
+    border-radius: 1.25rem;
+    font-size: 0.8rem;
+    background-color: map-get($theme-colors, 'primary-dark');
+    border-color: map-get($theme-colors, 'primary-dark');
+}
