@@ -1,0 +1,125 @@
+@import "common";
+
+
+.material-manufacture {
+
+}
+
+.case-studies {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    .custom-link {
+        color: $primary-dark;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    &-item {
+        background-color: rgb(203, 203, 203); 
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.material-grades {
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 250px;
+        margin-bottom: 10px;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+        border-color: $primary-dark;
+    }
+}
+
+.composite-materials {
+    padding-top: 4em;
+    padding-bottom: 4em;
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.market-sectors {
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.main-benefit {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-image: url("https://www.tufcot.com/wp-content/uploads/2021/02/tufcot-key-benefits-BG.jpg");
+    ul {
+        padding-left: 0!important;
+        margin: 0!important;
+    }
+    li {
+        list-style-type: none;
+        color: white;
+    }
+    li + li {
+        margin-top: 15px;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.membership {
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 150px;
+        margin-bottom: 10px;
+    }
+}
+
+.recent-news {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 150px;
+        margin-bottom: 10px;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.definitive-guide {
+    padding-bottom: 2em;
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%;
+        height: 300px;
+    }
+    a {
+        text-decoration: none;
+        color: $primary-dark;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}

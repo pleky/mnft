@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="../scss/custom.scss" />
+    <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}" />
 
     <title>Raja Teknik Aditama</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top">
     <div class="container">
-    <a class="navbar-brand" href="#"><img src="logo.jpg" width="250"/></a>
+    <a class="navbar-brand" href="#"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>

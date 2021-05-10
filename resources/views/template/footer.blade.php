@@ -1,81 +1,93 @@
-
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="span4">
-            <div class="widget">
-              <h5 class="widgetheading">Get in touch</h5>
-              <address>
-                    <strong>PT. Sendiko Nusantara Teknologi</strong><br>
-                    Mall MGK Kemayoran lantai 1 B7 No.6, 
-                    Gunung Sahari Selatan Kemayoran,
-                    Jakarta Pusat, DKI Jakarta
-               </address>
-              <p>
-                <!-- <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br> -->
-                <i class="icon-envelope-alt"></i> corporate@sendikonusantara.com
-              </p>
-            </div>
+<!-- contact us -->
+<section class="contact-us mt-2">
+        <div class="container">
+          <div class="heading-light">
+            <h4 class="text-white fw-light">Contact Us</h4>
           </div>
-          <div class="span4">&nbsp;</div>
-          <div class="span4">
-            <div class="widget">
-              <h5 class="widgetheading">Subscribe newsletter</h5>
-              <p>
-                Keep updated for new releases and freebies. Enter your e-mail and subscribe to our newsletter.
-              </p>
-              <form class="subscribe" action="/emailpost" method="post">
-                {{ csrf_field() }}
-                <div class="input-append">
-                  <input class="span2" type="email" id="email" name="email" type="text">
-                  <input class="btn btn-theme" type="submit" value="Subscribe">
+
+          <div class="row mt-5">
+            <div class="col-md-4">
+              <form action="">
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name*">
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email*">
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                </div>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                  <label for="floatingTextarea2">Message</label>
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-      <div id="sub-footer">
-        <div class="container">
-          <div class="row">
-            <div class="span6">
-              <div class="copyright">
-                <p><span>&copy; Sendiko Nusantara company. All right reserved</span></p>
-              </div>
-
+            <div class="col-md-4">
+                <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>+44 (0)114 244 2363</span></div>
+                <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>info@tufcot.com</span></div>
+                <div class="d-flex">
+                  <span><i data-feather="home" class="icon-wrapper text-white"></i></span>
+                  <span>Tufcot Engineering Ltd, 330 Coleford Road, Sheffield, South Yorkshire, S9 5PH, United Kingdom</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="contact-us-item"></div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
-  </div>
-  <a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bglight icon-2x active"></i></a>
+      </section>
+      <!-- end contact us -->
 
-  <!-- javascript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{{ asset("/dist/js/jquery.js")}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-  <script src="{{ asset("/dist/js/jquery.easing.1.3.js")}}"></script>
-  <script src="{{ asset("/dist/js/bootstrap.js")}}"></script>
+      <!-- footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <p class="text-white" >Tufcot® Composite Materials</p>
+              <p class="text-muted">We manufacture some of the very finest composite materials available.</p>
+              <p class="text-muted">The high quality of our product combined with the quick turnaround we can offer mean we provide a service that is second-to-none.</p>
+            </div>
+            <div class="col-md-3">
+              <p class="text-white">Information Pages</p>
+              <ul>
+                <li>About</li>
+                <li>Customer Login Area</li>
+                <li>Vacancies</li>
+                <li>Downloads</li>
+                <li>FAQs</li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <p class="text-white">Recent Post</p>
+              <ul>
+                <li>About</li>
+                <li>Customer Login Area</li>
+                <li>Vacancies</li>
+                <li>Downloads</li>
+                <li>FAQs</li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <p class="text-white">Contact Info</p>
+              <p class="text-muted">Tufcot Engineering Ltd,
+                330 Coleford Road,
+                Sheffield,
+                South Yorkshire,
+                S9 5PH,
+                United Kingdom.</p>
+              <p class="text-muted mb-1">Phone: <span class="text-white">123123123</span></p>
+              <p class="text-muted mb-1">Email: <span class="text-white">asdas@gmail.com</span></p>
+              <p class="text-muted">Web: <span class="text-white">www.www.com</span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- end footer -->
 
-  <script src="{{ asset("/dist/js/modernizr.custom.js")}}"></script>
-  <script src="{{ asset("/dist/js/toucheffects.js")}}"></script>
-  <script src="{{ asset("/dist/js/google-code-prettify/prettify.js")}}"></script>
-  <script src="{{ asset("/dist/js/jquery.bxslider.min.js")}}"></script>
-  <script src="{{ asset("/dist/js/camera/camera.js")}}"></script>
-  <script src="{{ asset("/dist/js/camera/setting.js")}}"></script>
-
-  <script src="{{ asset("/dist/js/jquery.prettyPhoto.js")}}"></script>
-  <script src="{{ asset("/dist/js/portfolio/jquery.quicksand.js")}}"></script>
-  <script src="{{ asset("/dist/js/portfolio/setting.js")}}"></script>
-
-  <script src="{{ asset("/dist/js/jquery.flexslider.js")}}"></script>
-  <script src="{{ asset("/dist/js/animate.js")}}"></script>
-  <script src="{{ asset("/dist/js/inview.js")}}"></script>
-
-  <!-- Template Custom JavaScript File -->
-  <script src="{{ asset("/dist/js/custom.js")}}"></script>
-
+    <script src="./index.js"></script>
+    <script>
+      feather.replace()
+    </script>
 </body>
 </html>
