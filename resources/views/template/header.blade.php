@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}" />
+    <link rel="icon" href="{{ asset('assets/images/logo.jpg') }}" />
 
     <title>Raja Teknik Aditama</title>
 </head>

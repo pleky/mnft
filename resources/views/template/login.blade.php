@@ -33,7 +33,7 @@ http://www.templatemo.com/tm-515-eatery
      <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="icon" href="{{asset("/dist/images/logo.png")}}">
+     <link rel="icon" href="{{asset("/dist/images/logod.png")}}">
      <link rel="stylesheet" href="{{ asset("/dist/css/login-register.css")}}">
      <link rel="stylesheet" href="{{ asset("/dist/css/alert.css")}}">
 </head>
