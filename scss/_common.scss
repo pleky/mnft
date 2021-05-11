@@ -1,5 +1,6 @@
 @import "custom-colors";
-@import "bootstrap/scss/bootstrap.scss";
+// @import "bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap";
 
 $custom-colors: (
     'primary-dark': $primary-dark,
