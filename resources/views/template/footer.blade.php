@@ -85,7 +85,7 @@
       </footer>
       <!-- end footer -->
 
-    <script src="./index.js"></script>
+    <script src="{{ mix('assets/js/index.js') }}"></script>
     <script>
       feather.replace()
     </script>
