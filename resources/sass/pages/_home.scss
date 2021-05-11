@@ -1,0 +1,34 @@
+@use '../utilities/' as *;
+.case-studies {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    .custom-link {
+        color: $primary-dark;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    &-item {
+        background-color: rgb(203, 203, 203); 
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}
+
+.composite-materials {
+    padding-top: 4em;
+    padding-bottom: 4em;
+    &-item {
+        background-color: rgb(203, 203, 203);; 
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: $primary-dark;
+    }
+}

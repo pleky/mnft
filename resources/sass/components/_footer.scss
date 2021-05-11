@@ -1,0 +1,24 @@
+.footer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #363839;
+
+    ul {
+        padding-left: 1rem!important;
+    }
+
+    li {
+        border-bottom: 1px solid white;
+        padding-bottom: 10px;
+        color: White;
+    }
+
+    li + li {
+        margin-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
