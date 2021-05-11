@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top">
     <div class="container">
-    <a class="navbar-brand" href="#"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
+    <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,30 +22,30 @@
         <li class="nav-item dropdown" id="myDropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Company </a>
           <ul class="dropdown-menu">
-            <li> <a class="dropdown-item" href="#"> About Us </a></li>
+            <li> <a class="dropdown-item" href="/about"> About Us </a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Industry</a>
           <ul class="dropdown-menu">
-            <li> <a class="dropdown-item" href="#"> Product 1 </a></li>
-            <li> <a class="dropdown-item" href="#"> Product 2 </a></li>
+            <li> <a class="dropdown-item" href="/product"> Product 1 </a></li>
+            <li> <a class="dropdown-item" href="/product"> Product 2 </a></li>
             <li> 
-              <a class="dropdown-item" href="#"> Product 3</a>
+              <a class="dropdown-item" href="/product"> Product 3</a>
               <!-- <ul class="submenu dropdown-menu">
-                <li><a class="dropdown-item" href="#">Product 3 1</a></li>
-                <li><a class="dropdown-item" href="#">Product 3 2</a></li>
+                <li><a class="dropdown-item" href="/product">Product 3 1</a></li>
+                <li><a class="dropdown-item" href="/product">Product 3 2</a></li>
               </ul> -->
             </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Products & Services</a>
+            <a class="nav-link dropdown-toggle" href="/product" data-bs-toggle="dropdown">Products & Services</a>
             <ul class="dropdown-menu">
-              <li> <a class="dropdown-item" href="#"> Product a </a></li>
-              <li> <a class="dropdown-item" href="#"> Product b </a></li>
-              <li> <a class="dropdown-item" href="#"> Service a </a></li>
-              <li> <a class="dropdown-item" href="#"> Service b </a></li>
+              <li> <a class="dropdown-item" href="/product"> Product a </a></li>
+              <li> <a class="dropdown-item" href="/product"> Product b </a></li>
+              <li> <a class="dropdown-item" href="/product"> Service a </a></li>
+              <li> <a class="dropdown-item" href="/product"> Service b </a></li>
             </ul>
         </li>
             <li class="nav-item">

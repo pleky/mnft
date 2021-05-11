@@ -11015,3 +11015,109 @@ body {
   text-decoration: none;
   color: white;
 }
+
+.product-img {
+  width: 100%;
+  height: 350px;
+  padding: 7px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+}
+
+.mision {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.mision-item {
+  width: 100%;
+  height: 170px;
+  background-color: #f6f6f6;
+}
+
+.company-vision {
+  background-color: #ff8f00;
+}
+.company-vision .vision-text::before {
+  content: "“";
+  font-size: 30px;
+  margin-right: 5px;
+}
+.company-vision .vision-text::after {
+  content: "”";
+  font-size: 30px;
+  margin-left: 5px;
+}
+
+.core-value-item {
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.core-value .text-wrapper {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  border-radius: 5px;
+  background-color: #32617d91;
+  height: 100%;
+  width: 100%;
+}
+.core-value-item:hover {
+  scale: 1.05;
+  transition: all 0.5s;
+}
+
+.case-studies {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.case-studies .custom-link {
+  color: #176798;
+  text-decoration: none;
+  font-size: 20px;
+}
+.case-studies-item {
+  background-color: #cbcbcb;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.case-studies .btn-primary {
+  background-color: #176798;
+}
+
+.composite-materials {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.composite-materials-item {
+  background-color: #cbcbcb;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.composite-materials .btn-primary {
+  background-color: #176798;
+}
+
+.product-img {
+  width: 100%;
+  height: 350px;
+  padding: 7px;
+  background-color: #f6f6f6;
+}
+
+.gallery {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.gallery-item {
+  width: 100%;
+  height: 170px;
+  background-color: #f6f6f6;
+}

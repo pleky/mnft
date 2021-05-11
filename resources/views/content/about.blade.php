@@ -1,33 +1,119 @@
 @extends('template.index')
 
 @section('content')
-<section id="content">
-      <div class="container">
-        <div class="row">
+<!-- Porduct desc -->
+<section class="product mt-4">
+    <div class="container">
+      <div class="heading">
+          <h3 class="text-primary-dark">About PT Raja Teknik Aditama (RTA)</h3>
+      </div>
 
-          <div class="span12" style="margin-bottom:150px;">
-            <h4>About our company</h4>
-            <p>
-              We are a company that offers a complete and comprehensive integrated solution for consulting, 
-              designing, implementing, maintaining products <br>and information technology systems for your company's 
-              business interests, both small and large scale.
-            </p>
-            <p>
-              With a total solution model that is end to end solution, 
-              we are the answer to your company's information technology needs according to our slogan 
-              'Your Best IT Partner'
-            </p>
+      <div class="row">
+          <div class="col-md-8 product-desc">
+              <p>PT Raja Teknik Aditama (RTA) specializes in design, engineering and manufacture custom precision parts.</p>
 
+              <p>We provide technical consultancy for re-engineering/re-manufacture of custom precision parts to enhance the part performance and lifetime.</p>
+
+              <h5 class="text-primary-dark">What We offer?</h5>
+              <ul>
+                  <li>Technical consultancy </li>
+                  <li>Parts identification and testing.</li>
+                  <li>Engineering design</li>
+                  <li>Contract manufacture for custom precision parts</li>
+                  <li>Trading for mechanical components & engineering tools.</li>
+              </ul>
+
+              <h5 class="text-primary-dark">Why RTA?</h5>
+              <ul>
+                  <li>Experienced technical team</li>
+                  <li>Flexible custom precision parts</li>
+                  <li>Innovative engineering design and solutions</li>
+                  <li>Various material available</li>
+                  <li>Problem solving objective</li>
+              </ul>
           </div>
+          <div class="col-md-4">
+              <div class="product-img">
+                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/350x350" alt="">
+              </div>
+          </div>
+      </div>
+      <!-- div row -->
+    </div>
+    <!-- div container -->
+</section>
+<!-- end Product desc -->
 
+<!-- company vision -->
+<section class="company-vision mt-5 p-3">
+  <div class="container">
+      <h4 class="text-center text-white pb-0 mb-0">Our Vision</h4>
+      <h3 class="text-center fw-light  text-white vision-text">To be the leading company in custom engineering and precision parts</h3>
+  </div>
+</section>
+<!-- end company vision -->
+<!-- mision -->
+<section class="mision">
+    <div class="container">
+      <div class="heading">
+          <h4 class="text-primary-dark text-center fw-light">Our Mission</h4>
+      </div>
+      <!-- heading -->
+
+      <div class="row align-items-center">
+          <div class="col-md-12">
+              <ul>
+                  <li>Helping people by achieving the machine/equipment part performance</li>
+                  <li>Continuously increasing the business efficiency and effectiveness</li>
+                  <li>Continuous improvement and continuous learning.</li>
+                  <li>Continuously providing the  value added products and services</li>
+                  <li>Continuously perform sustainable growth and solid financial structure</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+</section>
+<!-- end mission -->
+
+<!-- core value -->
+<section class="core-value mt-3 mb-5">
+    <div class="container">
+        <div class="heading">
+            <h4 class="text-primary-dark fw-light">Core Value</h4>
         </div>
-
-        <!-- divider -->
         <div class="row">
-          <div class="span12">
-            <div class="solidline"></div>
+            <div class="col">
+                <div class="core-value-item position-relative" id='core-value-item'>
+                    <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?trust" alt="">
+                    <span class="text-white text-wrapper">Trust & Integrity </span>
+                </div>
+            </div>
+            <div class="col">
+              <div class="core-value-item position-relative" id='core-value-item'>
+                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?improvement" alt="">
+                  <span class="text-white text-wrapper">Continous improvement</span>
+              </div>
+          </div>
+          <div class="col">
+              <div class="core-value-item position-relative" id='core-value-item'>
+                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?mindset" alt="">
+                  <span class="text-white text-wrapper">Problem solving mindset</span>
+              </div>
+          </div>
+          <div class="col">
+              <div class="core-value-item position-relative" id='core-value-item'>
+                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?sustainable" alt="">
+                  <span class="text-white text-wrapper">Sustainable</span>
+              </div>
+          </div>
+          <div class="col">
+              <div class="core-value-item position-relative" id='core-value-item'>
+                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50">
+                  <span class="text-white text-wrapper">Innovative</span>
+              </div>
           </div>
         </div>
-        <!-- end divider -->
-    </section>
+    </div>
+</section>
+<!-- end core value -->
 @endsection

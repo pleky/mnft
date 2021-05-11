@@ -23,6 +23,9 @@ Route::get('/service', function () {
 Route::get('/about', function () {
     return view('content.about');
 });
+Route::get('/product', function () {
+    return view('content.product');
+});
 Route::get('/faq', function () {
     return view('content.faq');
 });
