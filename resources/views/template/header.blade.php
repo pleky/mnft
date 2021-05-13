@@ -11,7 +11,7 @@
     <title>Raja Teknik Aditama</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top" id='navbar_top'>
     <div class="container">
     <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +32,6 @@
             <li> <a class="dropdown-item" href="/product"> Product 2 </a></li>
             <li> 
               <a class="dropdown-item" href="/product"> Product 3</a>
-              <!-- <ul class="submenu dropdown-menu">
-                <li><a class="dropdown-item" href="/product">Product 3 1</a></li>
-                <li><a class="dropdown-item" href="/product">Product 3 2</a></li>
-              </ul> -->
             </li>
           </ul>
         </li>
@@ -61,6 +57,8 @@
     <!-- container-fluid.// -->
     </nav>
 
+    <div class='w-100 tt'></div>
+
       <!-- slider -->
       <section class="container-fluid slider d-flex">
         <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
@@ -71,21 +69,21 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="https://source.unsplash.com/random/700x250" class="img-fuild w-100" alt="...">
+              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="animate__animated animate__bounce animate__delay-1s">First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-              <img src="https://source.unsplash.com/random/700x250" class="img-fuild w-100" alt="...">
+              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="animate__animated animate__bounce animate__delay-1s">Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="https://source.unsplash.com/random/700x250" class="img-fuild w-100" alt="...">
+              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="animate__animated animate__bounce animate__delay-1s">Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -106,27 +104,29 @@
 
       <!-- second nav -->
       <section class="p-2 bg-light color-white">
-        <div class="container d-flex justify-content-between">
-          <span class="d-flex text-primary-dark">
-            <i data-feather="phone" class="icon-wrapper"></i>
-            <span>Call</span>
-          </span>
-          <span class="d-flex text-primary-dark">
-            <i data-feather="check" class="icon-wrapper"></i>
-            <span>Call</span>
-          </span>
-          <span class="d-flex text-primary-dark">
-            <i data-feather="play" class="icon-wrapper"></i>
-            <span>Call</span>
-          </span>
-          <span class="d-flex text-primary-dark">
-            <i data-feather="download" class="icon-wrapper"></i>
-            <span>Call</span>
-          </span>
-          <span class="d-flex text-primary-dark">
-            <i data-feather="mail" class="icon-wrapper"></i>
-            <span>Call</span>
-          </span>
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex align-items-center">
+              <i data-feather="phone" class="icon-wrapper"></i>
+              <span>Call</span>
+            </div>
+            <div class="col d-flex align-items-center">
+              <i data-feather="check" class="icon-wrapper"></i>
+              <span>Call</span>
+            </div>
+            <div class="col d-flex justify-content-center">
+              <i data-feather="play" class="icon-wrapper"></i>
+              <span>Call</span>
+            </div>
+            <div class="col d-flex justify-content-md-end justify-content-center">
+              <i data-feather="download" class="icon-wrapper"></i>
+              <span>Download</span>
+            </div>
+            <div class="col d-flex justify-content-md-end justify-content-center">
+              <i data-feather="mail" class="icon-wrapper"></i>
+              <span>E-Mail</span>
+            </div>
+          </div>
         </div>
       </section>
       <!-- end second nav -->

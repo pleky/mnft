@@ -1,7 +1,6 @@
 @use '../utilities/' as *;
 .case-studies {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding: 2em 0;
     .custom-link {
         color: $primary-dark;
         text-decoration: none;
