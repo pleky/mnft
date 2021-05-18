@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sendiko | Log in</title>
+  <title>RTA | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,7 +19,7 @@
 @endif
 <div class="login-box">
   <div class="login-logo">
-    <p><b>Sendiko</b>Nusantara</p>
+    <p><b>CMS </b>RTA</p>
   </div>
   <!-- /.login-logo -->
   <div class="card">

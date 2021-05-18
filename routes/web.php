@@ -17,23 +17,17 @@ Route::get('/', function () {
     return view('content.homepage');
 });
 
-Route::get('/service', function () {
-    return view('content.service');
-});
 Route::get('/about', function () {
     return view('content.about');
 });
 Route::get('/product', function () {
     return view('content.product');
 });
-Route::get('/faq', function () {
-    return view('content.faq');
-});
 
 Route::get("/mensolutions/{menu}", "SolutionController@pages");
 Route::post("/emailpost", "SolutionController@saveEmail");
 
-// ADMIN SENDIKO
+//===========ADMIN===========
 Route::get('/login', function () {
     return view('admin.login');
 });
