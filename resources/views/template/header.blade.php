@@ -103,7 +103,7 @@
       <!-- end slider -->
 
       <!-- second nav -->
-      <section class="p-2 bg-light color-white">
+      <section class="p-2 bg-light color-white d-none d-md-block">
         <div class="container">
           <div class="row">
             <div class="col d-flex align-items-center">
