@@ -39,6 +39,12 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/admin", "AdminController@index");
     Route::get("/logout", "AdminController@logout");
 
+    Route::get("/menu", "MenuController@index");
+    Route::get("/menu/add", "MenuController@create");
+
+    Route::get("/contents", "ContentsController@index");
+    Route::get("/contents/add", "ContentsController@create");
+
     Route::get("solutions/all", "SolutionController@getAllSolutions")->name("menu.data");
     Route::get("/solutions", "SolutionController@index");
     Route::get("/solutions/edit/{id}", "SolutionController@edit");

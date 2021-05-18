@@ -48,8 +48,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ url('/menu') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Menu</p>
+                </a>
+              </li>
               <li class="nav-item">
-                <a href="{{ url('/solutions') }}" class="nav-link">
+                <a href="{{ url('/contents') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Content</p>
                 </a>
@@ -57,7 +63,13 @@
               <li class="nav-item">
                 <a href="{{ url('/emails') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Email</p>
+                  <p>Galery</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/emails') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
                 </a>
               </li>
             </ul>

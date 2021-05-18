@@ -22,9 +22,9 @@
     <script>
         $(function() {
             $('#data_users_side').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "/solutions/all",
+                // processing: true,
+                // serverSide: true,
+                // ajax: "/solutions/all",
                 columns: [
                     {
                         data: 'desc_menu',
