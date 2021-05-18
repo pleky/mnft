@@ -61,13 +61,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/emails') }}" class="nav-link">
+                <a href="{{ url('/gallery') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Galery</p>
+                  <p>Gallery</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/emails') }}" class="nav-link">
+                <a href="{{ url('/profile') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
                 </a>

@@ -8,35 +8,36 @@
             <h1>Add Data</h1>
           </div>
         </div>
-      </div>
+      </div><!-- /.container-fluid -->
     </section>
 
 
-    <section class="content mt-3">
+    <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col-md-12">
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Menu</h3>
+                            <h3 class="card-title">Add Profile</h3>
                         </div>
                         <div class="card-body">
                             <form role='form'>
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">Company Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Slug</label>
-                                    <input type="text" class="form-control" id="slug" placeholder="Enter slug">
+                                    <label for="phone">Phone</label>
+                                    <input type="number" class="form-control" id="phone" placeholder="Enter Address">
                                 </div>
                                 <div class="form-group">
-                                    <span class='d-block'>Status</span>
-                                    <input type="radio" id="active" name="gender" value="active">
-                                    <label for="active">Active</label><br>
-                                    <input type="radio" id="inactive" name="gender" value="inactive">
-                                    <label for="inactive">Inactive</label><br>
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea type="text" class="form-control" id="address" placeholder="Enter Address"></textarea>
                                 </div>
                             </form>
                         </div>

@@ -1,24 +1,24 @@
 @extends('admin.index')
 
 @section('content')
-    <!-- <section class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Content</h1>
+            <h1>Add Data</h1>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
 
     <section class="content mt-3">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col">
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Menu</h3>
+                            <h3 class="card-title">Add Content</h3>
                         </div>
                         <div class="card-body">
                             <form role='form'>
