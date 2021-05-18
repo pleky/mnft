@@ -36,6 +36,10 @@
                                     <input type="email" class="form-control" id="email" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="text" class="form-control" id="website" placeholder="Enter website url">
+                                </div>
+                                <div class="form-group">
                                     <label for="address">Address</label>
                                     <textarea type="text" class="form-control" id="address" placeholder="Enter Address"></textarea>
                                 </div>
