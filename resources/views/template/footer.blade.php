@@ -25,10 +25,10 @@
             </div>
             <div class="col-md-4">
                 <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>+44 (0)114 244 2363</span></div>
-                <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>info@tufcot.com</span></div>
+                <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>info@PT Raja Teknik Aditama (RTA).com</span></div>
                 <div class="d-flex">
                   <span><i data-feather="home" class="icon-wrapper text-white"></i></span>
-                  <span>Tufcot Engineering Ltd, 330 Coleford Road, Sheffield, South Yorkshire, S9 5PH, United Kingdom</span>
+                  <span>PT Raja Teknik Aditama (RTA) Engineering Ltd, 330 Coleford Road, Sheffield, South Yorkshire, S9 5PH, United Kingdom</span>
                 </div>
             </div>
             <div class="col-md-4">
@@ -44,7 +44,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3">
-              <p class="text-white" >Tufcot® Composite Materials</p>
+              <p class="text-white" >PT Raja Teknik Aditama (RTA)® Composite Materials</p>
               <p class="text-muted">We manufacture some of the very finest composite materials available.</p>
               <p class="text-muted">The high quality of our product combined with the quick turnaround we can offer mean we provide a service that is second-to-none.</p>
             </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <p class="text-white">Contact Info</p>
-              <p class="text-muted">Tufcot Engineering Ltd,
+              <p class="text-muted">PT Raja Teknik Aditama (RTA) Engineering Ltd,
                 330 Coleford Road,
                 Sheffield,
                 South Yorkshire,

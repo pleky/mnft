@@ -8,17 +8,17 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-6">
-            <p>We are the sole manufacturer of Tufcot® composite materials.</p>
+            <p>We are the sole manufacturer of PT Raja Teknik Aditama (RTA)® composite materials.</p>
 
-            <p>Tufcot® is a composite engineering material manufactured from synthetic fibres and thermosetting resins.</p>
+            <p>PT Raja Teknik Aditama (RTA)® is a composite engineering material manufactured from synthetic fibres and thermosetting resins.</p>
                 
-            <p>Tufcot® offers high strength/weight ratios, a naturally low coefficient of friction, self-lubrication & significant weight reductions.</p>
+            <p>PT Raja Teknik Aditama (RTA)® offers high strength/weight ratios, a naturally low coefficient of friction, self-lubrication & significant weight reductions.</p>
                 
-            <p>We manufacture our Tufcot® composite material & deliver globally.</p>
+            <p>We manufacture our PT Raja Teknik Aditama (RTA)® composite material & deliver globally.</p>
                 
             <p>We have a competitive pricing structure combined with fast delivery times.</p>
                 
-            <p>Please contact us on +44 (0)114 244 2363 or info@tufcot.com.</p>
+            <p>Please contact us on +44 (0)114 244 2363 or info@PT Raja Teknik Aditama (RTA).com.</p>
             </div>
             <div class="col-md-6">
             <iframe width="100%" height="280" src="https://www.youtube.com/embed/vMePycN3k18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
