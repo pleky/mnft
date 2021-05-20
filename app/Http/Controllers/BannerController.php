@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GalleryController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('admin.gallery');
+        return view('admin.banner');
     }
 
     /**
@@ -23,7 +23,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.galleryForm');
+        return view('admin.forms.bannerForm');
     }
 
     /**

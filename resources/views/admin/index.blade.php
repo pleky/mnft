@@ -61,9 +61,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/gallery') }}" class="nav-link">
+                <a href="{{ url('/banner') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gallery</p>
+                  <p>Banner</p>
                 </a>
               </li>
               <li class="nav-item">

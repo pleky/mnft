@@ -18,28 +18,25 @@
                 <div class="col">
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Gallery</h3>
+                            <h3 class="card-title">Add Banner</h3>
                         </div>
                         <div class="card-body">
                             <form role='form'>
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="description">Title</label>
-                                    <input type="text" class="form-control" id="description" placeholder="Enter Title">
-                                </div>
-                                <div class="form-group">
-                                    <label>Select Content</label>
-                                    <select class="form-control">
-                                    <option>Content 1</option>
-                                    <option>Content 2</option>
-                                    <option>Content 3</option>
-                                    <option>Content 4</option>
-                                    <option>Content 5</option>
-                                    </select>
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name">
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Photo</label>
                                     <input type="file" class="form-control" id="photo" placeholder="Enter slug">
+                                </div>
+                                <div class="form-group">
+                                    <span class='d-block'>Status</span>
+                                    <input type="radio" id="active" name="gender" value="active">
+                                    <label for="active">Active</label><br>
+                                    <input type="radio" id="inactive" name="gender" value="inactive">
+                                    <label for="inactive">Inactive</label><br>
                                 </div>
                             </form>
                         </div>

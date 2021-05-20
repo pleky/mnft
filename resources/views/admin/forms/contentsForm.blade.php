@@ -67,14 +67,13 @@
 @endsection
 
 <script>
-    let id = 0;
-
     const removeElement = (e) => {
         const galleryContainer = document.getElementById("galleryContainer");
-        galleryContainer.removeChild(e);
+        if (confirm('are you sure want to remove this element ?')) {
+            galleryContainer.removeChild(e);
+        }
     }
     const addGallery = () => {
-        id++;
         const galleryContainer = document.getElementById("galleryContainer");
 
         let fieldset = document.createElement('fieldset');
@@ -99,7 +98,6 @@
         buttonRemove.setAttribute('class', 'btn btn-danger');
         buttonRemove.setAttribute('type', 'button');
         buttonRemove.innerHTML = 'Remove';
-        buttonRemove.setAttribute('id', 'reqsr' + id);
         buttonRemove.onclick = function() {
             removeElement(fieldset);
         };

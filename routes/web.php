@@ -45,8 +45,8 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/contents", "ContentsController@index");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");
 
-    Route::get("/gallery", "GalleryController@index");
-    Route::get("/gallery/add", "GalleryController@create");
+    Route::get("/banner", "BannerController@index");
+    Route::get("/banner/add", "BannerController@create");
 
     Route::get("/profile", "ProfileController@index");
     Route::get("/profile/add", "ProfileController@create");
