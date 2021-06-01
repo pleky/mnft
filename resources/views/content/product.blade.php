@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Porduct desc -->
-<section class="product mt-4">
+<section class="product mt-5 pt-5">
     <div class="container">
     <div class="heading">
         <h3 class="text-primary-dark fw-light">Product Name</h3>

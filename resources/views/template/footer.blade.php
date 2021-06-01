@@ -1,5 +1,5 @@
 <!-- contact us -->
-<section class="contact-us mt-2">
+<section class="contact-us mt-2" id="contact-us">
         <div class="container">
           <div class="heading-light">
             <h4 class="text-white fw-light">Contact Us</h4>
@@ -43,32 +43,12 @@
       <footer class="footer">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <p class="text-white" >PT Raja Teknik Aditama (RTA)® Composite Materials</p>
               <p class="text-muted">We manufacture some of the very finest composite materials available.</p>
               <p class="text-muted">The high quality of our product combined with the quick turnaround we can offer mean we provide a service that is second-to-none.</p>
             </div>
-            <div class="col-md-3">
-              <p class="text-white">Information Pages</p>
-              <ul>
-                <li>About</li>
-                <li>Customer Login Area</li>
-                <li>Vacancies</li>
-                <li>Downloads</li>
-                <li>FAQs</li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <p class="text-white">Recent Post</p>
-              <ul>
-                <li>About</li>
-                <li>Customer Login Area</li>
-                <li>Vacancies</li>
-                <li>Downloads</li>
-                <li>FAQs</li>
-              </ul>
-            </div>
-            <div class="col-md-3">
+            <div class="col">
               <p class="text-white">Contact Info</p>
               <p class="text-muted">PT Raja Teknik Aditama (RTA) Engineering Ltd,
                 330 Coleford Road,
@@ -76,9 +56,41 @@
                 South Yorkshire,
                 S9 5PH,
                 United Kingdom.</p>
-              <p class="text-muted mb-1">Phone: <span class="text-white">123123123</span></p>
-              <p class="text-muted mb-1">Email: <span class="text-white">asdas@gmail.com</span></p>
-              <p class="text-muted">Web: <span class="text-white">www.www.com</span></p>
+              <p class="text-muted mb-1">Phone: <span class="text-white">+62 21 2258 5797</span></p>
+              <p class="text-muted mb-1">Email: <span class="text-white">sales@rtateknik.com</span></p>
+              <p class="text-muted">Web: <span class="text-white">www.rtateknik.com </span></p>
+            </div>
+            <div class="col-md-3">
+              <p class="text-white">Our Social Media</p>
+              <div class='text-white'>
+                <ul>
+                  <li>
+                    <a href="https://www.rtateknik.com " target='_blank'>
+                      <i data-feather="globe"></i>
+                      <span>rajateknikaditama</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://instagram.com/rajateknikaditama" target='_blank'>
+                      <i data-feather="instagram"></i>
+                      <span>rajateknikaditama</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/channel/UCXs95ZjlUjU-ta9r9iosT6w" target='_blank'>
+                      <i data-feather="youtube"></i>
+                      <span>PT Raja Teknik Aditama</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.facebook.com/PT-Raja-Teknik-Aditama-108845738056975" target='_blank'>
+                      <i data-feather="facebook"></i>
+                      <span>PT Raja Teknik Aditama</span>
+                    </a>
+                  </li>
+                </ul>
+                
+              </div>
             </div>
           </div>
         </div>

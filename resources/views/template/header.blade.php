@@ -55,7 +55,7 @@
               <a class="nav-link link-dark" href="#" tabindex="-1" aria-disabled="true">Case Study</a>
             </li>
         <li class="nav-item ">
-          <a href="#" class="btn btn-danger rounded-button mt-1" tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
+          <a href="#contact-us" class="btn btn-danger rounded-button mt-1" tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -110,30 +110,20 @@
       <!-- end slider -->
 
       <!-- second nav -->
-      <section class="p-2 bg-light color-white d-none d-md-block">
-        <div class="container">
-          <div class="row">
-            <div class="col d-flex align-items-center">
-              <i data-feather="phone" class="icon-wrapper"></i>
-              <span>Call</span>
-            </div>
-            <div class="col d-flex align-items-center">
-              <i data-feather="check" class="icon-wrapper"></i>
-              <span>Call</span>
-            </div>
-            <div class="col d-flex justify-content-center">
-              <i data-feather="play" class="icon-wrapper"></i>
-              <span>Call</span>
-            </div>
-            <div class="col d-flex justify-content-md-end justify-content-center">
-              <i data-feather="download" class="icon-wrapper"></i>
-              <span>Download</span>
-            </div>
-            <div class="col d-flex justify-content-md-end justify-content-center">
-              <i data-feather="mail" class="icon-wrapper"></i>
-              <span>E-Mail</span>
-            </div>
+      <section class="p-2 d-md-block second-nav">
+        <div class="container content-wrapper">
+          <div class="d-flex flex-column justify-content-center align-items-center icon-wrapper">
+            <i data-feather="mail"></i>
+            <span class='text-white'>sales@rtateknik.com </span>
           </div>
+          <div class="d-flex flex-column justify-content-center align-items-center icon-wrapper">
+            <i data-feather="phone"></i>
+            <span class='text-white'>+62 21 2258 5797</span>
+          </div>
+          <a href='#contact-us' class='d-flex flex-column justify-content-center align-items-center icon-wrapper text-decoration-none'>
+              <i data-feather="user"></i>
+              <span class='text-white'>contact us</span>
+          </a>
         </div>
       </section>
       <!-- end second nav -->

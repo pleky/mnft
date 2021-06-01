@@ -11006,7 +11006,6 @@ body {
   padding-left: 1rem !important;
 }
 .footer li {
-  border-bottom: 1px solid white;
   padding-bottom: 10px;
   color: White;
 }
@@ -11016,6 +11015,29 @@ body {
 .footer a {
   text-decoration: none;
   color: white;
+}
+
+.second-nav {
+  position: absolute;
+  background-color: #176798;
+  margin-top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 0px 3px #0000009c;
+}
+.second-nav .icon-wrapper {
+  color: white;
+  margin-right: 0;
+}
+.second-nav .icon-wrapper:first-child {
+  border-right: white 1px solid;
+}
+.second-nav .icon-wrapper:nth-child(2) {
+  border-right: white 1px solid;
+}
+.second-nav .content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
 }
 
 .product-img {

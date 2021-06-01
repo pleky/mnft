@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- material manufacture -->
-    <section class="container mt-4">
+    <section class="container mt-5 pt-5">
         <div class="heading">
             <h3 class="text-primary-dark fw-light">Composite Materials Manufacturer</h3>
         </div>

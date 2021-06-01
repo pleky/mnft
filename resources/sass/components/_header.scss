@@ -1,0 +1,26 @@
+@use '../utilities/' as *;
+
+.second-nav {
+    position: absolute;
+    background-color: $primary-dark;
+    margin-top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 3px #0000009c;
+
+    .icon-wrapper {
+        color: white;
+        margin-right: 0;
+        &:first-child {
+            border-right: white 1px solid;
+        }
+        &:nth-child(2){
+            border-right: white 1px solid;
+        }
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+    }
+}
