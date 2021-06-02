@@ -59,7 +59,7 @@ const addGallery = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnAddGallery = document.getElementById("btnAddGallery");
-    btnAddGallery.addEventListener("click", function () {
+    btnAddGallery?.addEventListener("click", function () {
         addGallery();
     });
 });

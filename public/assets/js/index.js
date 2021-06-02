@@ -3168,7 +3168,7 @@ var addGallery = function addGallery() {
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnAddGallery = document.getElementById("btnAddGallery");
-  btnAddGallery.addEventListener("click", function () {
+  btnAddGallery === null || btnAddGallery === void 0 ? void 0 : btnAddGallery.addEventListener("click", function () {
     addGallery();
   });
 });
@@ -3221,6 +3221,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   } // end if innerWidth
 
+
+  var anchorE = document.getElementsByTagName("a");
+  var arrayOfAnchorE = Array.from(anchorE);
+  var getAnchorEContact = arrayOfAnchorE.filter(function (element) {
+    return element.href.includes("contact");
+  });
+  var contactEl = document.getElementById("contact-us");
+  console.log(getAnchorEContact);
+  getAnchorEContact.forEach(function (element) {
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      var y = contactEl.getBoundingClientRect().top + window.scrollY - 100;
+      window.scroll({
+        top: y,
+        behavior: "smooth"
+      });
+    });
+  }); // for (let i in anchorE) {
+  //     console.log(i.);
+  // }
 });
 
 /***/ }),
