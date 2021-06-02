@@ -1,26 +1,77 @@
 @use '../utilities/' as *;
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.slider {
+    min-height: 186px;
+    background-color: $gray-500;
+}
 
 .second-nav {
-    position: absolute;
+    position: relative;
     background-color: $primary-dark;
-    margin-top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -20px;
+    margin: 0 20px;
     box-shadow: 0px 0px 3px #0000009c;
 
     .icon-wrapper {
         color: white;
         margin-right: 0;
-        &:first-child {
-            border-right: white 1px solid;
-        }
-        &:nth-child(2){
-            border-right: white 1px solid;
+        padding: 10px 0;
+        &:nth-child(2) {
+            border-top: white 1px solid;
+            border-bottom: white 1px solid;
         }
     }
 
     .content-wrapper {
         display: grid;
-        grid-template-columns: repeat(3, 200px);
+        grid-template-columns: 1fr;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .slider {
+        min-height: 300px;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .slider {
+        height: 500px;
+        background-color: $gray-500;
+
+        img {
+            height: 500px;
+        }
+    }
+
+    .second-nav {
+        position: absolute;
+        background-color: $primary-dark;
+        margin-top: -20px;
+        left: 50%;
+        top: inherit;
+        bottom: 120;
+        transform: translateX(-50%);
+        box-shadow: 0px 0px 3px #0000009c;
+    
+        .icon-wrapper {
+            color: white;
+            margin-right: 0;
+            padding: 10px 0;
+            &:nth-child(2) {
+                border-right: white 1px solid;
+                border-left: white 1px solid;
+                border-top: none;
+                border-bottom: none;
+            }
+        }
+    
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 200px)
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Porduct desc -->
-<section class="product mt-5 pt-5">
+<section class="product mt-3 mt-lg-5 pt-lg-5">
     <div class="container">
       <div class="heading">
           <h3 class="text-primary-dark">About PT Raja Teknik Aditama (RTA)</h3>
