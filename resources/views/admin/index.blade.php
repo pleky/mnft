@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sendiko | Admin</title>
+  <title>RTA | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -32,7 +32,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <span class="brand-text font-weight-light">Sendiko Nusantara</span>
+      <span class="brand-text font-weight-light">CMS RTA</span>
     </a>
 
     <!-- Sidebar -->
@@ -90,6 +90,28 @@
   </aside>
 
   <div class="content-wrapper">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session('status') }}
+    </div>
+    @elseif(session('failed'))
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session('failed') }}
+    </div>
+    @endif
+
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     @yield('content') 
   </div>
   <!-- /.content-wrapper -->

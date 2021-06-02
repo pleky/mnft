@@ -12,6 +12,7 @@
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -23,9 +24,9 @@
     <script>
         $(function() {
             $('#data_menus').DataTable({
-                // processing: true,
-                // serverSide: true,
-                // ajax: "/emails/all",
+                processing: true,
+                serverSide: true,
+                ajax: "/menu/all",
                 columns: [
                     {
                         data: 'rownum',
@@ -42,6 +43,10 @@
                     {
                         data: 'status',
                         name: 'status'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action'
                     },
                     
                 ]

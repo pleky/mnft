@@ -40,7 +40,10 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/logout", "AdminController@logout");
 
     Route::get("/menu", "MenuController@index");
-    Route::get("/menu/add", "MenuController@create");
+    Route::get("/menu/add", "MenuController@create")->name("menu.add");
+    Route::post("/menu/add", "MenuController@store");
+    Route::get("/menu/all", "MenuController@all");
+    Route::get("/menu/update/{id}", "MenuController@update");
 
     Route::get("/contents", "ContentsController@index");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");

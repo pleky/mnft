@@ -11,7 +11,6 @@
       </div>
     </section>
 
-
     <section class="content mt-3">
         <div class="container-fluid">
             <div class="row">
@@ -20,29 +19,32 @@
                         <div class="card-header">
                             <h3 class="card-title">Add Menu</h3>
                         </div>
-                        <div class="card-body">
-                            <form role='form'>
+                        <form method="{{ $method }}" action="{{ $url }}">
+                            <div class="card-body">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Slug</label>
-                                    <input type="text" class="form-control" id="slug" placeholder="Enter slug">
+                                    <label for="name">Type</label>
+                                    <select class="form-control" name="type">
+                                        <option value="industry">Industry</option>
+                                        <option value="product">Product</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <span class='d-block'>Status</span>
-                                    <input type="radio" id="active" name="gender" value="active">
+                                    <label class='d-block'>Status</label>
+                                    <input type="radio" id="active" name="status" value="1">
                                     <label for="active">Active</label><br>
-                                    <input type="radio" id="inactive" name="gender" value="inactive">
+                                    <input type="radio" id="inactive" name="status" value="0">
                                     <label for="inactive">Inactive</label><br>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Save</button>
-                        </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-info">Save</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
