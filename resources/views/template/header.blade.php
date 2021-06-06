@@ -33,12 +33,12 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Project Gallery</a>
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Industry</a>
           <ul class="dropdown-menu">
-            <li> <a class="dropdown-item" href="/product"> Product 1 </a></li>
-            <li> <a class="dropdown-item" href="/product"> Product 2 </a></li>
+            <li> <a class="dropdown-item" href="/industry"> Industry 1 </a></li>
+            <li> <a class="dropdown-item" href="/industry"> Industry 2 </a></li>
             <li> 
-              <a class="dropdown-item" href="/product"> Product 3</a>
+              <a class="dropdown-item" href="/industry"> Industry 3</a>
             </li>
           </ul>
         </li>
@@ -52,7 +52,7 @@
             </ul>
         </li>
             <li class="nav-item">
-              <a class="nav-link link-dark" href="/industry" tabindex="-1" aria-disabled="true">Industry</a>
+              <a class="nav-link link-dark" href="#" tabindex="-1" aria-disabled="true">Project Gallery</a>
             </li>
         <li class="nav-item ">
           <a href="#contact-us" class="btn btn-danger rounded-button mt-1" tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
