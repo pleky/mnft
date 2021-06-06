@@ -32,8 +32,15 @@
             <li> <a class="dropdown-item" href="/about"> About Us </a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/industry">Industry</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Project Gallery</a>
+          <ul class="dropdown-menu">
+            <li> <a class="dropdown-item" href="/product"> Product 1 </a></li>
+            <li> <a class="dropdown-item" href="/product"> Product 2 </a></li>
+            <li> 
+              <a class="dropdown-item" href="/product"> Product 3</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="/product" data-bs-toggle="dropdown">Products & Services</a>
@@ -44,6 +51,9 @@
               <li> <a class="dropdown-item" href="/product"> Service b </a></li>
             </ul>
         </li>
+            <li class="nav-item">
+              <a class="nav-link link-dark" href="/industry" tabindex="-1" aria-disabled="true">Industry</a>
+            </li>
         <li class="nav-item ">
           <a href="#contact-us" class="btn btn-danger rounded-button mt-1" tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
         </li>
