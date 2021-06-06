@@ -26,34 +26,22 @@
     </button>
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown" id="myDropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Company </a>
-          <ul class="dropdown-menu">
-            <li> <a class="dropdown-item" href="/about"> About Us </a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Project Gallery</a>
-          <ul class="dropdown-menu">
-            <li> <a class="dropdown-item" href="/product"> Product 1 </a></li>
-            <li> <a class="dropdown-item" href="/product"> Product 2 </a></li>
-            <li> 
-              <a class="dropdown-item" href="/product"> Product 3</a>
+        @foreach($menu as $menus)
+          @if($menus->submenu)
+            <li class="nav-item dropdown" id="myDropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{{ $menus->name }}</a>
+              <ul class="dropdown-menu">
+                @foreach($menus->submenu as $submenu)
+                    <li> <a class="dropdown-item" href="/about">{{ $submenu->name }}</a></li>
+                @endforeach
+              </ul>
             </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/product" data-bs-toggle="dropdown">Products & Services</a>
-            <ul class="dropdown-menu">
-              <li> <a class="dropdown-item" href="/product"> Product a </a></li>
-              <li> <a class="dropdown-item" href="/product"> Product b </a></li>
-              <li> <a class="dropdown-item" href="/product"> Service a </a></li>
-              <li> <a class="dropdown-item" href="/product"> Service b </a></li>
-            </ul>
-        </li>
+          @else
             <li class="nav-item">
-              <a class="nav-link link-dark" href="/industry" tabindex="-1" aria-disabled="true">Industry</a>
+              <a class="nav-link link-dark" href="/industry" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
             </li>
+          @endif
+        @endforeach
         <li class="nav-item ">
           <a href="#contact-us" class="btn btn-danger rounded-button mt-1" tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
         </li>
@@ -70,27 +58,15 @@
       <section class="container-fluid slider d-flex">
         <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
+            @foreach($slider as $sliders)
+            <div class="carousel-item {{ $sliders->is_order == 1 ? 'active' : '' }}" data-bs-interval="8000">
+              <img src="upload/{{ $sliders->image }}" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5 class="animate__animated animate__bounce animate__delay-1s">First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5 class="animate__animated animate__bounce animate__delay-1s">{{ $sliders->title }}</h5>
+                <p>{{ $sliders->description }}</p>
               </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5 class="animate__animated animate__bounce animate__delay-1s">Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="https://source.unsplash.com/random/700x300" class="img-fuild w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5 class="animate__animated animate__bounce animate__delay-1s">Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-              </div>
-            </div>
+            @endforeach
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -109,11 +85,11 @@
         <div class="container content-wrapper">
           <div class="d-flex flex-column justify-content-center align-items-center icon-wrapper">
             <i data-feather="mail"></i>
-            <span class='text-white'>sales@rtateknik.com </span>
+            <span class='text-white'>{{ $profile->email }}</span>
           </div>
           <div class="d-flex flex-column justify-content-center align-items-center icon-wrapper">
             <i data-feather="phone"></i>
-            <span class='text-white'>+62 21 2258 5797</span>
+            <span class='text-white'>{{ $profile->phone }}</span>
           </div>
           <a href='#contact-us' class='d-flex flex-column justify-content-center align-items-center icon-wrapper text-decoration-none'>
               <i data-feather="user"></i>
