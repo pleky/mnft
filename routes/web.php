@@ -24,6 +24,10 @@ Route::get('/product', function () {
     return view('content.product');
 });
 
+Route::get('/industry', function () {
+    return view('content.industry');
+});
+
 Route::get("/mensolutions/{menu}", "SolutionController@pages");
 Route::post("/emailpost", "SolutionController@saveEmail");
 
