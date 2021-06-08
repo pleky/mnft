@@ -32,7 +32,7 @@
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{{ $menus->name }}</a>
               <ul class="dropdown-menu">
                 @foreach($menus->submenu as $submenu)
-                    <li> <a class="dropdown-item" href="/about">{{ $submenu->name }}</a></li>
+                    <li> <a class="dropdown-item" href="{{ $submenu->parent_id }}/{{ $submenu->slug }}">{{ $submenu->name }}</a></li>
                 @endforeach
               </ul>
             </li>
@@ -60,7 +60,7 @@
           <div class="carousel-inner">
             @foreach($slider as $sliders)
             <div class="carousel-item {{ $sliders->is_order == 1 ? 'active' : '' }}" data-bs-interval="8000">
-              <img src="upload/{{ $sliders->image }}" class="img-fuild w-100" alt="...">
+              <img src="{{ url('upload/sliders/'.$sliders->image) }}" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="animate__animated animate__bounce animate__delay-1s">{{ $sliders->title }}</h5>
                 <p>{{ $sliders->description }}</p>

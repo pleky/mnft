@@ -12,6 +12,26 @@ class HomepageController extends Controller
     //
     public function index() {
 
+        $data = $this->menus();
+       
+        return view('content.homepage', [
+            'menu' => $data['menus'],
+            'slider' => $data['sliders'],
+            'profile' => $data['profile']
+        ]);
+    }
+
+    public function content() {
+        $data = $this->menus();
+       
+        return view('content.product', [
+            'menu' => $data['menus'],
+            'slider' => $data['sliders'],
+            'profile' => $data['profile']
+        ]);
+    }
+
+    function menus() {
         $menus = Menus::where('status', 1)->whereNull('parent_id')->orderBy('is_order', 'asc')->get();
         $submenus = Menus::where('status', 1)->whereNotNull('parent_id')->orderBy('is_order', 'asc')->get();
 
@@ -24,14 +44,11 @@ class HomepageController extends Controller
                 }
             }
         }
+        
+        $data['menus']   = $menus;
+        $data['sliders'] = Sliders::where('status', 1)->get();
+        $data['profile'] = Profile::first();
 
-        $sliders = Sliders::where('status', 1)->get();
-        $profile = Profile::first();
-       
-        return view('content.homepage', [
-            'menu' => $menus,
-            'slider' => $sliders,
-            'profile' => $profile
-        ]);
+        return $data;
     }
 }

@@ -72,29 +72,4 @@
         </div>
     </section>
     <!-- end Range of Composite Materials -->
-
-    <!-- case studies -->
-    <section class="case-studies mt-5 bg-dark-secondary">
-        <div class="container">
-            <div class="heading">
-            <h4 class="text-primary-dark fw-light">Featured Case Studies</h4>
-            </div>
-            <div class="row mt-2">
-            <div class="col-md-4">
-                <div class="case-studies-item"></div>
-                <a href="#" class="custom-link fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestias.</a>
-            </div>
-            <div class="col-md-4">
-                <div class="case-studies-item"></div>
-                <a href="#" class="custom-link fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestias.</a>
-            </div>
-            <div class="col-md-4">
-                <div class="case-studies-item"></div>
-                <a href="#" class="custom-link fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestias.</a>
-            </div>
-            </div>
-
-            <a href="#" class="w-100 btn btn-danger mt-4 fw-normal">VIEW ALL CASE STUDIES</a>
-        </div>
-    </section>
 @endsection

@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomepageController@index');  
+Route::get('/', 'HomepageController@index');
+
+Route::get('/{a}/{b}', 'HomepageController@content');
 
 Route::get('/about', function () {
     return view('content.about');
 });
+
 Route::get('/product', function () {
     return view('content.product');
 });

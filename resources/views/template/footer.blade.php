@@ -24,11 +24,11 @@
               </form>
             </div>
             <div class="col-md-4">
-                <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>+44 (0)114 244 2363</span></div>
-                <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>info@PT Raja Teknik Aditama (RTA).com</span></div>
+                <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>{{ $profile->phone }}</span></div>
+                <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>{{ $profile->email }}</span></div>
                 <div class="d-flex">
                   <span><i data-feather="home" class="icon-wrapper text-white"></i></span>
-                  <span>PT Raja Teknik Aditama (RTA) Engineering Ltd, 330 Coleford Road, Sheffield, South Yorkshire, S9 5PH, United Kingdom</span>
+                  <span>{{ $profile->address }}</span>
                 </div>
             </div>
             <div class="col-md-4">
@@ -44,9 +44,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <p class="text-white" >PT Raja Teknik Aditama (RTA)® Composite Materials</p>
-              <p class="text-muted">We manufacture some of the very finest composite materials available.</p>
-              <p class="text-muted">The high quality of our product combined with the quick turnaround we can offer mean we provide a service that is second-to-none.</p>
+              <p class="text-white" >{{ $profile->company_name }}</p>
+              <p class="text-muted">{{ $profile->description }}</p>
             </div>
             <div class="col">
               <p class="text-white">Contact Info</p>
@@ -56,36 +55,36 @@
                 South Yorkshire,
                 S9 5PH,
                 United Kingdom.</p>
-              <p class="text-muted mb-1">Phone: <span class="text-white">+62 21 2258 5797</span></p>
-              <p class="text-muted mb-1">Email: <span class="text-white">sales@rtateknik.com</span></p>
-              <p class="text-muted">Web: <span class="text-white">www.rtateknik.com </span></p>
+              <p class="text-muted mb-1">Phone: <span class="text-white">{{ $profile->phone }}</span></p>
+              <p class="text-muted mb-1">Email: <span class="text-white">{{ $profile->email }}</span></p>
+              <p class="text-muted">Web: <span class="text-white">{{ $profile->website }} </span></p>
             </div>
             <div class="col-md-3">
               <p class="text-white">Our Social Media</p>
               <div class='text-white'>
                 <ul>
                   <li>
-                    <a href="https://www.rtateknik.com " target='_blank'>
+                    <a href="{{ $profile->website }}" target='_blank'>
                       <i data-feather="globe"></i>
-                      <span>rajateknikaditama</span>
+                      <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://instagram.com/rajateknikaditama" target='_blank'>
+                    <a href="{{ $profile->company_name }}" target='_blank'>
                       <i data-feather="instagram"></i>
-                      <span>rajateknikaditama</span>
+                      <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.youtube.com/channel/UCXs95ZjlUjU-ta9r9iosT6w" target='_blank'>
                       <i data-feather="youtube"></i>
-                      <span>PT Raja Teknik Aditama</span>
+                      <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.facebook.com/PT-Raja-Teknik-Aditama-108845738056975" target='_blank'>
                       <i data-feather="facebook"></i>
-                      <span>PT Raja Teknik Aditama</span>
+                      <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                 </ul>
