@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('/{a}/{b}', 'HomepageController@content');
+Route::get('content/{a}/{b}', 'HomepageController@content');
 
 Route::get('/about', function () {
     return view('content.about');
@@ -48,7 +48,7 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/menu/add", "MenuController@create")->name("menu.add");
     Route::post("/menu/add", "MenuController@store");
     Route::get("/menu/all", "MenuController@all");
-    Route::get("/menu/update/{id}", "MenuController@update");
+    Route::get("/menu/edit/{id}", "MenuController@edit");
 
     Route::get("/contents", "ContentsController@index");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");

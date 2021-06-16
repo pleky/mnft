@@ -32,13 +32,13 @@
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{{ $menus->name }}</a>
               <ul class="dropdown-menu">
                 @foreach($menus->submenu as $submenu)
-                    <li> <a class="dropdown-item" href="{{ url($submenu->parent_id .'/'. $submenu->slug) }}">{{ $submenu->name }}</a></li>
+                    <li> <a class="dropdown-item" href="{{ url('content/'.$submenu->parent_id .'/'. $submenu->slug) }}">{{ $submenu->name }}</a></li>
                 @endforeach
               </ul>
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link link-dark" href="{{ url($submenu->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
+              <a class="nav-link link-dark" href="{{ url('content/'.$submenu->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
             </li>
           @endif
         @endforeach

@@ -30,6 +30,7 @@ class MenuController extends Controller
         //
         $data['url'] = '/menu/add';
         $data['method'] = 'post';
+        $data['menu_parent'] = Menus::whereNull('parent_id')->get();
 
         return view('admin.forms.menuForm', $data);
     }
@@ -44,6 +45,8 @@ class MenuController extends Controller
     {   
         $this->validate($request,[
             'name' => 'required|string|min:3|max:255',
+            'order' => 'required',
+            'status' => 'required',
          ]);
         
         $slug = strtolower($request->name);
@@ -79,11 +82,11 @@ class MenuController extends Controller
         //
         DB::statement(DB::raw('set @rownum=0'));
 
-        $data = Menus::select(DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'name', 'slug', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
+        $data = Menus::select('id', DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'name', 'slug', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
 
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
-                $update = '<a href="/menu/update/'. $data->id .'" class="btn btn-primary">Edit</a>';
+                $update = '<a href="/menu/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
                 $update .= ' <a href="/menu/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
                 return $update;
             })
@@ -101,6 +104,12 @@ class MenuController extends Controller
     public function edit($id)
     {
         //
+        $data['url'] = '/menu/update';
+        $data['method'] = 'post';
+        $data['menu_parent'] = Menus::whereNull('parent_id')->get();
+        $data['menu'] = Menus::where('id', $id)->first();
+
+        return view('admin.forms.menuForm', $data);
     }
 
     /**
