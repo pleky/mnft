@@ -67,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/profile') }}" class="nav-link">
+                <a href="{{ url('/profile/add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
                 </a>
