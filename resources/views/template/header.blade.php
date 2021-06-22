@@ -38,7 +38,7 @@
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link link-dark" href="{{ url('content/'.$submenu->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
+              <a class="nav-link link-dark" href="{{ url('content/'.$menus->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
             </li>
           @endif
         @endforeach
@@ -60,7 +60,7 @@
           <div class="carousel-inner">
             @foreach($slider as $sliders)
             <div class="carousel-item {{ $sliders->is_order == 1 ? 'active' : '' }}" data-bs-interval="8000">
-              <img src="{{ url('upload/sliders/'.$sliders->image) }}" class="img-fuild w-100" alt="...">
+              <img src="{{ url('images/'.$sliders->image) }}" class="img-fuild w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="animate__animated animate__bounce animate__delay-1s">{{ $sliders->title }}</h5>
                 <p>{{ $sliders->description }}</p>

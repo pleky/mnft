@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sliders;
+use DB;
+use DataTables;
 
 class BannerController extends Controller
 {
@@ -16,6 +19,23 @@ class BannerController extends Controller
         return view('admin.banner');
     }
 
+    public function all()
+    {
+        //
+        DB::statement(DB::raw('set @rownum=0'));
+
+        $data = Sliders::select('id', DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'title', 'description', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
+
+        return Datatables::of($data)
+            ->addColumn('action', function ($data) {
+                $update = '<a href="/banner/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
+                $update .= ' <a href="/banner/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                return $update;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +43,10 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.bannerForm');
+        $data['url'] = '/banner/add';
+        $data['method'] = 'post';
+
+        return view('admin.forms.bannerForm', $data);
     }
 
     /**
@@ -34,7 +57,30 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+  
+        $imageName = time().'.'.$request->image->extension();  
+
+        $request->image->move(public_path('images'), $imageName);
+        
+        try{
+            $banner = new Sliders;
+            $banner->title         = $request->title;
+            $banner->description   = $request->description;
+            $banner->image         = $imageName;
+            $banner->is_order      = $request->order;
+            $banner->status        = $request->status;
+            $banner->save();
+
+            return redirect('banner')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/banner/add')->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -57,6 +103,11 @@ class BannerController extends Controller
     public function edit($id)
     {
         //
+        $data['url'] = '/banner/update';
+        $data['method'] = 'post';
+        $data['banner'] = Sliders::find($id);
+
+        return view('admin.forms.bannerForm', $data);
     }
 
     /**

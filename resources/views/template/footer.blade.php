@@ -70,19 +70,19 @@
                     </a>
                   </li>
                   <li>
-                    <a href="{{ $profile->company_name }}" target='_blank'>
+                    <a href="{{ $profile->instagram }}" target='_blank'>
                       <i data-feather="instagram"></i>
                       <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/channel/UCXs95ZjlUjU-ta9r9iosT6w" target='_blank'>
+                    <a href="{{ $profile->youtube }}" target='_blank'>
                       <i data-feather="youtube"></i>
                       <span>{{ $profile->company_name }}</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.facebook.com/PT-Raja-Teknik-Aditama-108845738056975" target='_blank'>
+                    <a href="{{ $profile->facebook }}" target='_blank'>
                       <i data-feather="facebook"></i>
                       <span>{{ $profile->company_name }}</span>
                     </a>

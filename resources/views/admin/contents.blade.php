@@ -5,6 +5,7 @@
         <div class="row">
             <h2 class="mt-4 mb-4 ml-2">List Content</h2>
             <div class="col-md-12">
+            <a href={{ url('/contents/add') }} class="btn btn-success">Create</a>
                 <table id="data_users_side" class="table table-bordered table-striped" style="table-layout: fixed;">
                     <thead>
                         <tr>

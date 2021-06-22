@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Menus;
+use App\Contents;
+use DB;
 
 class ContentsController extends Controller
 {
@@ -24,7 +27,14 @@ class ContentsController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.contentsForm');
+        $data['url'] = '/contents/add';
+        $data['method'] = 'post';
+        $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
+                        ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
+                        ->whereIn('menus.parent_id', [3,4])
+                        ->get();
+
+        return view('admin.forms.contentsForm', $data);
     }
 
     /**
@@ -36,6 +46,26 @@ class ContentsController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'menu' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+         ]);
+        
+
+        try{
+            $menu = new Menus;
+            $menu->name         = $request->name;
+            $menu->slug         = $slug;
+            $menu->parent_id    = $request->type;
+            $menu->is_order     = $request->order;
+            $menu->status       = $request->status;
+            $menu->save();
+
+            return redirect('menu')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/menu/add')->with('failed',"operation failed");
+        }
     }
 
     /**

@@ -49,15 +49,22 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::post("/menu/add", "MenuController@store");
     Route::get("/menu/all", "MenuController@all");
     Route::get("/menu/edit/{id}", "MenuController@edit");
+    Route::post("/menu/update/{id}", "MenuController@update");
+    Route::get("/menu/delete/{id}", "MenuController@destroy");
 
     Route::get("/contents", "ContentsController@index");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");
+    Route::post("/contents/add", "ContentsController@store");
 
     Route::get("/banner", "BannerController@index");
+    Route::get("/banner/all", "BannerController@all");
     Route::get("/banner/add", "BannerController@create");
+    Route::post("/banner/add", "BannerController@store");
+    Route::get("/banner/edit/{id}", "BannerController@edit");
 
     Route::get("/profile", "ProfileController@index");
-    Route::get("/profile/add", "ProfileController@create");
+    Route::get("/profile/edit", "ProfileController@edit");
+    Route::post("/profile/update", "ProfileController@update");
 
     Route::get("solutions/all", "SolutionController@getAllSolutions")->name("menu.data");
     Route::get("/solutions", "SolutionController@index");
@@ -66,5 +73,6 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
 
     Route::get("emails/all", "EmailController@getAllEmails")->name("email.data");
     Route::get("/emails", "EmailController@index");
+
 });
 

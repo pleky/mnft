@@ -21,11 +21,15 @@
                             <h3 class="card-title">Add Content</h3>
                         </div>
                         <div class="card-body" id='form-container'>
-                            {!! Form::open(['route'=>['contents.add'], 'method'=>'post', 'id'=>"contents"]) !!}
+                            <form method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for='menuId'>Select Menu</label>
-                                    {{ Form::mySelect('menuId', ['1'=>'Menu 1','2'=>'Menu 2'], null, ['id'=>'menuId', 'placeholder'=>'Select Menu', 'class'=>'form-control']) }}
+                                    <select class="form-control" name="menu">
+                                        @foreach($menu as $menus)
+                                            <option value="{{ $menus->id }}" {{ (isset($menu->parent_id) && $menu->parent_id == $menus->id) ? 'selected' : ''  }} >{{ $menus->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
@@ -53,11 +57,11 @@
                                             </div>
                                         <a class='btn btn-danger text-white' id='btn-remove'>Remove</a>
                                     </fieldset> -->
+                                </div>  
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Save</button>
                                 </div>
-                                {!! Form::close() !!}
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Save</button>
+                            </form>
                         </div>
                     </div>
                 </div>

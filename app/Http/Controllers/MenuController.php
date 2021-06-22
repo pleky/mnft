@@ -31,6 +31,7 @@ class MenuController extends Controller
         $data['url'] = '/menu/add';
         $data['method'] = 'post';
         $data['menu_parent'] = Menus::whereNull('parent_id')->get();
+        $data['act'] = 'add';
 
         return view('admin.forms.menuForm', $data);
     }
@@ -54,9 +55,11 @@ class MenuController extends Controller
 
         try{
             $menu = new Menus;
-            $menu->name     = $request->name;
-            $menu->slug     = $slug;
-            $menu->status   = $request->status;
+            $menu->name         = $request->name;
+            $menu->slug         = $slug;
+            $menu->parent_id    = $request->type;
+            $menu->is_order     = $request->order;
+            $menu->status       = $request->status;
             $menu->save();
 
             return redirect('menu')->with('status',"Insert successfully");
@@ -104,10 +107,11 @@ class MenuController extends Controller
     public function edit($id)
     {
         //
-        $data['url'] = '/menu/update';
+        $data['url'] = '/menu/update/'.$id;
         $data['method'] = 'post';
         $data['menu_parent'] = Menus::whereNull('parent_id')->get();
         $data['menu'] = Menus::where('id', $id)->first();
+        $data['act'] = 'update';
 
         return view('admin.forms.menuForm', $data);
     }
@@ -122,6 +126,29 @@ class MenuController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'name' => 'required|string|min:3|max:255',
+            'order' => 'required',
+            'status' => 'required',
+         ]);
+        
+        $slug = strtolower($request->name);
+        $slug = str_replace(" ","-",$slug);
+
+        try{
+            $menu = Menus::find($id);
+
+            $menu->name     = $request->name;
+            $menu->slug     = $slug;
+            $menu->is_order = $request->order;
+            $menu->status   = $request->status;
+            $menu->save();
+
+            return redirect('menu')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/menu/add')->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -133,5 +160,13 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            Menus::findOrFail($id)->delete();
+
+            return redirect('menu')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/menu/add')->with('failed',"operation failed");
+        }
     }
 }

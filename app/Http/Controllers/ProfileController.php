@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profile;
 
 class ProfileController extends Controller
 {
@@ -23,7 +24,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.profileForm');
+        // 
     }
 
     /**
@@ -54,9 +55,14 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
+        $data['url'] = '/profile/update';
+        $data['method'] = 'post';
+        $data['profile'] = Profile::first();
+    
+        return view('admin.forms.profileForm', $data);
     }
 
     /**
@@ -66,9 +72,34 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $this->validate($request,[
+            'name' => 'required',
+            'description' => 'required',
+            'address' => 'required',
+         ]);
+        
+        try{
+            $profile = Profile::find($request->id);
+
+            $profile->company_name  = $request->name;
+            $profile->description   = $request->description;
+            $profile->address       = $request->address;
+            $profile->phone         = $request->phone;
+            $profile->email         = $request->email;
+            $profile->website       = $request->website;
+            $profile->instagram     = $request->instagram;
+            $profile->youtube       = $request->youtube;
+            $profile->facebook      = $request->facebook;
+            $profile->save();
+
+            return redirect('/profile/edit')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/profile/edit')->with('failed',"operation failed");
+        }
     }
 
     /**
