@@ -33,7 +33,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
-                                    {!! Form::myInput('file', 'image', null, ['id'=>'image', 'class' =>'form-control']) !!}
+                                    <input type="file" class="form-control" id="image" name="image" placeholder="Enter Image">
+                                    @if(isset($banner->image) && $banner->image)
+                                        <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
