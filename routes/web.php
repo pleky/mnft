@@ -53,6 +53,7 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/menu/delete/{id}", "MenuController@destroy");
 
     Route::get("/contents", "ContentsController@index");
+    Route::get("/contents/all", "ContentsController@all");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");
     Route::post("/contents/add", "ContentsController@store");
 

@@ -40,26 +40,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    {!! Form::myTextarea('description', null, ['class' => 'form-control', 'id' => 'description']) !!}
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" cols="50" rows="10"></textarea>
                                 </div>
                                 <div id='galleryContainer'>
                                     <div class="form-group">
                                         <button class='btn btn-info' type="button" id="btnAddGallery">Add Gallery</button>
                                     </div>
-                                    <!-- <fieldset class='form-group border p-3'>
-                                        <legend class='w-auto px-2'>
-                                            Gallery
-                                        </legend>
-                                            <div class='form-group'>
-                                                <label for='galleryTitle'>Title</label>
-                                                <input class='form-control' id='galleryTitle' type='text'>
-                                            </div>
-                                            <div class='form-group'>
-                                                <label for='galleryImage'>Image</label>
-                                                <input class='form-control' id='galleryImage' type='file'>
-                                            </div>
-                                        <a class='btn btn-danger text-white' id='btn-remove'>Remove</a>
-                                    </fieldset> -->
                                 </div>  
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info">Save</button>

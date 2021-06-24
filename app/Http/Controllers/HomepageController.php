@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Menus;
 use App\Sliders;
 use App\Profile;
+use App\Contents;
+use App\Galleries;
 
 class HomepageController extends Controller
 {
@@ -21,13 +23,22 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function content() {
+    public function content($parent, $slug) {
+
         $data = $this->menus();
-       
+        $data['content'] = Contents::select('contents.id','mn.name', 'contents.description', 'contents.image')
+                            ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
+                            ->where('mn.slug', $slug)
+                            ->first();
+
+        $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->get();
+        
         return view('content.product', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
-            'profile' => $data['profile']
+            'profile' => $data['profile'],
+            'content' => $data['content'],
+            'gallery' => $data['gallery']
         ]);
     }
 

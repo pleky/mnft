@@ -23,13 +23,13 @@
     <script>
         $(function() {
             $('#data_users_side').DataTable({
-                // processing: true,
-                // serverSide: true,
-                // ajax: "/solutions/all",
+                processing: true,
+                serverSide: true,
+                ajax: "/contents/all",
                 columns: [
                     {
-                        data: 'desc_menu',
-                        name: 'desc_menu'
+                        data: 'name',
+                        name: 'name'
                     },
                     {
                         data: 'description',

@@ -3146,6 +3146,8 @@ var addGallery = function addGallery() {
 
   inputText.setAttribute("class", "form-control");
   inputText.setAttribute("id", "galleryTitle");
+  inputText.setAttribute("name", "galleryTitle[]");
+  inputText.setAttribute("placeholder", "Enter Title");
   labelText.setAttribute("for", "galleryTitle");
   formGroupText.setAttribute("class", "form-group");
   labelText.appendChild(labelTextNode);
@@ -3154,6 +3156,7 @@ var addGallery = function addGallery() {
   inputFile.type = "file";
   inputFile.setAttribute("class", "form-control");
   inputFile.setAttribute("id", "galleryImage");
+  inputFile.setAttribute("name", "galleryImage[]");
   labelImage.setAttribute("for", "galleryImage");
   formGroupImage.setAttribute("class", "form-group");
   labelImage.appendChild(labelImageNode);

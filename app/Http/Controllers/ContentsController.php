@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use DataTables;
 use Illuminate\Http\Request;
 use App\Menus;
 use App\Contents;
-use DB;
+use App\Galleries;
+
 
 class ContentsController extends Controller
 {
@@ -18,6 +21,25 @@ class ContentsController extends Controller
     {
         //
         return view('admin.contents');
+    }
+
+    public function all()
+    {
+        //
+        DB::statement(DB::raw('set @rownum=0'));
+
+        $data = Contents::select('mn.name', 'contents.description')
+                ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
+                ->get();
+
+        return Datatables::of($data)
+            ->addColumn('action', function ($data) {
+                $update = '<a href="/contents/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
+                $update .= ' <a href="/contents/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                return $update;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     /**
@@ -51,16 +73,32 @@ class ContentsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
          ]);
         
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
 
         try{
-            $menu = new Menus;
-            $menu->name         = $request->name;
-            $menu->slug         = $slug;
-            $menu->parent_id    = $request->type;
-            $menu->is_order     = $request->order;
-            $menu->status       = $request->status;
-            $menu->save();
+            $content = new Contents;
+            $content->menu_id       = $request->menu;
+            $content->image         = $imageName;
+            $content->description   = $request->description;
+            $content->save();
 
+            if($content) {
+                $i = 0;
+                foreach($request->galleryTitle as $galleryTitles) {
+
+                    $imageNameG = time().'.'.$request['galleryImage'][$i]->extension();  
+                    $request['galleryImage'][$i]->move(public_path('images'), $imageName);
+                    
+                    $gallery = new Galleries;
+                    $gallery->content_id    = $content->id;
+                    $gallery->title         = $galleryTitles;
+                    $gallery->image         = $imageNameG;
+                    $gallery->save();
+
+                    $i++;
+                }
+            }
             return redirect('menu')->with('status',"Insert successfully");
         }
         catch(Exception $e){
