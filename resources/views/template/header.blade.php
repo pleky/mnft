@@ -13,6 +13,7 @@
     <link rel="canonical" href="https://rtateknik.com/">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/gallery/index.css') }}" />
     <link rel="icon" href="{{ asset('assets/images/logo.jpg') }}" />
 
     <title>Raja Teknik Aditama</title>

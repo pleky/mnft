@@ -97,6 +97,7 @@
       <!-- end footer -->
 
     <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="{{ asset('assets/gallery/img-previewer.min.js') }}"></script>
     <script>
       feather.replace()
     </script>

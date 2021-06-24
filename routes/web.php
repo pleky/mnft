@@ -29,6 +29,8 @@ Route::get('/industry', function () {
     return view('content.industry');
 });
 
+Route::get('/gallery',  "HomepageController@gallery");
+
 Route::get("/mensolutions/{menu}", "SolutionController@pages");
 Route::post("/emailpost", "SolutionController@saveEmail");
 
