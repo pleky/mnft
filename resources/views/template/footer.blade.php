@@ -21,6 +21,7 @@
                   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                   <label for="floatingTextarea2">Message</label>
                 </div>
+                <a href="#" class="btn btn-danger mt-2">Kirim</a>
               </form>
             </div>
             <div class="col-md-4">
