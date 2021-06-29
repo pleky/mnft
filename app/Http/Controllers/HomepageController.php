@@ -77,4 +77,15 @@ class HomepageController extends Controller
             'gallery' => $data['gallery'],
         ]);
     }
+
+    public function about() {
+
+        $data = $this->menus();
+        
+        return view('content.about', [
+            'menu' => $data['menus'],
+            'slider' => $data['sliders'],
+            'profile' => $data['profile'],
+        ]);
+    }
 }
