@@ -1,6 +1,8 @@
 @extends('template.index')
 
 @section('content')
+@section('title', 'RTA ' . $content->name)
+@section('meta-description', $content->name . ' RTA adalah.')
 <!-- Porduct desc -->
 <section class="product mt-3 mt-lg-5 pt-lg-5">
     <div class="container">

@@ -15,11 +15,13 @@ class HomepageController extends Controller
     public function index() {
 
         $data = $this->menus();
-       
+        $data['gallery'] = Galleries::all();
+
         return view('content.homepage', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
-            'profile' => $data['profile']
+            'profile' => $data['profile'],
+            'gallery' => $data['gallery']
         ]);
     }
 
@@ -66,11 +68,13 @@ class HomepageController extends Controller
     public function gallery() {
 
         $data = $this->menus();
-        
+        $data['gallery'] = Galleries::all();
+
         return view('content.gallery', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
+            'gallery' => $data['gallery'],
         ]);
     }
 }

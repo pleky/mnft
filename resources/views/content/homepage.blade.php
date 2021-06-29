@@ -7,21 +7,8 @@
             <h3 class="text-primary-dark fw-light">Composite Materials Manufacturer</h3>
         </div>
         <div class="row mt-3">
-            <div class="col-md-6">
-            <p>We are the sole manufacturer of PT Raja Teknik Aditama (RTA)® composite materials.</p>
-
-            <p>PT Raja Teknik Aditama (RTA)® is a composite engineering material manufactured from synthetic fibres and thermosetting resins.</p>
-                
-            <p>PT Raja Teknik Aditama (RTA)® offers high strength/weight ratios, a naturally low coefficient of friction, self-lubrication & significant weight reductions.</p>
-                
-            <p>We manufacture our PT Raja Teknik Aditama (RTA)® composite material & deliver globally.</p>
-                
-            <p>We have a competitive pricing structure combined with fast delivery times.</p>
-                
-            <p>Please contact us on +44 (0)114 244 2363 or info@PT Raja Teknik Aditama (RTA).com.</p>
-            </div>
-            <div class="col-md-6">
-            <iframe width="100%" height="280" src="https://www.youtube.com/embed/vMePycN3k18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col-md-12">
+                {{ $profile->description }}
             </div>
         </div>
     </section>
@@ -34,41 +21,17 @@
             <h4 class="text-primary-dark fw-light">Range of Composite Materials</h4>
             </div>
             <div class="row mt-3">
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, ipsadfsadfasdfasdfsum.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, adfasdfasdf.</p>
-            </div>
-            <div class="col-md-3">
-                <div class="composite-materials-item mt-2"></div>
-                <p class="fw-bold text-center text-primary-dark">Lorem, asdfasdfasdfsadf.</p>
-            </div>
+            @foreach($gallery as $data)
+                <div class="col-md-3">
+                    <div class="composite-materials-item mt-2">
+                        <img class="rounded h-100 w-100" src="{{ url('images/'.$data->image) }}" alt="">
+                    </div>
+                    <p class="fw-bold text-center text-primary-dark">{{ $data->title }}</p>
+                </div>
+            @endforeach    
             </div>
 
-            <a href="#" class="w-100 btn btn-danger mt-4 fw-normal">READ ABOUT OUR PRODUCTS</a>
+            <a href="{{ url('/gallery') }}" class="w-100 btn btn-danger mt-4 fw-normal">READ ABOUT OUR PRODUCTS</a>
         </div>
     </section>
     <!-- end Range of Composite Materials -->

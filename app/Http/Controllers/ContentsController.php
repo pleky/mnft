@@ -86,9 +86,11 @@ class ContentsController extends Controller
             if($content) {
                 $i = 0;
                 foreach($request->galleryTitle as $galleryTitles) {
+                    $imageNameG = "";
+                    $images = $request['galleryImage'][$i];
 
-                    $imageNameG = time().'.'.$request['galleryImage'][$i]->extension();  
-                    $request['galleryImage'][$i]->move(public_path('images'), $imageName);
+                    $imageNameG = time() . rand() . '.' . $images->extension();  
+                    $images->move(public_path('images'), $imageNameG);
                     
                     $gallery = new Galleries;
                     $gallery->content_id    = $content->id;

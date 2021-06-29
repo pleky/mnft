@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-              <div class="contact-us-item"></div>
+              <div class=""></div>
             </div>
           </div>
         </div>

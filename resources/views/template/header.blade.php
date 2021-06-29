@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="About Us - PT Raja Teknik Aditama (RTA)">
+    <meta property="og:title" content="@yield('title', 'PT Raja Teknik Aditama (RTA)')">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="PT Raja Teknik Aditama specializes in custom-made parts, engineering products and spare&nbsp; parts. We offer high-tech precision machinery parts for specific application toimprove parts lifetime, machine efficiency and productivity. Our flexibilty allow us to provide the best services to our customer for new build or repair parts programme to set the most economical solutions. &nbsp;">
+    <meta property="og:description" content="@yield('meta-description', 'PT Raja Teknik Aditama specializes in custom-made parts, engineering products and spare&nbsp; parts.')">
     <meta property="og:site_name" content="PT Raja Teknik Aditama (RTA)">
     <meta property="og:url" content="https://rtateknik.com/">
     <link rel="canonical" href="https://rtateknik.com/">
@@ -39,7 +39,7 @@
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link link-dark" href="{{ url('content/'.$menus->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
+              <a class="nav-link link-dark" href="{{ url($menus->slug) }}" tabindex="-1" aria-disabled="true">{{ $menus->name }}</a>
             </li>
           @endif
         @endforeach
