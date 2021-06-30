@@ -34,8 +34,13 @@ class HomepageController extends Controller
                             ->first();
 
         $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->get();
-        
-        return view('content.product', [
+
+        $view = "content.product";
+        if($slug == 'about-us') { 
+            $view = "content.about";
+        }
+
+        return view($view, [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
