@@ -50,12 +50,7 @@
             </div>
             <div class="col">
               <p class="text-white">Contact Info</p>
-              <p class="text-muted">PT Raja Teknik Aditama (RTA) Engineering Ltd,
-                330 Coleford Road,
-                Sheffield,
-                South Yorkshire,
-                S9 5PH,
-                United Kingdom.</p>
+              <p class="text-muted">{{ $profile->address }}</p>
               <p class="text-muted mb-1">Phone: <span class="text-white">{{ $profile->phone }}</span></p>
               <p class="text-muted mb-1">Email: <span class="text-white">{{ $profile->email }}</span></p>
               <p class="text-muted">Web: <span class="text-white">{{ $profile->website }} </span></p>

@@ -56,12 +56,17 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/contents/all", "ContentsController@all");
     Route::get("/contents/add", "ContentsController@create")->name("contents.add");
     Route::post("/contents/add", "ContentsController@store");
+    Route::get("/contents/edit/{id}", "ContentsController@edit");
+    Route::post("/contents/update/{id}", "ContentsController@update");
+    Route::get("/contents/delete/{id}", "ContentsController@destroy");
 
     Route::get("/banner", "BannerController@index");
     Route::get("/banner/all", "BannerController@all");
     Route::get("/banner/add", "BannerController@create");
     Route::post("/banner/add", "BannerController@store");
     Route::get("/banner/edit/{id}", "BannerController@edit");
+    Route::post("/banner/update/{id}", "BannerController@update");
+    Route::get("/banner/delete/{id}", "BannerController@destroy");
 
     Route::get("/profile", "ProfileController@index");
     Route::get("/profile/edit", "ProfileController@edit");

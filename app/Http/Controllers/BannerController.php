@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Sliders;
 use DB;
 use DataTables;
@@ -103,7 +104,7 @@ class BannerController extends Controller
     public function edit($id)
     {
         //
-        $data['url'] = '/banner/update';
+        $data['url'] = '/banner/update/'.$id;
         $data['method'] = 'post';
         $data['banner'] = Sliders::find($id);
 
@@ -120,6 +121,37 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required',
+         ]);
+
+        try{
+            $banner = Sliders::find($id);
+
+            if($request->image->extension()) {
+                $image_path = public_path('images') . '/' . $banner->image;
+                
+                if(File::exists($image_path)) {
+                   File::delete($image_path);
+                }
+
+                $imageName = time().'.'.$request->image->extension();  
+                $request->image->move(public_path('images'), $imageName);
+                $banner->image     = $imageName;
+            }
+
+            $banner->title         = $request->title;
+            $banner->description   = $request->description;
+            $banner->is_order      = $request->order;
+            $banner->status        = $request->status;
+            $banner->save();
+
+            return redirect('banner')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('/banner/add')->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -131,5 +163,19 @@ class BannerController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $banner = Sliders::find($id);
+            $image_path = public_path('images') . '/' . $banner->image;
+                
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $banner->delete();
+
+            return redirect('banner')->with('status',"Insert successfully");
+        }
+        catch(Exception $e){
+            return redirect('banner')->with('failed',"operation failed");
+        }
     }
 }

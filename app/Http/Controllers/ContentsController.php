@@ -28,7 +28,7 @@ class ContentsController extends Controller
         //
         DB::statement(DB::raw('set @rownum=0'));
 
-        $data = Contents::select('mn.name', 'contents.description')
+        $data = Contents::select('contents.id', 'mn.name', 'contents.description')
                 ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
                 ->get();
 
@@ -101,10 +101,10 @@ class ContentsController extends Controller
                     $i++;
                 }
             }
-            return redirect('menu')->with('status',"Insert successfully");
+            return redirect('contents')->with('status',"Insert successfully");
         }
         catch(Exception $e){
-            return redirect('/menu/add')->with('failed',"operation failed");
+            return redirect('/contents/add')->with('failed',"operation failed");
         }
     }
 
@@ -128,6 +128,15 @@ class ContentsController extends Controller
     public function edit($id)
     {
         //
+        $data['url'] = '/contents/update/'.$id;
+        $data['method'] = 'post';
+        $data['contents'] = Contents::find($id);
+        $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
+                        ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
+                        ->whereIn('menus.parent_id', [3,4])
+                        ->get();
+
+        return view('admin.forms.contentsForm', $data);
     }
 
     /**

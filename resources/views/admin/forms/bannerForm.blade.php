@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Description</label>
-                                    <textarea class="form-control" id="description" name="description">{{ $banner->title ?? '' }}</textarea>
+                                    <textarea class="form-control" id="description" name="description">{{ $banner->description ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Image</label>
