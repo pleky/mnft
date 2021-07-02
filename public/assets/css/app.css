@@ -11139,6 +11139,18 @@ body {
   transition: all 0.5s;
 }
 
+.why-rta .title {
+  background-color: #176798;
+}
+.why-rta .desc {
+  margin-top: 20px;
+}
+.why-rta-items {
+  width: 200px;
+  height: 150px;
+  background-color: #176798;
+}
+
 .case-studies {
   padding: 2em 0;
 }

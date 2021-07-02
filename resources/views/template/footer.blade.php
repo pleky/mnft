@@ -17,15 +17,15 @@
                 <div class="mb-3">
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
                 </div>
-                <div class="form-floating">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                  <label for="floatingTextarea2">Message</label>
+                <div>
+                  <textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
                 <a href="#" class="btn btn-danger mt-2">Kirim</a>
               </form>
             </div>
             <div class="col-md-4">
                 <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>{{ $profile->phone }}</span></div>
+                <div class="d-flex mb-3"><i data-feather="inbox" class="icon-wrapper text-white"></i><span>{{ $profile->phone }}</span></div>
                 <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>{{ $profile->email }}</span></div>
                 <div class="d-flex">
                   <span><i data-feather="home" class="icon-wrapper text-white"></i></span>

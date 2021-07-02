@@ -29,16 +29,12 @@
                                     <input type="text" class="form-control" id="name" name="name" value="{{ $profile->company_name }}" placeholder="Enter name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" value="{{ $profile->description }}" placeholder="Enter name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Address</label>
-                                    <textarea class="form-control" id="address" name="address" placeholder="Enter Address">{{ $profile->address }}</textarea>
-                                </div>
-                                <div class="form-group">
                                     <label for="phone">Phone</label>
                                     <input type="number" class="form-control" id="phone" name="phone" value="{{ $profile->phone }}" placeholder="Enter Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fax">Fax</label>
+                                    <input type="text" class="form-control" id="fax" name="fax" value="" placeholder="Enter Fax">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -49,16 +45,25 @@
                                     <input type="text" class="form-control" id="website" name="website" value="{{ $profile->website }}" placeholder="Enter Website URL">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Instagram</label>
-                                    <textarea type="text" class="form-control" id="instagram" name="instagram" placeholder="Enter Instagram">{{ $profile->instagram }}</textarea>
+                                    <label for="instagram">Instagram</label>
+                                    <input type="text" class="form-control" id="instagram" name="instagram" placeholder="Enter Instagram" value="{{ $profile->instagram }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Youtube</label>
-                                    <textarea type="text" class="form-control" id="youtube" name="youtube" value="" placeholder="Enter Youtube">{{ $profile->youtube }}</textarea>
+                                    <label for="youtube">Youtube</label>
+                                    <input type="text" class="form-control" id="youtube" name="youtube" placeholder="Enter Youtube" value="{{  $profile->youtube }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Facebook</label>
-                                    <textarea type="text" class="form-control" id="Facebook" name="facebook" placeholder="Enter Facebook">{{ $profile->facebook }}</textarea>
+                                    <label for="Facebook">Facebook</label>
+                                    <input type="text" class="form-control" id="Facebook" name="Facebook" placeholder="Enter Facebook" value="{{   $profile->facebook }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea rows="5" type="text" class="form-control" id="description" name="description" placeholder="Enter name">{{ $profile->description }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">address</label>
+                                    <textarea rows="5" class="form-control" id="address" name="address" placeholder="Enter Address">{{ $profile->address }}</textarea>
                                 </div>
 
                                 <div class="card-footer">

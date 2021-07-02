@@ -5,7 +5,7 @@
         <div class="row">
             <h2 class="mt-4 mb-4 ml-2">List Banner</h2>
             <div class="col-md-12">
-            <a href={{ url('/banner/add') }} class="btn btn-success">Create</a>
+            <a href={{ url('/banner/add') }} class="btn btn-success mb-3">Create</a>
                 <table id="data_banner" class="table table-bordered table-striped" style="table-layout: fixed;">
                     <thead>
                         <tr>

@@ -38,7 +38,6 @@
     }
 }
 
-
 .core-value {
 
     &-item {
@@ -66,5 +65,21 @@
     &-item:hover {
         scale: 1.05;
         transition: all 0.5s;
+    }
+}
+
+.why-rta {
+    .title {
+        background-color: $primary-dark;
+    }
+
+    .desc {
+        margin-top: 20px
+    }
+
+    &-items {
+        width: 200px;
+        height: 150px;
+        background-color: $primary-dark;
     }
 }

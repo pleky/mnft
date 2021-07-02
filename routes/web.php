@@ -80,5 +80,9 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("emails/all", "EmailController@getAllEmails")->name("email.data");
     Route::get("/emails", "EmailController@index");
 
+    Route::get('/about/edit', function () {
+        return view('admin.forms.aboutForm');
+    });
+
 });
 
