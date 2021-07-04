@@ -13,6 +13,7 @@ class Profile extends Model
         'description',
         'address',
         'phone',
+        'fax',
         'email',
         'website',
         'instagram',

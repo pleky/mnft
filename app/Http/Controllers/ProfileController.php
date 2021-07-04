@@ -88,6 +88,7 @@ class ProfileController extends Controller
             $profile->description   = $request->description;
             $profile->address       = $request->address;
             $profile->phone         = $request->phone;
+            $profile->fax           = $request->fax;
             $profile->email         = $request->email;
             $profile->website       = $request->website;
             $profile->instagram     = $request->instagram;

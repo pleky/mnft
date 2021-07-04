@@ -30,11 +30,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="number" class="form-control" id="phone" name="phone" value="{{ $profile->phone }}" placeholder="Enter Phone">
+                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ $profile->phone }}" placeholder="Enter Phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="fax">Fax</label>
-                                    <input type="text" class="form-control" id="fax" name="fax" value="" placeholder="Enter Fax">
+                                    <input type="text" class="form-control" id="fax" name="fax" value="{{ $profile->fax }}" placeholder="Enter Fax">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -50,11 +50,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="youtube">Youtube</label>
-                                    <input type="text" class="form-control" id="youtube" name="youtube" placeholder="Enter Youtube" value="{{  $profile->youtube }}">
+                                    <input type="text" class="form-control" id="youtube" name="youtube" placeholder="Enter Youtube" value="{{ $profile->youtube }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Facebook">Facebook</label>
-                                    <input type="text" class="form-control" id="Facebook" name="Facebook" placeholder="Enter Facebook" value="{{   $profile->facebook }}">
+                                    <input type="text" class="form-control" id="Facebook" name="Facebook" placeholder="Enter Facebook" value="{{ $profile->facebook }}">
                                 </div>
 
                                 <div class="form-group">

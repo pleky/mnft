@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-4">
                 <div class="d-flex mb-3"><i data-feather="phone" class="icon-wrapper text-white"></i><span>{{ $profile->phone }}</span></div>
-                <div class="d-flex mb-3"><i data-feather="inbox" class="icon-wrapper text-white"></i><span>{{ $profile->phone }}</span></div>
+                <div class="d-flex mb-3"><i data-feather="inbox" class="icon-wrapper text-white"></i><span>{{ $profile->fax }}</span></div>
                 <div class="d-flex mb-3"><i data-feather="mail" class="icon-wrapper text-white"></i><span>{{ $profile->email }}</span></div>
                 <div class="d-flex">
                   <span><i data-feather="home" class="icon-wrapper text-white"></i></span>
@@ -52,6 +52,7 @@
               <p class="text-white">Contact Info</p>
               <p class="text-muted">{{ $profile->address }}</p>
               <p class="text-muted mb-1">Phone: <span class="text-white">{{ $profile->phone }}</span></p>
+              <p class="text-muted mb-1">Fax: <span class="text-white">{{ $profile->fax }}</span></p>
               <p class="text-muted mb-1">Email: <span class="text-white">{{ $profile->email }}</span></p>
               <p class="text-muted">Web: <span class="text-white">{{ $profile->website }} </span></p>
             </div>
