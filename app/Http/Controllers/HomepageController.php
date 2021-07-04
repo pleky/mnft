@@ -33,7 +33,7 @@ class HomepageController extends Controller
                             ->where('mn.slug', $slug)
                             ->first();
 
-        $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->get();
+        // $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->get();
 
         $view = "content.product";
         if($slug == 'about-us') { 
@@ -45,7 +45,7 @@ class HomepageController extends Controller
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'content' => $data['content'],
-            'gallery' => $data['gallery']
+            // 'gallery' => $data['gallery']
         ]);
     }
 

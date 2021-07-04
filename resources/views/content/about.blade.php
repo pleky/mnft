@@ -23,14 +23,14 @@
                   <li>Trading for mechanical components & engineering tools.</li>
               </ul>
 
-              <h5 class="text-primary-dark">Why RTA?</h5>
+              <!-- <h5 class="text-primary-dark">Why RTA?</h5>
               <ul>
                   <li>Experienced technical team</li>
                   <li>Flexible custom precision parts</li>
                   <li>Innovative engineering design and solutions</li>
                   <li>Various material available</li>
                   <li>Problem solving objective</li>
-              </ul>
+              </ul> -->
           </div>
           <div class="col-md-4">
               <div class="product-img">
@@ -43,6 +43,38 @@
     <!-- div container -->
 </section>
 <!-- end Product desc -->
+
+<!-- why rta -->
+<section class='why-rta container-fluid p-0 mt-5'>
+    <div class="title p-2">
+        <h4 class="text-center text-white">Why RTA</h4>
+    </div>
+
+
+    <div class="row container mx-auto mt-3">
+        <div class="col-md-4 mb-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="why-rta-items"></div>
+            <p class="desc">Experienced technical team</p>
+        </div>
+        <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
+            <div class="why-rta-items"></div>
+            <p class="desc">Flexible custom precision parts</p>
+        </div>
+        <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
+            <div class="why-rta-items"></div>
+            <p class="desc">Innovative engineering design and solutions</p>
+        </div>
+        <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
+            <div class="why-rta-items"></div>
+            <p class="desc">Contract manufacture for custom precision parts</p>
+        </div>
+        <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
+            <div class="why-rta-items"></div>
+            <p class="desc">Trading for mechanical components & engineering tools.</p>
+        </div>
+    </div>
+</section>
+<!-- end why rta -->
 
 <!-- company vision -->
 <section class="company-vision mt-5 p-3">
