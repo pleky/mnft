@@ -4,7 +4,7 @@
     <!-- material manufacture -->
     <section class="container mt-3 mt-lg-5 pt-lg-5">
         <div class="heading">
-            <h3 class="text-primary-dark fw-light">Composite Materials Manufacturer</h3>
+            <h3 class="text-primary-dark fw-light">Our Speciality</h3>
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
@@ -18,7 +18,7 @@
     <section class="composite-materials bg-dark-secondary mt-5">
         <div class="container">
             <div class="heading">
-            <h4 class="text-primary-dark fw-light">Range of Composite Materials</h4>
+            <h4 class="text-primary-dark fw-light">Our Products</h4>
             </div>
             <div class="row mt-3">
             @foreach($gallery as $data)
