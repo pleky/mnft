@@ -68,6 +68,14 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::post("/banner/update/{id}", "BannerController@update");
     Route::get("/banner/delete/{id}", "BannerController@destroy");
 
+    Route::get("/galleries", "GalleriesController@index");
+    Route::get("/galleries/all", "GalleriesController@all");
+    Route::get("/galleries/add", "GalleriesController@create")->name("galleries.add");
+    Route::post("/galleries/add", "GalleriesController@store");
+    Route::get("/galleries/edit/{id}", "GalleriesController@edit");
+    Route::post("/galleries/update/{id}", "GalleriesController@update");
+    Route::get("/galleries/delete/{id}", "GalleriesController@destroy");
+
     Route::get("/profile", "ProfileController@index");
     Route::get("/profile/edit", "ProfileController@edit");
     Route::post("/profile/update", "ProfileController@update");
@@ -82,13 +90,6 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
 
     Route::get('/about/edit', function () {
         return view('admin.forms.aboutForm');
-    });
-
-    Route::get('/galleries', function () {
-        return view('admin.gallery');
-    });
-    Route::get('/galleries/add', function () {
-        return view('admin.forms.galleryForm');
     });
 
 });

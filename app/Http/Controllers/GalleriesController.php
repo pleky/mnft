@@ -3,34 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
-use App\Sliders;
+use App\GalleryHistory;
 use DB;
 use DataTables;
 
-class BannerController extends Controller
+class GalleriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('admin.banner');
-    }
 
+    public function index(){
+        return view('admin.gallery');
+    }
+    
     public function all()
     {
         //
         DB::statement(DB::raw('set @rownum=0'));
 
-        $data = Sliders::select('id', DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'title', 'description', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
+        $data = GalleryHistory::select('id', DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'title', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
 
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
-                $update = '<a href="/banner/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
-                $update .= ' <a href="/banner/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                $update = '<a href="/galleries/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
+                $update .= ' <a href="/galleries/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
                 return $update;
             })
             ->rawColumns(['action'])
@@ -44,10 +41,10 @@ class BannerController extends Controller
      */
     public function create()
     {
-        $data['url'] = '/banner/add';
+        $data['url'] = '/galleries/add';
         $data['method'] = 'post';
 
-        return view('admin.forms.bannerForm', $data);
+        return view('admin.forms.galleryForm', $data);
     }
 
     /**
@@ -60,27 +57,24 @@ class BannerController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
   
         $imageName = time().'.'.$request->image->extension();  
 
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('images/gallery'), $imageName);
         
         try{
-            $banner = new Sliders;
-            $banner->title         = $request->title;
-            $banner->description   = $request->description;
-            $banner->image         = $imageName;
-            $banner->is_order      = $request->order;
-            $banner->status        = $request->status;
-            $banner->save();
+            $galleryHis          = new GalleryHistory;
+            $galleryHis->title   = $request->title;
+            $galleryHis->image   = $imageName;
+            $galleryHis->status  = $request->status;
+            $galleryHis->save();
 
-            return redirect('banner')->with('status',"Insert successfully");
+            return redirect('galleries')->with('status',"Insert successfully");
         }
         catch(Exception $e){
-            return redirect('/banner/add')->with('failed',"operation failed");
+            return redirect('/galleries/add')->with('failed',"operation failed");
         }
     }
 
@@ -104,11 +98,11 @@ class BannerController extends Controller
     public function edit($id)
     {
         //
-        $data['url'] = '/banner/update/'.$id;
+        $data['url'] = '/galleries/update/'.$id;
         $data['method'] = 'post';
-        $data['banner'] = Sliders::find($id);
+        $data['gallery'] = GalleryHistory::find($id);
 
-        return view('admin.forms.bannerForm', $data);
+        return view('admin.forms.galleryForm', $data);
     }
 
     /**
@@ -123,34 +117,31 @@ class BannerController extends Controller
         //
         $this->validate($request,[
             'title' => 'required',
-            'description' => 'required',
          ]);
 
         try{
-            $banner = Sliders::find($id);
+            $galleryHis = GalleryHistory::find($id);
 
-            if($request->image->extension()) {
-                $image_path = public_path('images') . '/' . $banner->image;
+            if(isset($request->image)) {
+                $image_path = public_path('images/gallery') . '/' . $galleryHis->image;
                 
                 if(File::exists($image_path)) {
                    File::delete($image_path);
                 }
 
                 $imageName = time().'.'.$request->image->extension();  
-                $request->image->move(public_path('images'), $imageName);
-                $banner->image     = $imageName;
+                $request->image->move(public_path('images/gallery'), $imageName);
+                $galleryHis->image     = $imageName;
             }
 
-            $banner->title         = $request->title;
-            $banner->description   = $request->description;
-            $banner->is_order      = $request->order;
-            $banner->status        = $request->status;
-            $banner->save();
+            $galleryHis->title         = $request->title;
+            $galleryHis->status        = $request->status;
+            $galleryHis->save();
 
-            return redirect('banner')->with('status',"Insert successfully");
+            return redirect('galleries')->with('status',"Insert successfully");
         }
         catch(Exception $e){
-            return redirect('/banner/add')->with('failed',"operation failed");
+            return redirect('/galleries/add')->with('failed',"operation failed");
         }
     }
 
@@ -164,18 +155,18 @@ class BannerController extends Controller
     {
         //
         try{
-            $banner = Sliders::find($id);
-            $image_path = public_path('images') . '/' . $banner->image;
+            $galleryHis = GalleryHistory::find($id);
+            $image_path = public_path('images/gallery') . '/' . $galleryHis->image;
                 
             if(File::exists($image_path)) {
                 File::delete($image_path);
             }
-            $banner->delete();
+            $galleryHis->delete();
 
-            return redirect('banner')->with('status',"Delete successfully");
+            return redirect('galleries')->with('status',"Delete successfully");
         }
         catch(Exception $e){
-            return redirect('banner')->with('failed',"operation failed");
+            return redirect('galleries')->with('failed',"operation failed");
         }
     }
 }
