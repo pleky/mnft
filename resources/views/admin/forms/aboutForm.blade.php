@@ -30,7 +30,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Image</label>
-                                    <input type="file" class="form-control" id="description" name="description" placeholder="Enter name"></textarea>
+                                    <input type="file" class="form-control" id="description" name="description" placeholder="Enter name">
+                                    <p><em style="font-size:13px;">*recomended image dimension 350px : 350px</em></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="address">What We offer?</label>
@@ -41,22 +42,27 @@
                                     <legend>Why Rta</legend>
                                     <div class="form-group">
                                         <input type="file" class="form-control mb-1" id="website" name="website" value="">
+                                        <p><em style="font-size:13px;">*recomended image dimension 150px : 150px</em></p>
                                         <input type="text" class="form-control" id="website" name="website" value="" placeholder="Description">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control mb-1" id="website" name="website" value="">
+                                        <p><em style="font-size:13px;">*recomended image dimension 150px : 150px</em></p>
                                         <input type="text" class="form-control" id="website" name="website" value="" placeholder="Description">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control mb-1" id="website" name="website" value="">
+                                        <p><em style="font-size:13px;">*recomended image dimension 150px : 150px</em></p>
                                         <input type="text" class="form-control" id="website" name="website" value="" placeholder="Description">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control mb-1" id="website" name="website" value="">
+                                        <p><em style="font-size:13px;">*recomended image dimension 150px : 150px</em></p>
                                         <input type="text" class="form-control" id="website" name="website" value="" placeholder="Description">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control mb-1" id="website" name="website" value="">
+                                        <p><em style="font-size:13px;">*recomended image dimension 150px : 150px</em></p>
                                         <input type="text" class="form-control" id="website" name="website" value="" placeholder="Description">
                                     </div>
                                 </fieldset>

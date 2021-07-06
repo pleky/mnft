@@ -89,6 +89,12 @@
                   <p>Profile</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ url('/galleries') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gallery</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">

@@ -53,23 +53,33 @@
 
     <div class="row container mx-auto mt-3">
         <div class="col-md-4 mb-3 d-flex justify-content-center align-items-center flex-column">
-            <div class="why-rta-items"></div>
+            <div class="why-rta-items d-flex align-items-center justify-content-center">
+                <img src="{{ asset('assets/images/1.png') }}" width="150" height="150"/>
+            </div>
             <p class="desc">Experienced technical team</p>
         </div>
         <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
-            <div class="why-rta-items"></div>
+        <div class="why-rta-items d-flex align-items-center justify-content-center">
+                <img src="{{ asset('assets/images/2.png') }}" width="150" height="150"/>
+            </div>
             <p class="desc">Flexible custom precision parts</p>
         </div>
         <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
-            <div class="why-rta-items"></div>
+            <div class="why-rta-items d-flex align-items-center justify-content-center">
+                <img src="{{ asset('assets/images/3.png') }}" width="150" height="150"/>
+            </div>
             <p class="desc">Innovative engineering design and solutions</p>
         </div>
         <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
-            <div class="why-rta-items"></div>
+        <div class="why-rta-items d-flex align-items-center justify-content-center">
+                <img src="{{ asset('assets/images/4.png') }}" width="150" height="150"/>
+            </div>
             <p class="desc">Contract manufacture for custom precision parts</p>
         </div>
         <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
-            <div class="why-rta-items"></div>
+        <div class="why-rta-items d-flex align-items-center justify-content-center">
+                <img src="{{ asset('assets/images/5.png') }}" width="150" height="150"/>
+            </div>
             <p class="desc">Trading for mechanical components & engineering tools.</p>
         </div>
     </div>
