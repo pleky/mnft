@@ -84,5 +84,12 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
         return view('admin.forms.aboutForm');
     });
 
+    Route::get('/galleries', function () {
+        return view('admin.gallery');
+    });
+    Route::get('/galleries/add', function () {
+        return view('admin.forms.galleryForm');
+    });
+
 });
 
