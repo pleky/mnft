@@ -7,6 +7,7 @@ use App\Menus;
 use App\Sliders;
 use App\Profile;
 use App\Contents;
+use App\GalleryHistory;
 use App\Galleries;
 
 class HomepageController extends Controller
@@ -15,7 +16,7 @@ class HomepageController extends Controller
     public function index() {
 
         $data = $this->menus();
-        $data['gallery'] = Galleries::all();
+        $data['gallery'] = GalleryHistory::all();
 
         return view('content.homepage', [
             'menu' => $data['menus'],
@@ -73,7 +74,7 @@ class HomepageController extends Controller
     public function gallery() {
 
         $data = $this->menus();
-        $data['gallery'] = Galleries::all();
+        $data['gallery'] = GalleryHistory::all();
 
         return view('content.gallery', [
             'menu' => $data['menus'],

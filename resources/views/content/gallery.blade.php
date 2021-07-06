@@ -11,7 +11,7 @@
             @foreach($gallery as $data)
                 <div class="col-md-3">
                     <div class="composite-materials-item mt-2">
-                        <img class="rounded h-100 w-100" src="{{ url('images/'.$data->image) }}" alt="">
+                        <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">
                     </div>
                     <p class="fw-bold text-center text-primary-dark">{{ $data->title }}</p>
                 </div>
