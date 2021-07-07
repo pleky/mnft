@@ -89,11 +89,17 @@ class HomepageController extends Controller
     public function about() {
 
         $data = $this->menus();
-        
+        $data['about']  = About::first();
+        $data['why']    = AboutDetail::where('type', 'why-rta')->get();
+        $data['core']   = AboutDetail::where('type', 'core')->get();
+
         return view('content.about', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
+            'about' => $data['about'],
+            'why' => $data['why'],
+            'core' => $data['core']
         ]);
     }
 }

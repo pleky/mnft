@@ -17,7 +17,7 @@ Route::get('/', 'HomepageController@index');
 
 Route::get('content/{a}/{b}', 'HomepageController@content');
 
-Route::get('/about', "HomepageController@about");
+Route::get('about/{a}/{b}', "HomepageController@about");
 
 Route::get('/product', function () {
     return view('content.product');

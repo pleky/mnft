@@ -10,18 +10,10 @@
 
       <div class="row">
           <div class="col-md-8 product-desc">
-              <p>PT Raja Teknik Aditama (RTA) specializes in design, engineering and manufacture custom precision parts.</p>
-
-              <p>We provide technical consultancy for re-engineering/re-manufacture of custom precision parts to enhance the part performance and lifetime.</p>
+              <p>{{ $about->name }}</p>
 
               <h5 class="text-primary-dark">What We offer?</h5>
-              <ul>
-                  <li>Technical consultancy </li>
-                  <li>Parts identification and testing.</li>
-                  <li>Engineering design</li>
-                  <li>Contract manufacture for custom precision parts</li>
-                  <li>Trading for mechanical components & engineering tools.</li>
-              </ul>
+              {!! $about->description !!}
 
               <!-- <h5 class="text-primary-dark">Why RTA?</h5>
               <ul>
@@ -34,7 +26,7 @@
           </div>
           <div class="col-md-4">
               <div class="product-img">
-                  <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/350x350" alt="">
+                  <img class="rounded h-100 w-100" src="{{ url('images/about/'.$about->image) }}" alt="">
               </div>
           </div>
       </div>
@@ -54,33 +46,33 @@
     <div class="row container mx-auto mt-3">
         <div class="col-md-4 mb-3 d-flex justify-content-center align-items-center flex-column">
             <div class="why-rta-items d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/images/1.png') }}" width="150" height="150"/>
+                <img src="{{ url('images/about/'.$why[0]->image) }}" width="150" height="150"/>
             </div>
-            <p class="desc">Experienced technical team</p>
+            <p class="desc">{{ $why[0]->title }}</p>
         </div>
         <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
         <div class="why-rta-items d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/images/2.png') }}" width="150" height="150"/>
+                <img src="{{ url('images/about/'.$why[1]->image) }}" width="150" height="150"/>
             </div>
-            <p class="desc">Flexible custom precision parts</p>
+            <p class="desc">{{ $why[1]->title }}</p>
         </div>
         <div class="col-md-4  mb-3  d-flex justify-content-center align-items-center  flex-column">
             <div class="why-rta-items d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/images/3.png') }}" width="150" height="150"/>
+                <img src="{{ url('images/about/'.$why[2]->image) }}" width="150" height="150"/>
             </div>
-            <p class="desc">Innovative engineering design and solutions</p>
+            <p class="desc">{{ $why[2]->title }}</p>
         </div>
         <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
         <div class="why-rta-items d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/images/4.png') }}" width="150" height="150"/>
+                <img src="{{ url('images/about/'.$why[3]->image) }}" width="150" height="150"/>
             </div>
-            <p class="desc">Contract manufacture for custom precision parts</p>
+            <p class="desc">{{ $why[3]->title }}</p>
         </div>
         <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center  flex-column">
         <div class="why-rta-items d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/images/5.png') }}" width="150" height="150"/>
+                <img src="{{ url('images/about/'.$why[4]->image) }}" width="150" height="150"/>
             </div>
-            <p class="desc">Trading for mechanical components & engineering tools.</p>
+            <p class="desc">{{ $why[4]->title }}</p>
         </div>
     </div>
 </section>
@@ -104,13 +96,7 @@
 
       <div class="row align-items-center">
           <div class="col-md-12">
-              <ul>
-                  <li>Helping people by achieving the machine/equipment part performance</li>
-                  <li>Continuously increasing the business efficiency and effectiveness</li>
-                  <li>Continuous improvement and continuous learning.</li>
-                  <li>Continuously providing the  value added products and services</li>
-                  <li>Continuously perform sustainable growth and solid financial structure</li>
-              </ul>
+              {!! $about->mission !!}
           </div>
       </div>
     </div>
@@ -127,31 +113,31 @@
             <div class="col">
                 <div class="core-value-item position-relative" id='core-value-item'>
                     <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?trust" alt="">
-                    <span class="text-white text-wrapper">Trust & Integrity </span>
+                    <span class="text-white text-wrapper">{{ $core[0]->title }}</span>
                 </div>
             </div>
             <div class="col">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?improvement" alt="">
-                  <span class="text-white text-wrapper">Continous improvement</span>
+                  <span class="text-white text-wrapper">{{ $core[1]->title }}</span>
               </div>
           </div>
           <div class="col">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?mindset" alt="">
-                  <span class="text-white text-wrapper">Problem solving mindset</span>
+                  <span class="text-white text-wrapper">{{ $core[2]->title }}</span>
               </div>
           </div>
           <div class="col">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?sustainable" alt="">
-                  <span class="text-white text-wrapper">Sustainable</span>
+                  <span class="text-white text-wrapper">{{ $core[3]->title }}</span>
               </div>
           </div>
           <div class="col">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50">
-                  <span class="text-white text-wrapper">Innovative</span>
+                  <span class="text-white text-wrapper">{{ $core[4]->title }}</span>
               </div>
           </div>
         </div>
