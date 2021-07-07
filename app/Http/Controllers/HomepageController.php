@@ -9,6 +9,8 @@ use App\Profile;
 use App\Contents;
 use App\GalleryHistory;
 use App\Galleries;
+use App\About;
+use App\AboutDetail;
 
 class HomepageController extends Controller
 {

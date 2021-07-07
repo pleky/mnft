@@ -80,17 +80,11 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/profile/edit", "ProfileController@edit");
     Route::post("/profile/update", "ProfileController@update");
 
-    Route::get("solutions/all", "SolutionController@getAllSolutions")->name("menu.data");
-    Route::get("/solutions", "SolutionController@index");
-    Route::get("/solutions/edit/{id}", "SolutionController@edit");
-    Route::post("/solutions/update/{id}", "SolutionController@update");
+    Route::get("/about/edit", "AboutController@edit");
+    Route::post("/about/update", "AboutController@update");
 
     Route::get("emails/all", "EmailController@getAllEmails")->name("email.data");
     Route::get("/emails", "EmailController@index");
-
-    Route::get('/about/edit', function () {
-        return view('admin.forms.aboutForm');
-    });
 
 });
 

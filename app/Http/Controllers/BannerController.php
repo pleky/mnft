@@ -129,7 +129,7 @@ class BannerController extends Controller
         try{
             $banner = Sliders::find($id);
 
-            if($request->image->extension()) {
+            if(isset($request->image)) {
                 $image_path = public_path('images') . '/' . $banner->image;
                 
                 if(File::exists($image_path)) {
