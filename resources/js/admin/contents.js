@@ -11,7 +11,6 @@ const addGallery = () => {
     let inputText = document.createElement("input");
     let inputFile = document.createElement("input");
     let legend = document.createElement("legend");
-    let textNode = document.createTextNode("Gallery");
     let formGroupText = document.createElement("div");
     let formGroupImage = document.createElement("div");
     let labelText = document.createElement("label");
@@ -19,6 +18,12 @@ const addGallery = () => {
     let labelImage = document.createElement("label");
     let labelImageNode = document.createTextNode("Image");
     let buttonRemove = document.createElement("button");
+    
+    let p = document.createElement("p");
+    let em = document.createElement("em")
+    let emLabel = document.createTextNode("*recomended image dimension 350px : 350px")
+    
+    
 
     fieldset.setAttribute("class", "form-group border p-3");
 
@@ -45,9 +50,13 @@ const addGallery = () => {
     inputFile.setAttribute("id", "galleryImage");
     labelImage.setAttribute("for", "galleryImage");
     formGroupImage.setAttribute("class", "form-group");
+    em.setAttribute("style", "font-size:13px;")
+    em.appendChild(emLabel)
+    p.appendChild(em)
     labelImage.appendChild(labelImageNode);
     formGroupImage.appendChild(labelImage);
     formGroupImage.appendChild(inputFile);
+    formGroupImage.appendChild(p)
 
     fieldset.appendChild(legend);
     fieldset.appendChild(formGroupText);

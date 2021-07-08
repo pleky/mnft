@@ -3125,7 +3125,6 @@ var addGallery = function addGallery() {
   var inputText = document.createElement("input");
   var inputFile = document.createElement("input");
   var legend = document.createElement("legend");
-  var textNode = document.createTextNode("Gallery");
   var formGroupText = document.createElement("div");
   var formGroupImage = document.createElement("div");
   var labelText = document.createElement("label");
@@ -3133,6 +3132,9 @@ var addGallery = function addGallery() {
   var labelImage = document.createElement("label");
   var labelImageNode = document.createTextNode("Image");
   var buttonRemove = document.createElement("button");
+  var p = document.createElement("p");
+  var em = document.createElement("em");
+  var emLabel = document.createTextNode("*recomended image dimension 350px : 350px");
   fieldset.setAttribute("class", "form-group border p-3");
   legend.setAttribute("class", "w-auto px-2");
   legend.innerHTML = "Gallery";
@@ -3156,9 +3158,13 @@ var addGallery = function addGallery() {
   inputFile.setAttribute("id", "galleryImage");
   labelImage.setAttribute("for", "galleryImage");
   formGroupImage.setAttribute("class", "form-group");
+  em.setAttribute("style", "font-size:13px;");
+  em.appendChild(emLabel);
+  p.appendChild(em);
   labelImage.appendChild(labelImageNode);
   formGroupImage.appendChild(labelImage);
   formGroupImage.appendChild(inputFile);
+  formGroupImage.appendChild(p);
   fieldset.appendChild(legend);
   fieldset.appendChild(formGroupText);
   fieldset.appendChild(formGroupImage);
