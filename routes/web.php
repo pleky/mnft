@@ -28,9 +28,11 @@ Route::get('/industry', function () {
 });
 
 Route::get('/gallery',  "HomepageController@gallery");
+Route::get('/contact-us','HomepageController@contactUs');
 
 Route::get("/mensolutions/{menu}", "SolutionController@pages");
 Route::post("/emailpost", "SolutionController@saveEmail");
+
 
 //===========ADMIN===========
 Route::get('/login', function () {
