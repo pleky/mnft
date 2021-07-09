@@ -20,7 +20,7 @@ class contactUs extends Mailable
     public function __construct($data)
     {
         //
-        $this->subject('Sample title');
+        $this->subject('Pesan Dari Pengunjung Website RTA');
         $this->data = $data;
     }
 

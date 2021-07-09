@@ -1,6 +1,6 @@
-<h3>Halo, Admin !</h3>
+Dear RTA Team
 
-Ada yang mau bertanya perihal RTA
+Terlampir pesan yang dikirim oleh pengunjung website RTA :
 
 <p>Nama : {{ $name }}</p>
 <p>Email : {{ $email }}</p>

@@ -7,7 +7,7 @@
 
           <div class="row mt-5">
             <div class="col-md-4">
-              <form id="contactUs">
+              <form id="contactUs" >
                 <div class="mb-3">
                   <input type="text" required class="form-control" id="name" aria-describedby="" placeholder="Name*">
                 </div>
@@ -17,9 +17,15 @@
                 <div class="mb-3">
                   <input type="text" required class="form-control" id="phone" aria-describedby="" placeholder="Phone Number">
                 </div>
-                <div>
+                <div class="mb-3">
                   <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                 </div>
+                <div class="mb-3">
+                    <input class="form-control" type="file" id="attachmen" name="attachmen" accept=".pdf,.doc"/>
+                </div>
+                
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	              <div class="g-recaptcha mt-3" id="feedback-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITEKEY')  }}"></div>
                 <button type="submit" id="submit" class="btn btn-danger mt-2">Kirim</a>
               </form>
             </div>
@@ -94,6 +100,7 @@
       <!-- end footer -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/gallery/img-previewer.min.js') }}"></script>
     <script>
@@ -106,7 +113,8 @@
         var email = $('#email').val();
         var phone = $('#phone').val();
         var message_text = $('#message').val();
-
+        var attachment = $('#attachmen').val();
+        
         $.ajax({
           url: '/contact-us',
           type: 'POST',
@@ -115,10 +123,15 @@
               name: name,
               email: email,
               phone: phone,
-              message_text: message_text
+              message_text: message_text,
+              attachment: attachment,
           },
           success: function(msg) {
-              alert('Pesan Anda Terkirim');
+            swal({
+              title: "Sukses",
+              text: "Pesan Anda Berhasil Dikirim",
+              icon: "success",
+            })
           }               
         });
       });
