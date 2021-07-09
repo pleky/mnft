@@ -11,14 +11,17 @@ class contactUs extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
         //
+        $this->subject('Sample title');
+        $this->data = $data;
     }
 
     /**
@@ -28,10 +31,8 @@ class contactUs extends Mailable
      */
     public function build()
     {
+
         return $this->view('emails.contact-us')
-                    ->attach(public_path('pdf/sample.pdf'), [
-                         'as' => 'sample.pdf',
-                         'mime' => 'application/pdf',
-                    ]);
+                    ->with($this->data);
     }
 }

@@ -11,7 +11,7 @@ use App\GalleryHistory;
 use App\Galleries;
 use App\About;
 use App\AboutDetail;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\contactUs;
 
 class HomepageController extends Controller
@@ -105,10 +105,13 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function contactUs() {
-        $myEmail = 'aatmaninfotech@gmail.com';
-    	Mail::to($myEmail)->send(new contactUs());
+    public function contactUs(Request $request) {
+        
+        $data = $request->all();
+        $myEmail = 'wredaaa@gmail.com';
+
+    	$anc = Mail::to($myEmail)->send(new contactUs($data));
     	
-    	dd("Mail Send Successfully");
+    	dd($anc);
     }
 }

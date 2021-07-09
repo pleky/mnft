@@ -51,9 +51,20 @@ class ContentsController extends Controller
     {
         $data['url'] = '/contents/add';
         $data['method'] = 'post';
+        $data['act'] = 'add';
+
+        $arry = Contents::select('menu_id')->get();
+
+        $str = [];
+        foreach($arry as $datas) {
+            $str[] = $datas->menu_id;
+        }
+
+        $str = implode(',', $str);
         $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
                         ->whereIn('menus.parent_id', [3,4])
+                        ->whereNotIn('menus.id', [$str])
                         ->get();
 
         return view('admin.forms.contentsForm', $data);
@@ -130,7 +141,9 @@ class ContentsController extends Controller
         //
         $data['url'] = '/contents/update/'.$id;
         $data['method'] = 'post';
+        $data['act'] = 'edit';
         $data['contents'] = Contents::find($id);
+        $data['gallery'] = Galleries::where('content_id', $id)->get();
         $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
                         ->whereIn('menus.parent_id', [3,4])
@@ -149,6 +162,70 @@ class ContentsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            // 'name' => 'required',
+            // 'description' => 'required',
+            // 'address' => 'required',
+         ]);
+
+        try{
+            $dataGallery = Contents::find($id);
+
+            if(isset($request->image)) {
+                $image_path = public_path('images') . '/' . $dataGallery->image;
+                
+                if(File::exists($image_path)) {
+                   File::delete($image_path);
+                }
+
+                $imageName = time().'.'.$request->image->extension();  
+                $request->image->move(public_path('images'), $imageName);
+                $dataGallery->image   = $imageName;
+            }
+
+            $dataGallery->menu_id       = $request->menu;
+            $dataGallery->image         = $imageName;
+            $dataGallery->description   = $request->description;
+            $dataGallery->save();
+
+            if($dataGallery) {
+                $i = 0;
+                foreach($request->whyId as $whyIDs) {
+
+                    $imageNameW = "";
+                    $images = $request['whyImage'][$i] ?? '';
+
+                    $aboutWhy = AboutDetail::find($whyIDs);
+                   
+                    if($images){
+                        $imageNameW = time() . rand() . '.' . $images->extension();  
+                        $images->move(public_path('images/about'), $imageNameW);
+                        $aboutWhy->image   = $imageNameW;
+                    }
+
+                    $aboutWhy->title    = $request['whyTitle'][$i];
+                    $aboutWhy->save();
+
+                    $i++;
+                }
+
+                $j = 0;
+                foreach($request->coreId as $coreIDs) {
+                    
+                    $aboutCore = AboutDetail::find($coreIDs);
+
+                    $aboutCore->title    = $request['coreTitle'][$j];
+                    $aboutCore->save();
+
+                    $j++;
+                }
+            }
+
+            return redirect('/about/edit')->with('status',"Update successfully");
+        }
+        catch(Exception $e){
+            return redirect('/about/edit')->with('failed',"operation failed");
+        }
     }
 
     /**

@@ -40,12 +40,33 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" cols="50" rows="10"></textarea>
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" cols="50" rows="10">{{ $contents->description ?? '' }}</textarea>
                                 </div>
                                 <div id='galleryContainer'>
                                     <div class="form-group">
                                         <button class='btn btn-info' type="button" id="btnAddGallery">Add Gallery</button>
                                     </div>
+                                    @if($act == 'edit' && $gallery)
+                                        @foreach($gallery as $data)
+                                        <fieldset class="form-group border p-3">
+                                            <legend class="w-auto px-2">Gallery</legend>
+                                            <div class="form-group">
+                                                <label for="galleryTitle">Title</label>
+                                                <input class="form-control" id="galleryTitle" name="galleryTitle[]" value="{{ $data->title ?? '' }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="galleryImage">Image</label>
+                                                <input type="file" class="form-control" id="galleryImage" name="galleryImage[]">
+                                                <input type="hidden" name="galleryID[]" value="{{ $data->id ?? 0 }}">
+                                                <p><em style="font-size:13px;">*recomended image dimension 350px : 350px</em></p>
+                                                @if(isset($data->image) && $data->image)
+                                                    <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                                @endif
+                                            </div>
+                                            <button class="btn btn-danger" type="button">Remove</button>
+                                        </fieldset>
+                                        @endforeach
+                                    @endif
                                 </div>  
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info">Save</button>

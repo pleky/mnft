@@ -7,20 +7,20 @@
 
           <div class="row mt-5">
             <div class="col-md-4">
-              <form action="">
+              <form id="contactUs">
                 <div class="mb-3">
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name*">
+                  <input type="text" required class="form-control" id="name" aria-describedby="" placeholder="Name*">
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email*">
+                  <input type="email" required class="form-control" id="email" aria-describedby="" placeholder="Email*">
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                  <input type="text" required class="form-control" id="phone" aria-describedby="" placeholder="Phone Number">
                 </div>
                 <div>
-                  <textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 100px"></textarea>
+                  <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                 </div>
-                <a href="#" class="btn btn-danger mt-2">Kirim</a>
+                <button type="submit" id="submit" class="btn btn-danger mt-2">Kirim</a>
               </form>
             </div>
             <div class="col-md-4">
@@ -93,10 +93,35 @@
       </footer>
       <!-- end footer -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/gallery/img-previewer.min.js') }}"></script>
     <script>
       feather.replace()
+
+      $('#contactUs').submit(function(e) {
+        e.preventDefault();
+
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var message_text = $('#message').val();
+
+        $.ajax({
+          url: '/contact-us',
+          type: 'POST',
+          data: {
+              _token: "{{ csrf_token() }}",
+              name: name,
+              email: email,
+              phone: phone,
+              message_text: message_text
+          },
+          success: function(msg) {
+              alert('Pesan Anda Terkirim');
+          }               
+        });
+      });
     </script>
 </body>
 </html>

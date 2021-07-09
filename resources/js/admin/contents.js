@@ -39,6 +39,7 @@ const addGallery = () => {
 
     inputText.setAttribute("class", "form-control");
     inputText.setAttribute("id", "galleryTitle");
+    inputText.setAttribute("name", "galleryTitle[]");
     labelText.setAttribute("for", "galleryTitle");
     formGroupText.setAttribute("class", "form-group");
     labelText.appendChild(labelTextNode);
@@ -48,6 +49,7 @@ const addGallery = () => {
     inputFile.type = "file";
     inputFile.setAttribute("class", "form-control");
     inputFile.setAttribute("id", "galleryImage");
+    inputText.setAttribute("name", "galleryImage[]");
     labelImage.setAttribute("for", "galleryImage");
     formGroupImage.setAttribute("class", "form-group");
     em.setAttribute("style", "font-size:13px;")
