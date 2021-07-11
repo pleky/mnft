@@ -49,7 +49,7 @@ const addGallery = () => {
     inputFile.type = "file";
     inputFile.setAttribute("class", "form-control");
     inputFile.setAttribute("id", "galleryImage");
-    inputText.setAttribute("name", "galleryImage[]");
+    inputFile.setAttribute("name", "galleryImage[]");
     labelImage.setAttribute("for", "galleryImage");
     formGroupImage.setAttribute("class", "form-group");
     em.setAttribute("style", "font-size:13px;")

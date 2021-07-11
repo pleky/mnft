@@ -141,12 +141,12 @@ class ContentsController extends Controller
         $data['url'] = '/contents/update/'.$id;
         $data['method'] = 'post';
         $data['act'] = 'edit';
-        $data['contents'] = Contents::find($id);
+        $data['contents'] = Contents::select('contents.id', 'contents.image', 'contents.description', DB::Raw("concat(mp.name, ' - ', mn.name) as name"))
+                            ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
+                            ->leftJoin('menus as mp', 'mn.parent_id', '=', 'mp.id')
+                            ->where('contents.id', $id)
+                            ->first();
         $data['gallery'] = Galleries::where('content_id', $id)->get();
-        $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
-                        ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
-                        ->whereIn('menus.parent_id', [3,4])
-                        ->get();
 
         return view('admin.forms.contentsForm', $data);
     }
@@ -161,6 +161,7 @@ class ContentsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd($request->all());
         $this->validate($request,[
             // 'name' => 'required',
             // 'description' => 'required',
@@ -182,48 +183,55 @@ class ContentsController extends Controller
                 $dataGallery->image   = $imageName;
             }
 
-            $dataGallery->menu_id       = $request->menu;
-            $dataGallery->image         = $imageName;
             $dataGallery->description   = $request->description;
             $dataGallery->save();
 
             if($dataGallery) {
                 $i = 0;
-                foreach($request->whyId as $whyIDs) {
+                foreach($request->galleryID as $galleryIDs) {
 
                     $imageNameW = "";
-                    $images = $request['whyImage'][$i] ?? '';
+                    $images = $request['galleryImage'][$i] ?? '';
 
-                    $aboutWhy = AboutDetail::find($whyIDs);
+                    $dataGa = Galleries::find($galleryIDs);
                    
-                    if($images){
-                        $imageNameW = time() . rand() . '.' . $images->extension();  
-                        $images->move(public_path('images/about'), $imageNameW);
-                        $aboutWhy->image   = $imageNameW;
-                    }
+                    if($dataGa) {
+                        if($images){
+                            $image_path = public_path('images') . '/' . $dataGa->image;
+                
+                            if(File::exists($image_path)) {
+                                File::delete($image_path);
+                            }
 
-                    $aboutWhy->title    = $request['whyTitle'][$i];
-                    $aboutWhy->save();
+                            $imageNameW = time() . rand() . '.' . $images->extension();  
+                            $images->move(public_path('images'), $imageNameW);
+                            $dataGa->image   = $imageNameW;
+                        }
+
+                        $dataGa->title    = $request['galleryTitle'][$i];
+                        $dataGa->save();
+                    } else {
+                        $contentGa = new Contents;
+
+                        if($images){
+                            $imageNameGa = time() . rand() . '.' . $images->extension();  
+                            $images->move(public_path('images'), $imageNameGa);
+                            $contentGa->image   = $imageNameGa;
+                        }
+
+                        $contentGa->content_id    = $id;
+                        $contentGa->title    = $request['galleryTitle'][$i];
+                        $content->save();
+                    }
 
                     $i++;
                 }
-
-                $j = 0;
-                foreach($request->coreId as $coreIDs) {
-                    
-                    $aboutCore = AboutDetail::find($coreIDs);
-
-                    $aboutCore->title    = $request['coreTitle'][$j];
-                    $aboutCore->save();
-
-                    $j++;
-                }
             }
 
-            return redirect('/about/edit')->with('status',"Update successfully");
+            return redirect('/contents')->with('status',"Update successfully");
         }
         catch(Exception $e){
-            return redirect('/about/edit')->with('failed',"operation failed");
+            return redirect('/contents/edit')->with('failed',"operation failed");
         }
     }
 
