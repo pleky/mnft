@@ -25,11 +25,15 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for='menuId'>Select Menu</label>
+                                    @if($act == 'add')
                                     <select class="form-control" name="menu">
                                         @foreach($menu as $menus)
                                             <option value="{{ $menus->id }}" {{ (isset($menu->parent_id) && $menu->parent_id == $menus->id) ? 'selected' : ''  }} >{{ $menus->name }}</option>
                                         @endforeach
                                     </select>
+                                    @else
+                                    <input type="text" class="form-control" value="" readonly>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
@@ -70,6 +74,7 @@
                                 </div>  
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info">Save</button>
+                                    <a href={{ url('/contents') }} class="btn btn-warning">Back</a>
                                 </div>
                             </form>
                         </div>

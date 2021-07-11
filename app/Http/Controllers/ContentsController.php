@@ -57,14 +57,13 @@ class ContentsController extends Controller
 
         $str = [];
         foreach($arry as $datas) {
-            $str[] = $datas->menu_id;
+            $str[] = (int) $datas->menu_id;
         }
 
-        $str = implode(',', $str);
         $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
                         ->whereIn('menus.parent_id', [3,4])
-                        ->whereNotIn('menus.id', [$str])
+                        ->whereNotIn('menus.id', $str)
                         ->get();
 
         return view('admin.forms.contentsForm', $data);
