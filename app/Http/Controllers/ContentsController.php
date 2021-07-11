@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Menus;
 use App\Contents;
 use App\Galleries;
@@ -161,7 +162,6 @@ class ContentsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd($request->all());
         $this->validate($request,[
             // 'name' => 'required',
             // 'description' => 'required',
@@ -211,7 +211,7 @@ class ContentsController extends Controller
                         $dataGa->title    = $request['galleryTitle'][$i];
                         $dataGa->save();
                     } else {
-                        $contentGa = new Contents;
+                        $contentGa = new Galleries;
 
                         if($images){
                             $imageNameGa = time() . rand() . '.' . $images->extension();  
@@ -221,7 +221,7 @@ class ContentsController extends Controller
 
                         $contentGa->content_id    = $id;
                         $contentGa->title    = $request['galleryTitle'][$i];
-                        $content->save();
+                        $contentGa->save();
                     }
 
                     $i++;
@@ -244,5 +244,33 @@ class ContentsController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $dataContent = Contents::find($id);
+            $image_path = public_path('images') . '/' . $dataContent->image;
+                
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $dataContent->delete();
+
+            if($dataContent) {
+                $dataGa = Galleries::where('content_id', $id)->get();
+                
+                foreach($dataGa as $datas) {
+                    $image_path_ga = public_path('images') . '/' . $datas->image;
+                
+                    if(File::exists($image_path_ga)) {
+                        File::delete($image_path_ga);
+                    }
+
+                    $gal = Galleries::find($datas->id);
+                    $gal->delete();
+                }
+            }
+            return redirect('banner')->with('status',"Delete successfully");
+        }
+        catch(Exception $e){
+            return redirect('banner')->with('failed',"operation failed");
+        }
     }
 }

@@ -107,10 +107,10 @@ class HomepageController extends Controller
 
     public function contactUs(Request $request) {
         
-        // $data = $request->all();
-        // $myEmail = 'wredaaa@gmail.com';
-
-    	// $anc = Mail::to($myEmail)->send(new contactUs($data));
+        $data = $request->all();
+        $myEmail = env('USER_MAIL');
+        dd($myEmail);
+    	$anc = Mail::to($myEmail)->send(new contactUs($data));
     	
     	// dd($anc);
         return true;

@@ -47,7 +47,7 @@
                                     <label for="description">Description</label>
                                     <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" cols="50" rows="10">{{ $contents->description ?? '' }}</textarea>
                                 </div>
-                                <div id='galleryContainer'>
+                                <div id ="galleryContainer">
                                     <div class="form-group">
                                         <button class='btn btn-info' type="button" id="btnAddGallery">Add Gallery</button>
                                     </div>

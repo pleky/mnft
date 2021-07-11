@@ -3124,6 +3124,7 @@ var addGallery = function addGallery() {
   var fieldset = document.createElement("fieldset");
   var inputText = document.createElement("input");
   var inputFile = document.createElement("input");
+  var inputID = document.createElement("input");
   var legend = document.createElement("legend");
   var formGroupText = document.createElement("div");
   var formGroupImage = document.createElement("div");
@@ -3146,6 +3147,8 @@ var addGallery = function addGallery() {
     removeElement(fieldset);
   };
 
+  inputID.type = "hidden";
+  inputID.setAttribute("name", "galleryID[]");
   inputText.setAttribute("class", "form-control");
   inputText.setAttribute("id", "galleryTitle");
   inputText.setAttribute("name", "galleryTitle[]");
@@ -3154,10 +3157,11 @@ var addGallery = function addGallery() {
   labelText.appendChild(labelTextNode);
   formGroupText.appendChild(labelText);
   formGroupText.appendChild(inputText);
+  formGroupText.appendChild(inputID);
   inputFile.type = "file";
   inputFile.setAttribute("class", "form-control");
   inputFile.setAttribute("id", "galleryImage");
-  inputText.setAttribute("name", "galleryImage[]");
+  inputFile.setAttribute("name", "galleryImage[]");
   labelImage.setAttribute("for", "galleryImage");
   formGroupImage.setAttribute("class", "form-group");
   em.setAttribute("style", "font-size:13px;");

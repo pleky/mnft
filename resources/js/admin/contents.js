@@ -10,6 +10,7 @@ const addGallery = () => {
     let fieldset = document.createElement("fieldset");
     let inputText = document.createElement("input");
     let inputFile = document.createElement("input");
+    let inputID = document.createElement("input");
     let legend = document.createElement("legend");
     let formGroupText = document.createElement("div");
     let formGroupImage = document.createElement("div");
@@ -37,6 +38,9 @@ const addGallery = () => {
         removeElement(fieldset);
     };
 
+    inputID.type = "hidden";
+    inputID.setAttribute("name", "galleryID[]");
+
     inputText.setAttribute("class", "form-control");
     inputText.setAttribute("id", "galleryTitle");
     inputText.setAttribute("name", "galleryTitle[]");
@@ -45,6 +49,7 @@ const addGallery = () => {
     labelText.appendChild(labelTextNode);
     formGroupText.appendChild(labelText);
     formGroupText.appendChild(inputText);
+    formGroupText.appendChild(inputID);
 
     inputFile.type = "file";
     inputFile.setAttribute("class", "form-control");
