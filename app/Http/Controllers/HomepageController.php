@@ -108,11 +108,22 @@ class HomepageController extends Controller
     public function contactUs(Request $request) {
         
         $data = $request->all();
+        $images = $data->attachment ?? '';
         $myEmail = env('USER_MAIL');
-        dd($myEmail);
-    	$anc = Mail::to($myEmail)->send(new contactUs($data));
-    	
-    	// dd($anc);
-        return true;
+
+        if($images) {
+            $images->move(public_path('images/email'));
+            $image_path = public_path('images/email') . '/' . $images;
+            $data['image_paths'] = $image_path;        
+        }
+        
+    	Mail::to($myEmail)->send(new contactUs($data));
+        
+
+        // if(File::exists($image_path)) {
+        //     File::delete($image_path);
+        // }
+
+    	return true;
     }
 }
