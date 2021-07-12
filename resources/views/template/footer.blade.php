@@ -7,7 +7,7 @@
 
           <div class="row mt-5">
             <div class="col-md-4">
-              <form id="contactUs" >
+              <form id="contactUs" enctype="multipart/form-data">
                 <div class="mb-3">
                   <input type="text" required class="form-control" id="name" aria-describedby="" placeholder="Name*">
                 </div>
@@ -21,7 +21,7 @@
                   <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="file" id="attachmen" name="attachmen" accept=".pdf,.doc"/>
+                    <input class="form-control" type="file" id="attachmen" name="attachmen" accept=".pdf,.doc" onchange="getFile(event)" />
                 </div>
                 
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -106,34 +106,44 @@
     <script>
       feather.replace()
 
+      function getFile(event){
+        const reader = new FileReader();
+
+          console.log(event.target.files[0])
+        }
+
       $('#contactUs').submit(function(e) {
         e.preventDefault();
-
+        
         var name = $('#name').val();
         var email = $('#email').val();
         var phone = $('#phone').val();
         var message_text = $('#message').val();
-        var attachment = $('#attachmen').val();
+        var attachment = $("#attachmen").val();
+
         
-        $.ajax({
-          url: '/contact-us',
-          type: 'POST',
-          data: {
-              _token: "{{ csrf_token() }}",
-              name: name,
-              email: email,
-              phone: phone,
-              message_text: message_text,
-              attachment: attachment,
-          },
-          success: function(msg) {
-            swal({
-              title: "Sukses",
-              text: "Pesan Anda Berhasil Dikirim",
-              icon: "success",
-            })
-          }               
-        });
+
+        
+        
+        // $.ajax({
+        //   url: '/contact-us',
+        //   type: 'POST',
+        //   data: {
+        //       _token: "{{ csrf_token() }}",
+        //       name: name,
+        //       email: email,
+        //       phone: phone,
+        //       message_text: message_text,
+        //       attachment: attachment,
+        //   },
+        //   success: function(msg) {
+        //     swal({
+        //       title: "Sukses",
+        //       text: "Pesan Anda Berhasil Dikirim",
+        //       icon: "success",
+        //     })
+        //   }               
+        // });
       });
     </script>
 </body>
