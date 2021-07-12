@@ -267,10 +267,10 @@ class ContentsController extends Controller
                     $gal->delete();
                 }
             }
-            return redirect('banner')->with('status',"Delete successfully");
+            return redirect('contents')->with('status',"Delete successfully");
         }
         catch(Exception $e){
-            return redirect('banner')->with('failed',"operation failed");
+            return redirect('contents')->with('failed',"operation failed");
         }
     }
 }

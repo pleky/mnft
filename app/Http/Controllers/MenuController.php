@@ -138,10 +138,11 @@ class MenuController extends Controller
         try{
             $menu = Menus::find($id);
 
-            $menu->name     = $request->name;
-            $menu->slug     = $slug;
-            $menu->is_order = $request->order;
-            $menu->status   = $request->status;
+            $menu->name         = $request->name;
+            $menu->slug         = $slug;
+            $menu->is_order     = $request->order;
+            $menu->parent_id    = $request->type;
+            $menu->status       = $request->status;
             $menu->save();
 
             return redirect('menu')->with('status',"Insert successfully");

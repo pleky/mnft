@@ -21,7 +21,7 @@
             <h4 class="text-primary-dark fw-light">Our Products</h4>
             </div>
             <div class="row mt-3">
-            @foreach($gallery as $data)
+            @foreach($gallery->slice(0, 12) as $data)
                 <div class="col-md-3">
                     <div class="composite-materials-item mt-2">
                         <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">

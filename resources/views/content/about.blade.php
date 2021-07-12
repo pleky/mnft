@@ -39,7 +39,7 @@
 <!-- why rta -->
 <section class='why-rta container-fluid p-0 mt-5'>
     <div class="title p-2">
-        <h4 class="text-center text-white">Why RTA</h4>
+        <h4 class="text-center text-white">Why RTA ?</h4>
     </div>
 
 

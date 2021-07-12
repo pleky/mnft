@@ -106,9 +106,15 @@
     <script>
       feather.replace()
 
+      function getFile(event){
+        const reader = new FileReader();
+
+          console.log(event.target.files[0])
+        }
+
       $('#contactUs').submit(function(e) {
         e.preventDefault();
-
+        
         var name = $('#name').val();
         var email = $('#email').val();
         var phone = $('#phone').val();
