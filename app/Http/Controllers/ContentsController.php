@@ -94,7 +94,7 @@ class ContentsController extends Controller
             $content->description   = $request->description;
             $content->save();
 
-            if($content) {
+            if($content && isset($request->galleryTitle)) {
                 $i = 0;
                 foreach($request->galleryTitle as $galleryTitles) {
                     $imageNameG = "";
