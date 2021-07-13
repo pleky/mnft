@@ -20,7 +20,24 @@
     </section>
 @endsection
 @push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
+
+        function deleteFunc(e) {
+           swal({
+               title: "Are you sure?",
+               text: "Once deleted, you will not be able to recover this data!",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,
+           }).then((willDelete) => {
+                if(willDelete) {
+                    window.location.href = `${e.dataset.href}`
+                }
+           })
+        }
+
+
         $(function() {
             $('#data_users_side').DataTable({
                 processing: true,

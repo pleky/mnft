@@ -36,7 +36,7 @@ class ContentsController extends Controller
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
                 $update = '<a href="/contents/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
-                $update .= ' <a href="/contents/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                $update .= ' <button onclick="deleteFunc(this)" data-href="/contents/delete/'. $data->id .'" class="btn btn-danger">Delete</button>';
                 return $update;
             })
             ->rawColumns(['action'])

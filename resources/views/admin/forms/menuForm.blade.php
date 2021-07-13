@@ -19,7 +19,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Add Menu</h3>
                         </div>
-                        <form method="{{ $method }}" action="{{ $url }}">
+                        <form id="menu_form" method="{{ $method }}" action="{{ $url }}">
                             <div class="card-body">
                                 {{ csrf_field() }}
                                 <div class="form-group">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-info">Save</button>
+                                <a class="btn btn-info" onclick="return onSave(this)">Save</a>
                                 <a href={{ url('/menu') }} class="btn btn-warning">Back</a>
                             </div>
                         </form>
@@ -59,3 +59,18 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function onSave(e){
+            swal({
+                title: 'Are you sure ?',
+                icon: 'info'
+            }).then(res => {
+                if(res) {
+                    $('#menu_form').submit()
+                }
+            })
+        }
+    </script>
+@endpush

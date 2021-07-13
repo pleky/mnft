@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         element.href.includes("contact")
     );
     let contactEl = document.getElementById("contact-us");
-    console.log(getAnchorEContact);
 
     getAnchorEContact.forEach(function (element) {
         element.addEventListener("click", function (e) {

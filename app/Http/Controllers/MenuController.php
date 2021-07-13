@@ -90,7 +90,7 @@ class MenuController extends Controller
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
                 $update = '<a href="/menu/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
-                $update .= ' <a href="/menu/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                $update .= ' <button data-href="/menu/delete/'. $data->id .'" class="btn btn-danger" data-to-delete="'.$data->id.'" id="btn_delete" onclick="deleteFunc(this)">Delete</button>';
                 return $update;
             })
             ->rawColumns(['action'])

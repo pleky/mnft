@@ -21,7 +21,7 @@
                             <h3 class="card-title">Add Content</h3>
                         </div>
                         <div class="card-body" id='form-container'>
-                            <form method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
+                            <form id='content_form' method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for='menuId'>Select Menu</label>
@@ -74,8 +74,8 @@
                                     @endif
                                 </div>  
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info">Save</button>
-                                    <a href={{ url('/contents') }} class="btn btn-warning">Back</a>
+                                    <a onclick='onSave()' type="submit" class="btn btn-info text-white mr-2">Save</button>
+                                    <a href={{ url('/contents') }} class="btn btn-warning text-white">Back</a>
                                 </div>
                             </form>
                         </div>
@@ -86,4 +86,19 @@
     </section>
 @endsection
 
-<script src="{{ asset('assets/js/index.js') }}"></script>
+@push('scripts')
+    <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function onSave(){
+            swal({
+                title: 'Are you sure ?',
+                icon: 'info'
+            }).then(res => {
+                if(res) {
+                    $('#content_form').submit()
+                }
+            })
+        }
+    </script>
+@endpush
