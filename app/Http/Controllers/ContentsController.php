@@ -186,7 +186,7 @@ class ContentsController extends Controller
             $dataGallery->description   = $request->description;
             $dataGallery->save();
 
-            if($dataGallery) {
+            if($dataGallery && isset($request->galleryTitle)) {
                 $i = 0;
                 foreach($request->galleryID as $galleryIDs) {
 
