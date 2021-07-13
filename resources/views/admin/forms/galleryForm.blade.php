@@ -21,7 +21,7 @@
                             <h3 class="card-title">Gallery</h3>
                         </div>
                         <div class="card-body">
-                            <form method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
+                            <form id="gallery_form" method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="image">Image</label>
@@ -43,7 +43,7 @@
                                     <label for="inactive">Inactive</label><br>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info">Save</button>
+                                    <a onclick="onSave()" class="btn btn-info">Save</a>
                                     <a href={{ url('/galleries') }} class="btn btn-warning">Back</a>
                                 </div>
                             </form>
@@ -54,3 +54,18 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function onSave(){
+            swal({
+                title: 'Are you sure ?',
+                icon: 'info'
+            }).then(res => {
+                if(res) {
+                    $('#gallery_form').submit()
+                }
+            })
+        }
+    </script>
+@endpush

@@ -27,7 +27,7 @@ class GalleriesController extends Controller
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
                 $update = '<a href="/galleries/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
-                $update .= ' <a href="/galleries/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                $update .= ' <button onclick="deleteFunc(this)" data-href="/galleries/delete/'. $data->id .'" class="btn btn-danger">Delete</button>';
                 return $update;
             })
             ->rawColumns(['action'])

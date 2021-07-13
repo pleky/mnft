@@ -21,7 +21,7 @@
                             <h3 class="card-title">Profile</h3>
                         </div>
                         <div class="card-body">
-                            <form method="{{ $method }}" action="{{ $url }}">
+                            <form id="profile_form" method="{{ $method }}" action="{{ $url }}">
                                 {{ csrf_field() }}
                                 <input type="hidden" id="id" name="id" value="{{ $profile->id }}"></input>
                                 <div class="form-group">
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info">Update</button>
+                                    <a onclick="onSave()" type="submit" class="btn btn-info text-white">Update</a>
                                 </div>
                             </form>
                         </div>
@@ -77,3 +77,18 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function onSave(){
+            swal({
+                title: 'Are you sure ?',
+                icon: 'info'
+            }).then(res => {
+                if(res) {
+                    $('#profile_form').submit()
+                }
+            })
+        }
+</script>
+@endpush

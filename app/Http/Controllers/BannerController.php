@@ -30,7 +30,7 @@ class BannerController extends Controller
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
                 $update = '<a href="/banner/edit/'. $data->id .'" class="btn btn-primary">Edit</a>';
-                $update .= ' <a href="/banner/delete/'. $data->id .'" class="btn btn-danger">Delete</a>';
+                $update .= ' <button onclick="deleteFunc(this)" data-href="/banner/delete/'. $data->id .'" class="btn btn-danger">Delete</button>';
                 return $update;
             })
             ->rawColumns(['action'])

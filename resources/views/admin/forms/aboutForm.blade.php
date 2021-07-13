@@ -21,7 +21,7 @@
                             <h3 class="card-title">About</h3>
                         </div>
                         <div class="card-body">
-                            <form method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
+                            <form id="about_form" method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" id="id" name="id" value="{{ $about->id ?? '' }}"></input>
 
@@ -72,7 +72,7 @@
                                 </fieldset>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info">Update</button>
+                                    <a onclick="onSave()" type="submit" class="btn btn-info">Update</a>
                                 </div>
                             </form>
                         </div>
@@ -84,12 +84,23 @@
 @endsection
 
 @push('scripts')
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+
+    function onSave(){
+            swal({
+                title: 'Are you sure ?',
+                icon: 'info'
+            }).then(res => {
+                if(res) {
+                    $('#about_form').submit()
+                }
+            })
+        }
 </script>
 @endpush
 
