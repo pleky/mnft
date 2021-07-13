@@ -11,7 +11,7 @@
                         <tr>
                             <th width="13%">No</th>
                             <th>Name</th>
-                            <th>Slug</th>
+                            <th>Parent</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -38,8 +38,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'slug',
-                        name: 'slug'
+                        data: 'parent',
+                        name: 'parent'
                     },
                     {
                         data: 'status',

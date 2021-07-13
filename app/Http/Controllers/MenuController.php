@@ -85,7 +85,9 @@ class MenuController extends Controller
         //
         DB::statement(DB::raw('set @rownum=0'));
 
-        $data = Menus::select('id', DB::raw("CASE WHEN status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'name', 'slug', DB::raw('@rownum  := @rownum  + 1 AS rownum'))->get();
+        $data = Menus::select('menus.id', DB::raw("CASE WHEN menus.status = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END AS status"), 'menus.name', 'mn_parent.name as parent', DB::raw('@rownum  := @rownum  + 1 AS rownum'))
+                ->leftJoin('menus as mn_parent', 'menus.parent_id', '=' , 'mn_parent.id')
+                ->get();
 
         return Datatables::of($data)
             ->addColumn('action', function ($data) {
@@ -132,14 +134,18 @@ class MenuController extends Controller
             'status' => 'required',
          ]);
         
-        $slug = strtolower($request->name);
-        $slug = str_replace(" ","-",$slug);
-
+        
         try{
             $menu = Menus::find($id);
+            
+            if($request->type) {
+                $slug = strtolower($request->name);
+                $slug = str_replace(" ","-",$slug);
 
+                $menu->slug         = $slug;
+            }
+            
             $menu->name         = $request->name;
-            $menu->slug         = $slug;
             $menu->is_order     = $request->order;
             $menu->parent_id    = $request->type;
             $menu->status       = $request->status;
