@@ -88,6 +88,19 @@ class HomepageController extends Controller
         ]);
     }
 
+    public function detailGallery() {
+
+        $data = $this->menus();
+        $data['gallery'] = GalleryHistory::all();
+
+        return view('content.detail_gallery', [
+            'menu' => $data['menus'],
+            'slider' => $data['sliders'],
+            'profile' => $data['profile'],
+            'gallery' => $data['gallery'],
+        ]);
+    }
+
     public function about() {
 
         $data = $this->menus();

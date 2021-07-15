@@ -9,7 +9,7 @@
             </div>
             <div class="row mt-3">
             @foreach($gallery as $data)
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="composite-materials-item mt-2">
                         <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">
                     </div>

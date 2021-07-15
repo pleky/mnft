@@ -33,7 +33,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="desc">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" value="{{ $gallery->title ?? '' }}" placeholder="Enter Description">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ $gallery->title ?? '' }}" placeholder="Enter Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Descriptions</label>
+                                    <textarea class="ckeditor form-control" name="description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                  
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <span class='d-block'>Status</span>
@@ -56,7 +78,13 @@
 @endsection
 @push('scripts')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
+
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+
         function onSave(){
             swal({
                 title: 'Are you sure ?',
