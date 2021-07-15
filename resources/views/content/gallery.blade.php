@@ -10,10 +10,12 @@
             <div class="row mt-3">
             @foreach($gallery as $data)
                 <div class="col-md-4">
-                    <div class="composite-materials-item mt-2">
-                        <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">
-                    </div>
-                    <p class="fw-bold text-center text-primary-dark">{{ $data->title }}</p>
+                    <a href="/detail-gallery" class="text-decoration-none">
+                        <div class="composite-materials-item">
+                            <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">
+                        </div>
+                        <p class="fw-bold text-center text-primary-dark">{{ $data->title }}</p>
+                    </a>
                 </div>
             @endforeach
             </div>
@@ -22,12 +24,3 @@
     <!-- end Range of Composite Materials -->
 @endsection
 
-
-@push('scripts')
-
-<script src="{{ asset('assets/gallery/img-previewer.min.js') }}"></script>
-<script>
-    const a = new ImgPreviewer('#image-container', { scrollbar: true })
-
-</script>
-@endpush
