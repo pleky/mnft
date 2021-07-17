@@ -33,7 +33,7 @@
             @endforeach    
             </div>
 
-            <a href="{{ url('/gallery') }}" class="w-100 btn btn-danger mt-4 fw-normal">READ MORE</a>
+            <a href="{{ url('/case-studies') }}" class="w-100 btn btn-danger mt-4 fw-normal">READ MORE</a>
         </div>
     </section>
     <!-- end Range of Composite Materials -->
