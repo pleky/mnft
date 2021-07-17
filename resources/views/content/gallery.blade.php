@@ -10,7 +10,7 @@
             <div class="row mt-3">
             @foreach($gallery as $data)
                 <div class="col-md-4">
-                    <a href="/detail-gallery" class="text-decoration-none">
+                    <a href="{{ url('detail-gallery/'.$data->id) }}" class="text-decoration-none">
                         <div class="composite-materials-item">
                             <img class="rounded h-100 w-100" src="{{ url('images/gallery/'.$data->image) }}" alt="">
                         </div>
@@ -19,6 +19,7 @@
                 </div>
             @endforeach
             </div>
+            {{ $gallery->links() }}
         </div>
     </section>
     <!-- end Range of Composite Materials -->

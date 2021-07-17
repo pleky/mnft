@@ -28,7 +28,7 @@ Route::get('/industry', function () {
 });
 
 Route::get('/gallery',  "HomepageController@gallery");
-Route::get('/detail-gallery', "HomepageController@detailGallery");
+Route::get('/detail-gallery/{id}', "HomepageController@detailGallery");
 Route::post('/contact-us','HomepageController@contactUs');
 
 

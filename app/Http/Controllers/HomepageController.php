@@ -78,8 +78,8 @@ class HomepageController extends Controller
     public function gallery() {
 
         $data = $this->menus();
-        $data['gallery'] = GalleryHistory::all();
-
+        $data['gallery'] = GalleryHistory::paginate(1);
+        // dd($data);
         return view('content.gallery', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
@@ -88,10 +88,10 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function detailGallery() {
+    public function detailGallery($id) {
 
         $data = $this->menus();
-        $data['gallery'] = GalleryHistory::all();
+        $data['gallery'] = GalleryHistory::find($id);
 
         return view('content.detail_gallery', [
             'menu' => $data['menus'],

@@ -51,7 +51,8 @@
                                     <label for="inactive">Inactive</label><br>
                                 </div>
                                 <div class="card-footer">
-                                    <a onclick="onSave()" class="btn btn-info text-white">Save</a>
+                                    <a onclick="onSave()" class="btn btn-info text-white" style="cursor: pointer;">Save</a>
+                                    <a href={{ url('/banner') }} class="btn btn-warning text-white">Back</a>
                                 </div>
                             </form>
                         </div>

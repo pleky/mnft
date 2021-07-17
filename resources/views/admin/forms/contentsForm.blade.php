@@ -74,7 +74,7 @@
                                     @endif
                                 </div>  
                                 <div class="card-footer">
-                                    <a onclick='onSave()' type="submit" class="btn btn-info text-white mr-2">Save</button>
+                                    <a onclick='onSave()' type="submit" class="btn btn-info text-white mr-2" style="cursor: pointer;">Save</button>
                                     <a href={{ url('/contents') }} class="btn btn-warning text-white">Back</a>
                                 </div>
                             </form>

@@ -60,15 +60,27 @@ class GalleriesController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
   
-        $imageName = time().'.'.$request->image->extension();  
-
+        $imageName = time().rand().'.'.$request->image->extension();  
         $request->image->move(public_path('images/gallery'), $imageName);
+
+        $photoName_1 = time().rand().'.'.$request->photo_1->extension();  
+        $request->photo_1->move(public_path('images/gallery'), $photoName_1);
+
+        $photoName_2 = time().rand().'.'.$request->photo_2->extension();  
+        $request->photo_2->move(public_path('images/gallery'), $photoName_2);
+
+        $photoName_3 = time().rand().'.'.$request->photo_3->extension();  
+        $request->photo_3->move(public_path('images/gallery'), $photoName_3);
         
         try{
-            $galleryHis          = new GalleryHistory;
-            $galleryHis->title   = $request->title;
+            $galleryHis = new GalleryHistory;
+            $galleryHis->title = $request->title;
+            $galleryHis->description = $request->description;
             $galleryHis->image   = $imageName;
-            $galleryHis->status  = $request->status;
+            $galleryHis->photo_1 = $photoName_1;
+            $galleryHis->photo_2 = $photoName_2;
+            $galleryHis->photo_3 = $photoName_3;
+            $galleryHis->status = $request->status;
             $galleryHis->save();
 
             return redirect('galleries')->with('status',"Insert successfully");
@@ -129,12 +141,49 @@ class GalleriesController extends Controller
                    File::delete($image_path);
                 }
 
-                $imageName = time().'.'.$request->image->extension();  
+                $imageName = time().rand().'.'.$request->image->extension();  
                 $request->image->move(public_path('images/gallery'), $imageName);
-                $galleryHis->image     = $imageName;
+                $galleryHis->image = $imageName;
+            }
+
+            if(isset($request->photo_1)) {
+                $photo_1_path = public_path('images/gallery') . '/' . $galleryHis->photo_1;
+                
+                if(File::exists($photo_1_path)) {
+                   File::delete($photo_1_path);
+                }
+
+                $photoName_1 = time().rand().'.'.$request->photo_1->extension();  
+                $request->photo_1->move(public_path('images/gallery'), $photoName_1);
+                $galleryHis->photo_1 = $photoName_1;
+            }
+
+            if(isset($request->photo_2)) {
+                $photo_2_path = public_path('images/gallery') . '/' . $galleryHis->photo_2;
+                
+                if(File::exists($photo_2_path)) {
+                   File::delete($photo_2_path);
+                }
+
+                $photoName_2 = time().rand().'.'.$request->photo_2->extension();  
+                $request->photo_2->move(public_path('images/gallery'), $photoName_2);
+                $galleryHis->photo_2 = $photoName_2;
+            }
+
+            if(isset($request->photo_3)) {
+                $photo_3_path = public_path('images/gallery') . '/' . $galleryHis->photo_3;
+                
+                if(File::exists($photo_3_path)) {
+                   File::delete($photo_3_path);
+                }
+
+                $photoName_3 = time().'.'.$request->photo_3->extension();  
+                $request->photo_3->move(public_path('images/gallery'), $photoName_3);
+                $galleryHis->photo_3     = $photoName_3;
             }
 
             $galleryHis->title         = $request->title;
+            $galleryHis->description   = $request->description;
             $galleryHis->status        = $request->status;
             $galleryHis->save();
 
@@ -157,9 +206,21 @@ class GalleriesController extends Controller
         try{
             $galleryHis = GalleryHistory::find($id);
             $image_path = public_path('images/gallery') . '/' . $galleryHis->image;
+            $photo_1_path = public_path('images/gallery') . '/' . $galleryHis->photo_1;
+            $photo_2_path = public_path('images/gallery') . '/' . $galleryHis->photo_2;
+            $photo_3_path = public_path('images/gallery') . '/' . $galleryHis->photo_3;
                 
             if(File::exists($image_path)) {
                 File::delete($image_path);
+            }
+            if(File::exists($photo_1_path)) {
+                File::delete($photo_1_path);
+            }
+            if(File::exists($photo_2_path)) {
+                File::delete($photo_2_path);
+            }
+            if(File::exists($photo_3_path)) {
+                File::delete($photo_3_path);
             }
             $galleryHis->delete();
 

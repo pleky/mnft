@@ -72,7 +72,7 @@
                                 </fieldset>
 
                                 <div class="card-footer">
-                                    <a onclick="onSave()" type="submit" class="btn btn-info">Update</a>
+                                    <a onclick="onSave()" type="submit" class="btn btn-info" style="cursor: pointer;">Update</a>
                                 </div>
                             </form>
                         </div>

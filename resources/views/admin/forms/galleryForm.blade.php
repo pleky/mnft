@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gallery</h1>
+            <h1>Case Studies</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="card card-secondary">
                         <div class="card-header">
-                            <h3 class="card-title">Gallery</h3>
+                            <h3 class="card-title">Case Studies</h3>
                         </div>
                         <div class="card-body">
                             <form id="gallery_form" method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
@@ -37,24 +37,33 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Descriptions</label>
-                                    <textarea class="ckeditor form-control" name="description"></textarea>
+                                    <textarea class="ckeditor form-control" name="description">{{ $gallery->description ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <input type="file" class="form-control" id="photo_1" name="photo_1"  placeholder="Enter name">
                                     <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                    @if(isset($gallery->photo_1) && $gallery->photo_1)
+                                        <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                    @endif
                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <input type="file" class="form-control" id="photo_2" name="photo_2"  placeholder="Enter name">
                                     <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                    @if(isset($gallery->photo_2) && $gallery->photo_2)
+                                        <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                    @endif
                                   
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
+                                    <input type="file" class="form-control" id="photo_3" name="photo_3"  placeholder="Enter name">
                                     <p><em style="font-size:13px;">*recomended image dimension 376px : 125px</em></p>
+                                    @if(isset($gallery->photo_3) && $gallery->photo_3)
+                                        <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                    @endif
                                    
                                 </div>
                                 <div class="form-group">
@@ -65,8 +74,8 @@
                                     <label for="inactive">Inactive</label><br>
                                 </div>
                                 <div class="card-footer">
-                                    <a onclick="onSave()" class="btn btn-info">Save</a>
-                                    <a href={{ url('/galleries') }} class="btn btn-warning">Back</a>
+                                    <a onclick="onSave()" class="btn btn-info text-white" style="cursor: pointer;">Save</a>
+                                    <a href={{ url('/galleries') }} class="btn btn-warning text-white">Back</a>
                                 </div>
                             </form>
                         </div>
