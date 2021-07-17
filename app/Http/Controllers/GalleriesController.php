@@ -59,27 +59,34 @@ class GalleriesController extends Controller
             'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-  
+        
         $imageName = time().rand().'.'.$request->image->extension();  
         $request->image->move(public_path('images/gallery'), $imageName);
-
-        $photoName_1 = time().rand().'.'.$request->photo_1->extension();  
-        $request->photo_1->move(public_path('images/gallery'), $photoName_1);
-
-        $photoName_2 = time().rand().'.'.$request->photo_2->extension();  
-        $request->photo_2->move(public_path('images/gallery'), $photoName_2);
-
-        $photoName_3 = time().rand().'.'.$request->photo_3->extension();  
-        $request->photo_3->move(public_path('images/gallery'), $photoName_3);
         
         try{
             $galleryHis = new GalleryHistory;
+
+            if($request->photo_1){
+                $photoName_1 = time().rand().'.'.$request->photo_1->extension();  
+                $request->photo_1->move(public_path('images/gallery'), $photoName_1);
+                $galleryHis->photo_1 = $photoName_1;
+            }
+    
+            if($request->photo_2){
+                $photoName_2 = time().rand().'.'.$request->photo_2->extension();  
+                $request->photo_2->move(public_path('images/gallery'), $photoName_2);
+                $galleryHis->photo_2 = $photoName_2;
+            }
+            
+            if($request->photo_3){
+                $photoName_3 = time().rand().'.'.$request->photo_3->extension();  
+                $request->photo_3->move(public_path('images/gallery'), $photoName_3);
+                $galleryHis->photo_3 = $photoName_3;
+            }
+
             $galleryHis->title = $request->title;
             $galleryHis->description = $request->description;
             $galleryHis->image   = $imageName;
-            $galleryHis->photo_1 = $photoName_1;
-            $galleryHis->photo_2 = $photoName_2;
-            $galleryHis->photo_3 = $photoName_3;
             $galleryHis->status = $request->status;
             $galleryHis->save();
 

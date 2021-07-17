@@ -18,7 +18,7 @@
     <section class="composite-materials bg-dark-secondary mt-5">
         <div class="container">
             <div class="heading">
-            <h4 class="text-primary-dark fw-light">Our Products</h4>
+            <h4 class="text-primary-dark fw-light">Case Studies</h4>
             </div>
             <div class="row mt-3">
             @foreach($gallery->slice(0, 9) as $data)
@@ -33,7 +33,7 @@
             @endforeach    
             </div>
 
-            <a href="{{ url('/gallery') }}" class="w-100 btn btn-danger mt-4 fw-normal">READ ABOUT OUR PRODUCTS</a>
+            <a href="{{ url('/gallery') }}" class="w-100 btn btn-danger mt-4 fw-normal">READ MORE</a>
         </div>
     </section>
     <!-- end Range of Composite Materials -->
