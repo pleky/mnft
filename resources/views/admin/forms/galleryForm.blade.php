@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" class="form-control" id="image" name="image"  placeholder="Enter name">
-                                    <p><em style="font-size:13px;">*recomended image dimension 100px : 100px</em></p>
+                                    <p><em style="font-size:13px;">*recomended image dimension 1180px : 400px</em></p>
                                     @if(isset($gallery->image) && $gallery->image)
                                         <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
                                     @endif
