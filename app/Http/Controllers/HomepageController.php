@@ -78,8 +78,8 @@ class HomepageController extends Controller
     public function gallery() {
 
         $data = $this->menus();
-        $data['gallery'] = GalleryHistory::paginate(1);
-        // dd($data);
+        $data['gallery'] = GalleryHistory::paginate(12);
+
         return view('content.gallery', [
             'menu' => $data['menus'],
             'slider' => $data['sliders'],
