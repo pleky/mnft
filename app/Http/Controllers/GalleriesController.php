@@ -87,7 +87,7 @@ class GalleriesController extends Controller
             $galleryHis->title = $request->title;
             $galleryHis->description = $request->description;
             $galleryHis->image   = $imageName;
-            $galleryHis->status = $request->status;
+            $galleryHis->status = $request->status ?? 0;
             $galleryHis->save();
 
             return redirect('galleries')->with('status',"Insert successfully");
@@ -191,7 +191,7 @@ class GalleriesController extends Controller
 
             $galleryHis->title         = $request->title;
             $galleryHis->description   = $request->description;
-            $galleryHis->status        = $request->status;
+            $galleryHis->status        = $request->status ?? 0;
             $galleryHis->save();
 
             return redirect('galleries')->with('status',"Insert successfully");
