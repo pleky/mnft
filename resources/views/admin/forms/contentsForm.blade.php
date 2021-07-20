@@ -68,7 +68,7 @@
                                                     <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
                                                 @endif
                                             </div>
-                                            <button onclick="removeGallery(this)" class="btn btn-danger" type="button">Remove</button>
+                                            <button onclick="removeGallery(this, {{ $gallery[$i]['id'] ?? 0 }})" class="btn btn-danger" type="button">Remove</button>
                                         </fieldset>
                                         @endfor
                                     @endif
@@ -106,7 +106,7 @@
                 if(willDelete) {
                     galleryContainer.removeChild(e);
                     $.ajax({
-                        url: '/contents/delete/gallery/',
+                        url: '/contents/delete/gallery/'+ idne,
                         type: 'GET',
                         data: {
                             _token: "{{ csrf_token() }}",
