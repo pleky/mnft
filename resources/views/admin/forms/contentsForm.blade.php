@@ -44,8 +44,8 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" cols="50" rows="10">{{ $contents->description ?? '' }}</textarea>
+                                    <label for="address">Descriptions</label>
+                                    <textarea class="ckeditor form-control" name="description">{{ $contents->description ?? '' }}</textarea>
                                 </div>
                                 <div id ="galleryContainer">
                                     <div class="form-group">
@@ -53,7 +53,7 @@
                                     </div>
                                     @if($act == 'edit' && $gallery)
                                         @for($i=0; $i < count($gallery); $i++)
-                                        <fieldset class="form-group border p-3">
+                                        <fieldset id="fieldset" class="form-group border p-3">
                                             <legend class="w-auto px-2">Gallery</legend>
                                             <div class="form-group">
                                                 <label for="galleryTitle">Title</label>
@@ -68,7 +68,7 @@
                                                     <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
                                                 @endif
                                             </div>
-                                            <button class="btn btn-danger" type="button">Remove</button>
+                                            <button onclick="removeGallery(this)" class="btn btn-danger" type="button">Remove</button>
                                         </fieldset>
                                         @endfor
                                     @endif
@@ -89,7 +89,36 @@
 @push('scripts')
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
+
+        const removeElement = (e) => {
+            const galleryContainer = document.getElementById("galleryContainer");
+
+            swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            }).then((willDelete) => {
+                    if(willDelete) {
+                        galleryContainer.removeChild(e);
+                    }
+            })
+
+        };
+
+        function removeGallery(e){
+            const field = document.getElementById("fieldset")
+            removeElement(field)
+        }
+
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+
+
         function onSave(){
             swal({
                 title: 'Are you sure ?',

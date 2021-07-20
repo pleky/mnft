@@ -109,32 +109,32 @@
         <div class="heading">
             <h4 class="text-primary-dark fw-light">Core Value</h4>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row gy-2">
+            <div class="col-md">
                 <div class="core-value-item position-relative" id='core-value-item'>
                     <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?trust" alt="">
                     <span class="text-white text-wrapper">{{ $core[0]->title }}</span>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-md">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?improvement" alt="">
                   <span class="text-white text-wrapper">{{ $core[1]->title }}</span>
               </div>
           </div>
-          <div class="col">
+          <div class="col-md">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?mindset" alt="">
                   <span class="text-white text-wrapper">{{ $core[2]->title }}</span>
               </div>
           </div>
-          <div class="col">
+          <div class="col-md">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50?sustainable" alt="">
                   <span class="text-white text-wrapper">{{ $core[3]->title }}</span>
               </div>
           </div>
-          <div class="col">
+          <div class="col-md">
               <div class="core-value-item position-relative" id='core-value-item'>
                   <img class="rounded h-100 w-100" src="https://source.unsplash.com/random/200x50">
                   <span class="text-white text-wrapper">{{ $core[4]->title }}</span>
