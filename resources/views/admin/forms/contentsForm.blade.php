@@ -120,6 +120,8 @@
                             title: "Sukses",
                             text: "Data Anda Berhasil Dihapus",
                             icon: "success",
+                            }).then((r) => {
+                                window.location.reload()
                             })
                         }               
                     });
