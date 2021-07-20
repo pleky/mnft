@@ -5,7 +5,7 @@
             <h4 class="text-white fw-light">Contact Us</h4>
           </div>
 
-          <div class="row mt-5">
+          <div class="row gy-3 mt-5">
             <div class="col-md-4">
               <form id="contactUs" enctype="multipart/form-data">
                 <div class="mb-3">
