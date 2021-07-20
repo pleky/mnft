@@ -93,6 +93,7 @@
     <script>
 
         const removeElement = (e) => {
+            console.log(e);
             const galleryContainer = document.getElementById("galleryContainer");
 
             swal({
@@ -102,11 +103,24 @@
             buttons: true,
             dangerMode: true,
             }).then((willDelete) => {
-                    if(willDelete) {
-                        galleryContainer.removeChild(e);
-                    }
+                if(willDelete) {
+                    galleryContainer.removeChild(e);
+                    $.ajax({
+                        url: '/contents/delete/gallery/',
+                        type: 'GET',
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                        },
+                        success: function(msg) {
+                            swal({
+                            title: "Sukses",
+                            text: "Data Anda Berhasil Dihapus",
+                            icon: "success",
+                            })
+                        }               
+                    });
+                }
             })
-
         };
 
         function removeGallery(e){

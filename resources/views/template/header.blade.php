@@ -14,7 +14,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/gallery/index.css') }}" />
-    <link rel="icon" href="{{ asset('assets/images/logo.jpg') }}" />
+    <link rel="icon" href="{{ asset('assets/images/icon.jpg') }}" />
 
     <title>Raja Teknik Aditama</title>
 </head>

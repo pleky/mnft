@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-md-8 product-desc">
-            <p>{{ $content->description }}</p>
+            {!! $content->description !!}
         </div>
         <div class="col-md-4">
             <div class="product-img">

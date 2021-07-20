@@ -273,4 +273,23 @@ class ContentsController extends Controller
             return redirect('contents')->with('failed',"operation failed");
         }
     }
+
+    public function destroyGallery($id)
+    {
+        //
+        try{
+            $dataGa = Galleries::find($id);
+            $image_path = public_path('images') . '/' . $dataGa->image;
+                
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $dataGa->delete();
+
+            return true;
+        }
+        catch(Exception $e){
+            return false;
+        }
+    }
 }

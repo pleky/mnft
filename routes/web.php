@@ -59,6 +59,7 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/contents/edit/{id}", "ContentsController@edit");
     Route::post("/contents/update/{id}", "ContentsController@update");
     Route::get("/contents/delete/{id}", "ContentsController@destroy");
+    Route::get("/contents/delete/gallery/{id}", "ContentsController@destroyGallery");
 
     Route::get("/banner", "BannerController@index");
     Route::get("/banner/all", "BannerController@all");
