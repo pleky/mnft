@@ -1,15 +1,5 @@
 @use '../utilities/' as *;
 
-.product {
-    &-img {
-        width: 100%;
-        height: 350px;
-        padding: 7px;
-        background-color: $bg-dark-secondary;
-        border-radius: 5px;
-    }
-}
-
 .mision {
     padding-top: 2em;
     padding-bottom: 2em;

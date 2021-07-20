@@ -87,13 +87,17 @@
 @endsection
 
 @push('scripts')
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    
     <script>
 
-        const removeElement = (e) => {
-            console.log(e);
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+
+        const removeElement = (e, id) => {
             const galleryContainer = document.getElementById("galleryContainer");
 
             swal({
@@ -106,7 +110,7 @@
                 if(willDelete) {
                     galleryContainer.removeChild(e);
                     $.ajax({
-                        url: '/contents/delete/gallery/'+ idne,
+                        url: '/contents/delete/gallery/'+ id,
                         type: 'GET',
                         data: {
                             _token: "{{ csrf_token() }}",
@@ -123,15 +127,10 @@
             })
         };
 
-        function removeGallery(e){
+        function removeGallery(e, id){
             const field = document.getElementById("fieldset")
-            removeElement(field)
+            removeElement(field, id)
         }
-
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-
 
         function onSave(){
             swal({

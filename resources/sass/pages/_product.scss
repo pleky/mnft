@@ -4,7 +4,7 @@
 .product {
     &-img {
         width: 100%;
-        height: 350px;
+      
         padding: 7px;
         background-color: $bg-dark-secondary;
     }
@@ -15,7 +15,6 @@
     padding-bottom: 2em;
     &-item {
         width: 100%;
-        height: 170px;
         background-color: $bg-dark-secondary;
     }
 }
