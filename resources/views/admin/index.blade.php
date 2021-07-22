@@ -98,6 +98,13 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="{{ url('/change-password') }}" class="nav-link">
+              <p>
+                Change Password
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('/logout') }}" class="nav-link">
               <!-- <i class="nav-icon far fa-image"></i> -->
               <p>

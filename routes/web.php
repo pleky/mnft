@@ -44,6 +44,9 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/admin", "AdminController@index");
     Route::get("/logout", "AdminController@logout");
 
+    Route::get('/change-password', 'ChangePasswordController@index');
+    Route::post('/change-password', 'ChangePasswordController@store')->name('change.password');
+
     Route::get("/menu", "MenuController@index");
     Route::get("/menu/add", "MenuController@create")->name("menu.add");
     Route::post("/menu/add", "MenuController@store");

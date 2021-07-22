@@ -94,18 +94,17 @@ class ContentsController extends Controller
             $content->description   = $request->description;
             $content->save();
 
-            if($content && isset($request->galleryTitle)) {
+            if($content && isset($request->galleryImage)) {
                 $i = 0;
-                foreach($request->galleryTitle as $galleryTitles) {
+                foreach($request->galleryImage as $galleryImages) {
                     $imageNameG = "";
-                    $images = $request['galleryImage'][$i];
 
-                    $imageNameG = time() . rand() . '.' . $images->extension();  
-                    $images->move(public_path('images'), $imageNameG);
+                    $imageNameG = time() . rand() . '.' . $galleryImages->extension();  
+                    $galleryImages->move(public_path('images'), $imageNameG);
                     
                     $gallery = new Galleries;
                     $gallery->content_id    = $content->id;
-                    $gallery->title         = $galleryTitles;
+                    $gallery->is_order      = $request->is_order;
                     $gallery->image         = $imageNameG;
                     $gallery->save();
 
@@ -186,7 +185,7 @@ class ContentsController extends Controller
             $dataGallery->description   = $request->description;
             $dataGallery->save();
 
-            if($dataGallery && isset($request->galleryTitle)) {
+            if($dataGallery && isset($request->galleryID)) {
                 $i = 0;
                 foreach($request->galleryID as $galleryIDs) {
 
@@ -208,7 +207,7 @@ class ContentsController extends Controller
                             $dataGa->image   = $imageNameW;
                         }
 
-                        $dataGa->title    = $request['galleryTitle'][$i];
+                        $dataGa->is_order    = $request['galleryOrder'][$i];
                         $dataGa->save();
                     } else {
                         $contentGa = new Galleries;
@@ -220,7 +219,7 @@ class ContentsController extends Controller
                         }
 
                         $contentGa->content_id    = $id;
-                        $contentGa->title    = $request['galleryTitle'][$i];
+                        $contentGa->is_order    = $request['galleryOrder'][$i];
                         $contentGa->save();
                     }
 

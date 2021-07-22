@@ -22,6 +22,7 @@ class AdminController extends Controller
         $data = Users::where('email',$email)->first();
         if($data){
             if(Hash::check($password,$data->password)){
+                Session::put('id',$data->id);
                 Session::put('name',$data->name);
                 Session::put('email',$data->email);
                 Session::put('login',TRUE);

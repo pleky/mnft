@@ -10,7 +10,7 @@ class Galleries extends Model
     protected $table = 'galleries';
     protected $fillable = [
         'content_id',
-        'title',
+        'is_order',
         'image',
         'created_at',
         'updated_at'

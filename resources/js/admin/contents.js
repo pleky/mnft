@@ -15,7 +15,7 @@ const addGallery = () => {
     let formGroupText = document.createElement("div");
     let formGroupImage = document.createElement("div");
     let labelText = document.createElement("label");
-    let labelTextNode = document.createTextNode("Title");
+    let labelTextNode = document.createTextNode("Order");
     let labelImage = document.createElement("label");
     let labelImageNode = document.createTextNode("Image");
     let buttonRemove = document.createElement("button");
@@ -41,10 +41,11 @@ const addGallery = () => {
     inputID.type = "hidden";
     inputID.setAttribute("name", "galleryID[]");
 
+    inputText.type = "number";
     inputText.setAttribute("class", "form-control");
-    inputText.setAttribute("id", "galleryTitle");
-    inputText.setAttribute("name", "galleryTitle[]");
-    labelText.setAttribute("for", "galleryTitle");
+    inputText.setAttribute("id", "galleryOrder");
+    inputText.setAttribute("name", "galleryOrder[]");
+    labelText.setAttribute("for", "galleryOrder");
     formGroupText.setAttribute("class", "form-group");
     labelText.appendChild(labelTextNode);
     formGroupText.appendChild(labelText);

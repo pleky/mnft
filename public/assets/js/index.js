@@ -3129,7 +3129,7 @@ var addGallery = function addGallery() {
   var formGroupText = document.createElement("div");
   var formGroupImage = document.createElement("div");
   var labelText = document.createElement("label");
-  var labelTextNode = document.createTextNode("Title");
+  var labelTextNode = document.createTextNode("Order");
   var labelImage = document.createElement("label");
   var labelImageNode = document.createTextNode("Image");
   var buttonRemove = document.createElement("button");
@@ -3149,10 +3149,11 @@ var addGallery = function addGallery() {
 
   inputID.type = "hidden";
   inputID.setAttribute("name", "galleryID[]");
+  inputText.type = "number";
   inputText.setAttribute("class", "form-control");
-  inputText.setAttribute("id", "galleryTitle");
-  inputText.setAttribute("name", "galleryTitle[]");
-  labelText.setAttribute("for", "galleryTitle");
+  inputText.setAttribute("id", "galleryOrder");
+  inputText.setAttribute("name", "galleryOrder[]");
+  labelText.setAttribute("for", "galleryOrder");
   formGroupText.setAttribute("class", "form-group");
   labelText.appendChild(labelTextNode);
   formGroupText.appendChild(labelText);

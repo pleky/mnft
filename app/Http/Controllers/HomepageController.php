@@ -38,7 +38,7 @@ class HomepageController extends Controller
                             ->where('mn.slug', $slug)
                             ->first();
 
-        $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->get();
+        $data['gallery'] = Galleries::where('content_id', $data['content']['id'])->orderBy('is_order', 'asc')->get();
 
         $view = "content.product";
         if($slug == 'about-us') { 

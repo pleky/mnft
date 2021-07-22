@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="@yield('title', 'PT Raja Teknik Aditama (RTA)')">
+    <meta property="og:title" content="@yield('title', 'PT Raja Teknik Aditama - Custom Made Parts Specialist')">
     <meta property="og:type" content="website">
     <meta property="og:description" content="@yield('meta-description', 'PT Raja Teknik Aditama specializes in custom-made parts, engineering products and spare&nbsp; parts.')">
     <meta property="og:site_name" content="PT Raja Teknik Aditama (RTA)">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/gallery/index.css') }}" />
     <link rel="icon" href="{{ asset('assets/images/icon.jpg') }}" />
 
-    <title>Raja Teknik Aditama</title>
+    <title>PT Raja Teknik Aditama - Custom Made Parts Specialist</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top" id='navbar_top'>

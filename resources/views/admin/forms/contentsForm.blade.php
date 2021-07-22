@@ -56,8 +56,8 @@
                                         <fieldset id="fieldset" class="form-group border p-3">
                                             <legend class="w-auto px-2">Gallery</legend>
                                             <div class="form-group">
-                                                <label for="galleryTitle">Title</label>
-                                                <input class="form-control" id="galleryTitle" name="galleryTitle[{{ $i }}]" value="{{ $gallery[$i]['title'] ?? '' }}">
+                                                <label for="galleryOrder">Order</label>
+                                                <input type="number" class="form-control" id="galleryOrder" name="galleryOrder[{{ $i }}]" value="{{ $gallery[$i]['is_order'] ?? '' }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="galleryImage">Image</label>
