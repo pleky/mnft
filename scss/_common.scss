@@ -236,7 +236,23 @@ body {
         overflow: hidden;
 
     }
+
+
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .header {
+    padding: 1rem 4rem;
+  }
 
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
@@ -263,6 +279,17 @@ body {
     .dropdown-menu>li:hover>.submenu {
         display: block;
     }
+
+
+}
+
+.bc {
+    padding-left: 4rem;
+}
+
+.bc-home {
+    width: 25px;
+    height: 25px;
 }
 
 /* ============ desktop view .end// ============ */
