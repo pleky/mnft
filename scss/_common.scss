@@ -127,7 +127,7 @@ body {
 .second-nav {
     white-space: nowrap;
     margin-bottom: 1rem;
-    
+
 
     .second-nav-item {
         &:hover {
@@ -242,17 +242,17 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+}
 
-  .header {
-    padding: 1rem 4rem;
-  }
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
 
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
@@ -278,6 +278,10 @@ body {
 
     .dropdown-menu>li:hover>.submenu {
         display: block;
+    }
+
+    .header {
+        padding: 1rem 4rem;
     }
 
 
