@@ -24,6 +24,8 @@ class HomepageController extends Controller
 
         return view('content.homepage', [
             'menu' => $data['menus'],
+            'menu_new' => $data['menus_new'],
+            'menu_pop' => $data['menus_new'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'gallery' => $data['gallery']
@@ -57,6 +59,7 @@ class HomepageController extends Controller
     function menus() {
         $menus = Menus::where('status', 1)->whereNull('parent_id')->orderBy('is_order', 'asc')->get();
         $submenus = Menus::where('status', 1)->whereNotNull('parent_id')->orderBy('is_order', 'asc')->get();
+        $menus_new = Menus::where('status', 2)->whereNull('parent_id')->orderBy('is_order', 'asc')->get();
 
         foreach($menus as $menu) {
             $submenu = [];
@@ -69,6 +72,7 @@ class HomepageController extends Controller
         }
         
         $data['menus']   = $menus;
+        $data['menus_new'] = $menus_new;
         $data['sliders'] = Sliders::where('status', 1)->get();
         $data['profile'] = Profile::first();
 

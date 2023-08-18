@@ -25,7 +25,7 @@
 <!-- end slider -->
 
 <!-- second nav -->
-<section class="p-2 d-md-block second-nav">
+{{-- <section class="p-2 d-md-block second-nav">
     <div class="container content-wrapper">
         <div class="d-flex flex-column justify-content-center align-items-center icon-wrapper">
             <i data-feather="mail"></i>
@@ -40,5 +40,5 @@
             <span class='text-white'>contact us</span>
         </a>
     </div>
-</section>
+</section> --}}
 <!-- end second nav -->

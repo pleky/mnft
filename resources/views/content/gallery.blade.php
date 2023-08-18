@@ -5,7 +5,7 @@
     <section class="composite-materials bg-dark-secondary mt-5" id="image-container">
         <div class="container">
             <div class="heading">
-            <h4 class="text-primary-dark fw-light">Case Studies</h4>
+            <h4 class="text-primary-dark fw-light">Project References</h4>
             </div>
             <div class="row mt-3">
             @foreach($gallery as $data)

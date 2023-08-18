@@ -27,7 +27,7 @@ Route::get('/industry', function () {
     return view('content.industry');
 });
 
-Route::get('/case-studies',  "HomepageController@gallery");
+Route::get('/project-references',  "HomepageController@gallery");
 Route::get('/detail-gallery/{id}', "HomepageController@detailGallery");
 Route::post('/contact-us','HomepageController@contactUs');
 

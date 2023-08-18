@@ -38,7 +38,7 @@
                                 @endif
                                 <div class="form-group">
                                     <label for="name">Order</label>
-                                    <input type="text" class="form-control" id="order" name="order" value="{{ $menu->is_order ?? '' }}" placeholder="Enter Order">
+                                    <input type="number" class="form-control" id="order" name="order" value="{{ $menu->is_order ?? '' }}" placeholder="Enter Order">
                                 </div>
                                 <div class="form-group">
                                     <label class='d-block'>Status</label>

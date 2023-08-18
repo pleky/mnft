@@ -51,6 +51,7 @@ class MenuController extends Controller
          ]);
         
         $slug = strtolower($request->name);
+        $slug = str_replace("/","or",$slug);
         $slug = str_replace(" ","-",$slug);
 
         try{
@@ -140,6 +141,7 @@ class MenuController extends Controller
             
             if($request->type) {
                 $slug = strtolower($request->name);
+                $slug = str_replace("/","or",$slug);
                 $slug = str_replace(" ","-",$slug);
 
                 $menu->slug         = $slug;

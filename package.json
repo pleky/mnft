@@ -10,9 +10,9 @@
     "dependencies": {
         "@popperjs/core": "^2.9.2",
         "animate.css": "^4.1.1",
-        "bootstrap": "^5.0.0",
-        "bootstrap-icons": "^1.4.1",
-        "jquery": "^3.6.0",
+        "bootstrap": "^5.3.0",
+        "bootstrap-icons": "^1.10.5",
+        "jquery": "^3.7.0",
         "popper.js": "^1.16.1"
     },
     "devDependencies": {
@@ -23,6 +23,8 @@
         "postcss": "^8.2.14",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.32.12",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^11.0.1",
+        "@parcel/transformer-sass": "^2.9.3",
+        "parcel": "^2.9.3"
     }
 }

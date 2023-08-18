@@ -19,8 +19,8 @@
     <title>PT Raja Teknik Aditama - Custom Made Parts Specialist</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white fixed-top" id='navbar_top'>
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white sticky-top header">
+     <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,88 @@
     </div>
     <!-- container-fluid.// -->
   </nav>
+  <section class="container-fluid second-nav overflow-x-auto text-center fw-semibold no-scrollbar">
+    @foreach($menu_new as $menu_new)
+      <span id="second-nav-item" class="second-nav-item">{{ $menu_new->name }}</span>
+    @endforeach
+  </section>
+
+  @foreach($menu_pop as $menus)
+  <section class="second-nav-panel p-4 {{ $menus->slug }}" id="second-nav-panel">
+    <div class="container">
+        <a href="/industrial" class="fw-bold mb-4 d-block">View All {{ $menus->name }}</a>
+        <div class="second-nav-content">
+          <ul class="list">
+            <li id="menu" class="menu">Industrial Belts</li>
+            <li id="menu" class="menu">Industrial Belts</li>
+            <li id="menu" class="menu">Industrial Belts</li>
+            <li id="menu" class="menu">Industrial Belts</li>
+            <li id="menu" class="menu">Industrial Belts</li>
+          </ul>
+
+          <div class="image-grid-container no-scrollbar">
+
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+  </section>
+  @endforeach
 
   <div class='w-100 tt'></div>
 
