@@ -101,6 +101,7 @@ body {
     }
 
     li {
+        border-bottom: 1px solid white;
         padding-bottom: 10px;
         color: White;
     }
@@ -121,7 +122,6 @@ body {
 
 
     .second-nav-item {
-        font-size: 12px;
         &:hover {
             text-decoration: underline;
             color: #0041f3;
@@ -138,6 +138,10 @@ body {
         padding-right: 8px;
         border-left: 1px solid black;
     }
+}
+
+.text-muted {
+    color: #6c757d !important;
 }
 
 .typeofpart {
@@ -192,7 +196,6 @@ body {
                 border-radius: 8px;
             }
 
-            padding: 0 1rem;
             cursor: pointer;
 
         }
@@ -200,15 +203,12 @@ body {
 
 
     .second-nav-content {
-        display: flex;
-        flex-direction: row;
-        gap: 10rem;
-
+       
     }
 
     .image-grid-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
         max-height: 400px;
         overflow-y: auto;
@@ -276,6 +276,69 @@ body {
         padding: 1rem 4rem;
     }
 
+    .second-nav-panel {
+        background-color: #d9d9d9;
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        visibility: hidden;
+
+        .list {
+            padding: 0;
+            list-style: none;
+
+            .menu {
+                &::after {
+                    content: '\203A';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    font-size: 1.5rem;
+                    margin-left: 2rem;
+                }
+
+                &:hover {
+                    background-color: #8ea8ed;
+                    border-radius: 8px;
+                }
+
+                padding: 0 1rem;
+                cursor: pointer;
+
+            }
+        }
+
+
+        .second-nav-content {
+            display: flex;
+            flex-direction: row;
+            gap: 10rem;
+
+        }
+
+        .image-grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .grid-item {
+            min-width: 260px;
+            display: flex;
+            gap: 1rem;
+            padding: 16px;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 140px;
+            height: 80px;
+            overflow: hidden;
+
+        }
+    }
+
 
 }
 
@@ -298,5 +361,3 @@ body {
         margin-bottom: .5rem;
     }
 }
-
-/* ============ small devices .end// ============ */

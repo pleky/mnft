@@ -49,6 +49,8 @@ class HomepageController extends Controller
 
         return view($view, [
             'menu' => $data['menus'],
+            'menu_new' => $data['menus_new'],
+            'menu_pop' => $data['menus_new'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'content' => $data['content'],
@@ -59,7 +61,9 @@ class HomepageController extends Controller
     function menus() {
         $menus = Menus::where('status', 1)->whereNull('parent_id')->orderBy('is_order', 'asc')->get();
         $submenus = Menus::where('status', 1)->whereNotNull('parent_id')->orderBy('is_order', 'asc')->get();
+
         $menus_new = Menus::where('status', 2)->whereNull('parent_id')->orderBy('is_order', 'asc')->get();
+        $submenus_new = Menus::where('status', 2)->whereNotNull('parent_id')->orderBy('is_order', 'asc')->get();
 
         foreach($menus as $menu) {
             $submenu = [];
@@ -70,6 +74,27 @@ class HomepageController extends Controller
                 }
             }
         }
+
+        foreach($menus_new as $menu_new) {
+            
+            $submenu_new = [];
+            foreach($submenus_new as $key => $subs){
+                if($menu_new['id'] == $subs['parent_id']){
+                    $submenu_new[] = $subs;
+                    $menu_new['submenu_new'] = $submenu_new;
+                }
+
+                $subsubmenu_new = [];
+                $coba = $menu_new['submenu_new'];
+                foreach($submenus_new as $submen){
+                    if($subs['id'] == $submen['parent_id']){
+                        $subsubmenu_new[] = $submen;
+                        $coba[$key]['subsubmenu_new'] = $subsubmenu_new;
+                    }
+                }
+            }
+        }
+        
         
         $data['menus']   = $menus;
         $data['menus_new'] = $menus_new;
@@ -86,6 +111,8 @@ class HomepageController extends Controller
 
         return view('content.gallery', [
             'menu' => $data['menus'],
+            'menu_new' => $data['menus_new'],
+            'menu_pop' => $data['menus_new'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'gallery' => $data['gallery'],
@@ -99,6 +126,8 @@ class HomepageController extends Controller
 
         return view('content.detail_gallery', [
             'menu' => $data['menus'],
+            'menu_new' => $data['menus_new'],
+            'menu_pop' => $data['menus_new'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'gallery' => $data['gallery'],
@@ -114,6 +143,8 @@ class HomepageController extends Controller
 
         return view('content.about', [
             'menu' => $data['menus'],
+            'menu_new' => $data['menus_new'],
+            'menu_pop' => $data['menus_new'],
             'slider' => $data['sliders'],
             'profile' => $data['profile'],
             'about' => $data['about'],

@@ -12125,6 +12125,7 @@ body {
   padding-left: 1rem !important;
 }
 .footer li {
+  border-bottom: 1px solid white;
   padding-bottom: 10px;
   color: White;
 }
@@ -12140,9 +12141,6 @@ body {
   white-space: nowrap;
   margin-bottom: 1rem;
 }
-.second-nav .second-nav-item {
-  font-size: 12px;
-}
 .second-nav .second-nav-item:hover {
   text-decoration: underline;
   color: #0041f3;
@@ -12155,6 +12153,10 @@ body {
   padding-left: 8px;
   padding-right: 8px;
   border-left: 1px solid black;
+}
+
+.text-muted {
+  color: #6c757d !important;
 }
 
 .typeofpart .list {
@@ -12189,7 +12191,6 @@ body {
   list-style: none;
 }
 .second-nav-panel .list .menu {
-  padding: 0 1rem;
   cursor: pointer;
 }
 .second-nav-panel .list .menu::after {
@@ -12203,14 +12204,9 @@ body {
   background-color: #8ea8ed;
   border-radius: 8px;
 }
-.second-nav-panel .second-nav-content {
-  display: flex;
-  flex-direction: row;
-  gap: 10rem;
-}
 .second-nav-panel .image-grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   max-height: 400px;
   overflow-y: auto;
@@ -12264,6 +12260,56 @@ body {
   .header {
     padding: 1rem 4rem;
   }
+  .second-nav-panel {
+    background-color: #d9d9d9;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    visibility: hidden;
+  }
+  .second-nav-panel .list {
+    padding: 0;
+    list-style: none;
+  }
+  .second-nav-panel .list .menu {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  .second-nav-panel .list .menu::after {
+    content: "›";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+  .second-nav-panel .list .menu:hover {
+    background-color: #8ea8ed;
+    border-radius: 8px;
+  }
+  .second-nav-panel .second-nav-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+  }
+  .second-nav-panel .image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .second-nav-panel .grid-item {
+    min-width: 260px;
+    display: flex;
+    gap: 1rem;
+    padding: 16px;
+    align-items: center;
+  }
+  .second-nav-panel .image-container {
+    width: 140px;
+    height: 80px;
+    overflow: hidden;
+  }
 }
 .bc {
   padding-left: 4rem;
@@ -12283,7 +12329,6 @@ body {
     margin-bottom: 0.5rem;
   }
 }
-/* ============ small devices .end// ============ */
 .footer {
   padding-top: 2em;
   padding-bottom: 2em;

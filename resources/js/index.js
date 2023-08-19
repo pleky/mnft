@@ -35,23 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // end if innerWidth
   
-    const secondNavPanel = document.getElementById("second-nav-panel");
+    const secondNavPanel = document.querySelectorAll(".second-nav-panel");
     const secondNavItems = document.querySelectorAll(".second-nav-item");
+    console.log(secondNavPanel);
     const body = document.querySelector("body");
     secondNavItems.forEach((item) => {
       item.addEventListener("mouseenter", function () {
-        secondNavPanel.style.visibility = "visible";
+        const getValue = this.getAttribute("data-target");
+        console.log(getValue);
+        document.getElementById(getValue).style.visibility = "visible";
+
+        // secondNavPanel.forEach((item) => {
+        //   if(document.getElementById("list") != getValue)
+        //   item.style.visibility = "hidden";
+        // });
       });
     });
   
     body.addEventListener("click", function (e) {
-      if (
-        e.target.id !== "second-nav-panel" &&
-        e.target.id !== "menu" &&
-        e.target.id !== "second-nav-item"
-      ) {
-        secondNavPanel.style.visibility = "hidden";
-      }
+      secondNavPanel.forEach((item) => {
+        if (
+          e.target.id !== "second-nav-panel" &&
+          e.target.id !== "menu" &&
+          e.target.id !== "second-nav-item"
+        ) {
+          item.style.visibility = "hidden";
+        }
+      });
     });
 
     const list = document.getElementById("list");

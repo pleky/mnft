@@ -58,77 +58,41 @@
   </nav>
   <section class="container-fluid second-nav overflow-x-auto text-center fw-semibold no-scrollbar">
     @foreach($menu_new as $menu_new)
-      <span id="second-nav-item" class="second-nav-item">{{ $menu_new->name }}</span>
+      <span id="second-nav-item" data-target="menu-{{ $menu_new->slug }}" class="second-nav-item">{{ $menu_new->name }}</span>
     @endforeach
   </section>
 
-  @foreach($menu_pop as $menus)
-  <section class="second-nav-panel p-4 {{ $menus->slug }}" id="second-nav-panel">
+  @foreach($menu_pop as $menus_new)
+  <section class="second-nav-panel p-4" id="menu-{{ $menus_new->slug }}">
     <div class="container">
-        <a href="/industrial" class="fw-bold mb-4 d-block">View All {{ $menus->name }}</a>
+        <a href="/industrial" class="fw-bold mb-4 d-block">View All {{ $menus_new->name }}</a>
         <div class="second-nav-content">
-          <ul class="list" id="list">
-            <li id="menu" data-target="menu-1" class="menu d-block">Industrial Belts</li>
-            <li id="menu" data-target="menu-2" class="menu d-block">Industrial Bow</li>
-            <li id="menu" data-target="menu-3" class="menu d-block">Industrial Rat</li>
-          </ul>
-
-          <div class="image-grid-container no-scrollbar d-none" id="menu-1">
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
+          @if($menus_new->submenu_new)
+            <ul class="list" id="list">
+              @foreach($menus_new->submenu_new as $subb)
+                <li id="menu" data-target="sub-{{ $subb->slug }}" class="menu d-block">{{ $subb->name }}</li>
+              @endforeach
+            </ul>
+          @endif
+          
+          @if($menus_new->submenu_new)
+            @foreach($menus_new->submenu_new as $submenus)
+              <div class="image-grid-container no-scrollbar d-none" id="sub-{{ $submenus->slug }}">
+                @if($submenus->subsubmenu_new)
+                  @foreach($submenus->subsubmenu_new as $subsubmenus)
+                    <a href="/heavy">
+                      <div class="bg-white grid-item ">
+                        <div class="image-container">
+                          <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                        </div>
+                        <p class="mb-0">{{ $subsubmenus->name }}</p>
+                      </div>
+                    </a>
+                  @endforeach
+                @endif
               </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="image-grid-container no-scrollbar d-none" id="menu-2">
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/90x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/90x90" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="image-grid-container no-scrollbar d-none" id="menu-3">
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/60x60" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/60x60" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-          </div>
+            @endforeach
+          @endif
         </div>
     </div>
   </section>

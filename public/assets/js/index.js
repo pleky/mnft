@@ -3141,18 +3141,26 @@ document.addEventListener("DOMContentLoaded", function () {
   } // end if innerWidth
 
 
-  var secondNavPanel = document.getElementById("second-nav-panel");
+  var secondNavPanel = document.querySelectorAll(".second-nav-panel");
   var secondNavItems = document.querySelectorAll(".second-nav-item");
+  console.log(secondNavPanel);
   var body = document.querySelector("body");
   secondNavItems.forEach(function (item) {
     item.addEventListener("mouseenter", function () {
-      secondNavPanel.style.visibility = "visible";
+      var getValue = this.getAttribute("data-target");
+      console.log(getValue);
+      document.getElementById(getValue).style.visibility = "visible"; // secondNavPanel.forEach((item) => {
+      //   if(document.getElementById("list") != getValue)
+      //   item.style.visibility = "hidden";
+      // });
     });
   });
   body.addEventListener("click", function (e) {
-    if (e.target.id !== "second-nav-panel" && e.target.id !== "menu" && e.target.id !== "second-nav-item") {
-      secondNavPanel.style.visibility = "hidden";
-    }
+    secondNavPanel.forEach(function (item) {
+      if (e.target.id !== "second-nav-panel" && e.target.id !== "menu" && e.target.id !== "second-nav-item") {
+        item.style.visibility = "hidden";
+      }
+    });
   });
   var list = document.getElementById("list");
   var listChildren = list === null || list === void 0 ? void 0 : list.children;
