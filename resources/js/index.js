@@ -53,4 +53,31 @@ document.addEventListener("DOMContentLoaded", function () {
         secondNavPanel.style.visibility = "hidden";
       }
     });
+
+    const list = document.getElementById("list");
+    const listChildren = list?.children;
+
+    console.log(listChildren);
+
+    if (listChildren.length) {
+      for (let i = 0; i < listChildren.length; i++) {
+        // save the id to the localstorage
+        listChildren[i].addEventListener("click", function () {
+          // get the data target of element
+          const getValue = this.getAttribute("data-target");
+
+          // show the element that has the same id with the data target
+          document.getElementById(getValue).classList.remove("d-none");
+
+          // hide the other element
+          for (let j = 0; j < listChildren.length; j++) {
+            if (listChildren[j].getAttribute("data-target") !== getValue) {
+              document
+                .getElementById(listChildren[j].getAttribute("data-target"))
+                .classList.add("d-none");
+            }
+          }
+        });
+      }
+    }
   });

@@ -67,20 +67,36 @@
     <div class="container">
         <a href="/industrial" class="fw-bold mb-4 d-block">View All {{ $menus->name }}</a>
         <div class="second-nav-content">
-          <ul class="list">
-            <li id="menu" class="menu">Industrial Belts</li>
-            <li id="menu" class="menu">Industrial Belts</li>
-            <li id="menu" class="menu">Industrial Belts</li>
-            <li id="menu" class="menu">Industrial Belts</li>
-            <li id="menu" class="menu">Industrial Belts</li>
+          <ul class="list" id="list">
+            <li id="menu" data-target="menu-1" class="menu d-block">Industrial Belts</li>
+            <li id="menu" data-target="menu-2" class="menu d-block">Industrial Bow</li>
+            <li id="menu" data-target="menu-3" class="menu d-block">Industrial Rat</li>
           </ul>
 
-          <div class="image-grid-container no-scrollbar">
+          <div class="image-grid-container no-scrollbar d-none" id="menu-1">
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+          </div>
 
+          <div class="image-grid-container no-scrollbar d-none" id="menu-2">
             <a href="/heavy">
               <div class="bg-white grid-item ">
                 <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                  <img src="https://source.unsplash.com/random/90x50" class="img-fuild w-100" alt="...">
                 </div>
                 <p class="mb-0">V-Belt</p>
               </div>
@@ -88,7 +104,18 @@
             <a href="/heavy">
               <div class="bg-white grid-item ">
                 <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                  <img src="https://source.unsplash.com/random/90x90" class="img-fuild w-100" alt="...">
+                </div>
+                <p class="mb-0">V-Belt</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="image-grid-container no-scrollbar d-none" id="menu-3">
+            <a href="/heavy">
+              <div class="bg-white grid-item ">
+                <div class="image-container">
+                  <img src="https://source.unsplash.com/random/60x60" class="img-fuild w-100" alt="...">
                 </div>
                 <p class="mb-0">V-Belt</p>
               </div>
@@ -96,39 +123,7 @@
             <a href="/heavy">
               <div class="bg-white grid-item ">
                 <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
-                </div>
-                <p class="mb-0">V-Belt</p>
-              </div>
-            </a>
-            <a href="/heavy">
-              <div class="bg-white grid-item ">
-                <div class="image-container">
-                  <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                  <img src="https://source.unsplash.com/random/60x60" class="img-fuild w-100" alt="...">
                 </div>
                 <p class="mb-0">V-Belt</p>
               </div>

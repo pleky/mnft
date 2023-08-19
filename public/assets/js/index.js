@@ -3154,6 +3154,27 @@ document.addEventListener("DOMContentLoaded", function () {
       secondNavPanel.style.visibility = "hidden";
     }
   });
+  var list = document.getElementById("list");
+  var listChildren = list === null || list === void 0 ? void 0 : list.children;
+  console.log(listChildren);
+
+  if (listChildren.length) {
+    for (var i = 0; i < listChildren.length; i++) {
+      // save the id to the localstorage
+      listChildren[i].addEventListener("click", function () {
+        // get the data target of element
+        var getValue = this.getAttribute("data-target"); // show the element that has the same id with the data target
+
+        document.getElementById(getValue).classList.remove("d-none"); // hide the other element
+
+        for (var j = 0; j < listChildren.length; j++) {
+          if (listChildren[j].getAttribute("data-target") !== getValue) {
+            document.getElementById(listChildren[j].getAttribute("data-target")).classList.add("d-none");
+          }
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
