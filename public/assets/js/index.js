@@ -3090,7 +3090,22 @@ document.addEventListener("DOMContentLoaded", function () {
   btnAddGallery === null || btnAddGallery === void 0 ? void 0 : btnAddGallery.addEventListener("click", function () {
     addGallery();
   });
+  var btnAddImage = document.getElementById("btnAddImage");
+  btnAddImage === null || btnAddImage === void 0 ? void 0 : btnAddImage.addEventListener("click", function () {
+    addImage();
+  });
+  var btnRemoveImage = document.getElementById("btnRemoveImage");
+  btnRemoveImage === null || btnRemoveImage === void 0 ? void 0 : btnRemoveImage.addEventListener("click", function () {
+    removeImage();
+  });
 });
+
+var addImage = function addImage() {
+  $('#image-input-id').clone().removeAttr("value").removeAttr("id").append($('<button type="button" class="mb-3 btn btn-sm btn-danger btn-remove-image">Remove</button>')).appendTo('#input-image-div');
+  $('.btn-remove-image').on('click', function () {
+    $(this).closest(".image-input").remove();
+  });
+};
 
 /***/ }),
 
@@ -3142,13 +3157,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   var secondNavPanel = document.querySelectorAll(".second-nav-panel");
+  var secondNavPanelOnView = document.querySelectorAll(".second-nav-panel-on-view");
   var secondNavItems = document.querySelectorAll(".second-nav-item");
-  console.log(secondNavPanel);
   var body = document.querySelector("body");
   secondNavItems.forEach(function (item) {
     item.addEventListener("mouseenter", function () {
+      console.log('asdasd123');
       var getValue = this.getAttribute("data-target");
-      console.log(getValue);
       document.getElementById(getValue).style.visibility = "visible"; // secondNavPanel.forEach((item) => {
       //   if(document.getElementById("list") != getValue)
       //   item.style.visibility = "hidden";
@@ -3164,7 +3179,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   var list = document.getElementById("list");
   var listChildren = list === null || list === void 0 ? void 0 : list.children;
-  console.log(listChildren);
 
   if (listChildren.length) {
     for (var i = 0; i < listChildren.length; i++) {
@@ -3178,6 +3192,27 @@ document.addEventListener("DOMContentLoaded", function () {
         for (var j = 0; j < listChildren.length; j++) {
           if (listChildren[j].getAttribute("data-target") !== getValue) {
             document.getElementById(listChildren[j].getAttribute("data-target")).classList.add("d-none");
+          }
+        }
+      });
+    }
+  }
+
+  var listOnView = document.getElementById("list-on-view");
+  var listChildrenOnView = listOnView === null || listOnView === void 0 ? void 0 : listOnView.children;
+
+  if (listChildrenOnView.length) {
+    for (var _i = 0; _i < listChildrenOnView.length; _i++) {
+      // save the id to the localstorage
+      listChildrenOnView[_i].addEventListener("click", function () {
+        // get the data target of element
+        var getValue = this.getAttribute("data-target"); // show the element that has the same id with the data target
+
+        document.getElementById(getValue).classList.remove("d-none"); // hide the other element
+
+        for (var j = 0; j < listChildrenOnView.length; j++) {
+          if (listChildrenOnView[j].getAttribute("data-target") !== getValue) {
+            document.getElementById(listChildrenOnView[j].getAttribute("data-target")).classList.add("d-none");
           }
         }
       });

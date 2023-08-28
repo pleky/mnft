@@ -28,7 +28,7 @@
                                     @if($act == 'add')
                                     <select class="form-control" name="menu">
                                         @foreach($menu as $menus)
-                                            <option value="{{ $menus->id }}" {{ (isset($menu->parent_id) && $menu->parent_id == $menus->id) ? 'selected' : ''  }} >{{ $menus->name }}</option>
+                                            <option value="{{ $menus['id'] }}">{{ $menus['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @else
@@ -36,12 +36,36 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <button class='btn btn-info' type="button" id="btnAddImage">Add Image</button>
+                                </div>
+                                <div class="form-group" id="input-image-div">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image" placeholder="Enter Image">
-                                    <p><em style="font-size:13px;">*recomended image dimension 350px : 350px</em></p>
-                                    @if(isset($contents->image) && $contents->image)
-                                        <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                    @php 
+                                        $image = json_decode($contents->image, true); 
+                                    @endphp
+                                    @if(is_array($image))
+                                        @foreach($image as $img)
+                                        <span class="image-input">
+                                            <strong><p>Current Img</p></strong>
+                                            <img class="rounded img img-fluid" style="max-width: 100px;" src="{{ url('images/' . $img) }}" alt="">
+                                            <input type="file" class="form-control" id="image" name="image[]" placeholder="Enter Image">
+                                            <p style="margin-bottom: 0px !important;"><em style="font-size:13px;">*recomended image dimension 350px : 350px</em></p>
+                                            <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                        </span>    
+                                        @endforeach
+                                    @else
                                     @endif
+
+                                    @if(isset($contents))
+                                    <strong><p>Add New Img</p></strong>
+                                    @endif
+                                    <span class="image-input" id="image-input-id">
+                                        <input type="file" class="form-control" id="image" name="image[]" placeholder="Enter Image">
+                                        <p><em style="font-size:13px;">*recomended image dimension 350px : 350px</em></p>
+                                        <!-- @if(isset($contents->image) && $contents->image)
+                                            <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the logo</p>
+                                        @endif -->
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Descriptions</label>

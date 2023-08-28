@@ -61,11 +61,68 @@ class ContentsController extends Controller
             $str[] = (int) $datas->menu_id;
         }
 
-        $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"))
+        $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"), 'menus.status')
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
-                        ->whereIn('menus.parent_id', [3,4])
-                        ->whereNotIn('menus.id', $str)
-                        ->get();
+                        ->where(function($query) {
+                            $query->where('menus.parent_id', [3,4]);
+                            $query->orWhere('menus.status', 3)
+                                ->whereNotNull('menus.parent_id'); // for handle view all content
+                            // $query->orWhere('menus.status', 2)
+                            //     ->whereNotNull('menus.parent_id'); // for handle sub menu
+                            
+                        })
+                        ->get()->toArray();
+
+        // get sub sub menu for category menu
+        $menu1 = [];
+
+        $categoryMenu = Menus::where('status', 2)->get()->toArray();
+        
+        foreach($categoryMenu as $key => $category) {
+            if (empty($category['parent_id'])) {
+                $menu1[] = $category;
+                unset($categoryMenu[$key]);
+            }
+        }
+        $categoryMenu = array_values($categoryMenu);
+        foreach ($menu1 as $key1 => $menu1s) {
+            foreach ($categoryMenu as $key => $category) {
+                if ($menu1s['id'] == $category['parent_id']) {
+                    $menu1[$key1]['submenu'][] = $category;
+                    unset($categoryMenu[$key]);
+                }
+            }
+        }
+        $categoryMenu = array_values($categoryMenu);
+        foreach ($menu1 as $key2 => $menu1s) {
+            if (isset($menu1s['submenu']) && !empty($menu1s['submenu'])) {
+                foreach ($menu1s['submenu'] as $key1 => $submenu) {
+                    foreach ($categoryMenu as $key => $category) {
+                        if ($category['parent_id'] == $submenu['id']) {
+                            $menu1[$key2]['submenu'][$key1]['submenu'][] = $category; 
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach ($menu1 as $menu) {
+            if (isset($menu['submenu']) && !empty($menu['submenu'])) {
+                foreach ($menu['submenu'] as $submenu) {
+                    if (isset($submenu['submenu']) && !empty($submenu['submenu'])) {
+                        foreach ($submenu['submenu'] as $subsubmenu) {
+                            unset($subsubmenu['is_order']);
+                            unset($subsubmenu['slug']);
+                            unset($subsubmenu['created_at']);
+                            unset($subsubmenu['updated_at']);
+                            $subsubmenu['flag'] = 'subsubmenu';
+                            $subsubmenu['name'] = $menu['name'] . ' - ' . $submenu['name'] . ' - ' . $subsubmenu['name'];
+                            $data['menu'][] = $subsubmenu;
+                        }
+                    }
+                }
+            }
+        }
 
         return view('admin.forms.contentsForm', $data);
     }
@@ -81,17 +138,31 @@ class ContentsController extends Controller
         //
         $this->validate($request,[
             'menu' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
          ]);
         
-        $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('images'), $imageName);
+        // $imageName = time().'.'.$request->image->extension();  
+        // $request->image->move(public_path('images'), $imageName);
 
         try{
             $content = new Contents;
             $content->menu_id       = $request->menu;
-            $content->image         = $imageName;
+            // $content->image         = $imageName;
             $content->description   = $request->description;
+
+            // image content
+            if (isset($request->image)) {
+                $images = [];
+                foreach($request->image as $image) {
+                    $imageName = time() . rand() . '.' . $image->extension();  
+                    $image->move(public_path('images'), $imageName);
+
+                    $images[] = $imageName;
+                }
+
+                $content->image = json_encode($images);
+            }
+
             $content->save();
 
             if($content && isset($request->galleryImage)) {

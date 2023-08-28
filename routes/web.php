@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('content/{a}/{b}', 'HomepageController@content');
+Route::get('content/{a}/{b}/{status?}', 'HomepageController@content');
 
 Route::get('about/{a}/{b}', "HomepageController@about");
 
