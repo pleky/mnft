@@ -24,20 +24,28 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="category">Category</label>
+                                    @if($act === 'add')
                                     <select class="form-control" name="category" onchange="changeCategory(this.value)">
                                         @foreach($categories as $category)
                                             <option value="{{ $category }}">{{ $category }}</option>
                                         @endforeach
                                     </select>
+                                    @else
+                                    <input type="text" class="form-control" placeholder="Enter category" value="{{ $menu->category ?? '' }}" disabled>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Parent</label>
+                                    @if($act === 'add')
                                     <select class="form-control" name="parent_id" id="parent_id">
                                         <option value="">(this menu parent)</option>
                                         @foreach($menu_parent as $menus)
                                             <option value="{{ $menus->id }}">{{ $menus->name }}</option>
                                         @endforeach
                                     </select>
+                                    @else
+                                    <input type="text" class="form-control" placeholder="Enter parent" value="{{ $menu->parent_name ?? '' }}" disabled>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name</label>

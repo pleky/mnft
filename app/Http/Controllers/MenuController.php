@@ -134,7 +134,7 @@ class MenuController extends Controller
         $data['url'] = '/menu/update/'.$id;
         $data['method'] = 'post';
         $data['menu_parent'] = Menus::whereNull('parent_id')->get();
-        $data['menu'] = Menus::where('id', $id)->first();
+        $data['menu'] = Menus::select('menus.*', 'mn.name as parent_name')->leftjoin('menus as mn', 'mn.id', '=', 'menus.parent_id')->where('menus.id', $id)->first();
         $data['act'] = 'update';
 
         return view('admin.forms.menuForm', $data);
@@ -160,17 +160,17 @@ class MenuController extends Controller
         try{
             $menu = Menus::find($id);
             
-            if($request->type) {
+            // if($request->type) {
                 $slug = strtolower($request->name);
                 $slug = str_replace("/","or",$slug);
                 $slug = str_replace(" ","-",$slug);
 
                 $menu->slug         = $slug;
-            }
+            // }
             
             $menu->name         = $request->name;
             $menu->is_order     = $request->order;
-            $menu->parent_id    = $request->type;
+            // $menu->parent_id    = $request->type;
             $menu->status       = $request->status;
             $menu->save();
 
