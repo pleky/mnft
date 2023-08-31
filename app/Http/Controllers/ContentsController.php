@@ -65,18 +65,14 @@ class ContentsController extends Controller
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
                         ->where(function($query) {
                             $query->where('menus.parent_id', [3,4]);
-                            $query->orWhere('menus.status', 3)
-                                ->whereNotNull('menus.parent_id'); // for handle view all content
-                            // $query->orWhere('menus.status', 2)
-                            //     ->whereNotNull('menus.parent_id'); // for handle sub menu
-                            
+                            $query->orWhere('menus.category', Menus::CATEGORY_VIEW_ALL_SECONDARY);
                         })
                         ->get()->toArray();
 
         // get sub sub menu for category menu
         $menu1 = [];
 
-        $categoryMenu = Menus::where('status', 2)->get()->toArray();
+        $categoryMenu = Menus::where('category', Menus::CATEGORY_SECONDARY)->get()->toArray();
         
         foreach($categoryMenu as $key => $category) {
             if (empty($category['parent_id'])) {

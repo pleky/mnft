@@ -40,6 +40,7 @@
                                 </div>
                                 <div class="form-group" id="input-image-div">
                                     <label for="image">Image</label>
+                                    @if(isset($contents))
                                     @php 
                                         $image = json_decode($contents->image, true); 
                                     @endphp
@@ -56,7 +57,6 @@
                                     @else
                                     @endif
 
-                                    @if(isset($contents))
                                     <strong><p>Add New Img</p></strong>
                                     @endif
                                     <span class="image-input" id="image-input-id">

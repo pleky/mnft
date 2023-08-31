@@ -28,7 +28,7 @@
                 </div>';
             }
         ?>
-        @if (!empty($status) && $status == 'subsubmenu')
+        @if (!empty($additional_info) && $additional_info == 'subsubmenu')
         <div class="col-md-4">
             {!! $imageDiv !!}
         </div>
