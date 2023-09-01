@@ -11,14 +11,38 @@
     </div>
 
     <div class="row">
+        <?php 
+            $image = json_decode($content->image, true); 
+            $imageDiv = '';
+            if (is_array($image)) {
+                foreach ($image as $img) {
+                    $urlImage = url('images/' . $img);
+                    $imageDiv .= '<div class="product-img">
+                        <img class="rounded img img-fluid" src="'.$urlImage.'" alt="">
+                    </div>';
+                }
+            } else {
+                $urlImage = url('images/' . $content->image);
+                $imageDiv = '<div class="product-img">
+                    <img class="rounded img img-fluid" src="'.$urlImage.'" alt="">
+                </div>';
+            }
+        ?>
+        @if (!empty($additional_info) && $additional_info == 'subsubmenu')
+        <div class="col-md-4">
+            {!! $imageDiv !!}
+        </div>
+        <div class="col-md-8 product-desc">
+            {!! $content->description !!}
+        </div>
+        @else
         <div class="col-md-8 product-desc">
             {!! $content->description !!}
         </div>
         <div class="col-md-4">
-            <div class="product-img">
-                <img class="rounded img img-fluid" src="{{ url('images/'.$content->image) }}" alt="">
-            </div>
+            {!! $imageDiv !!}
         </div>
+        @endif
     </div>
     <!-- div row -->
     </div>

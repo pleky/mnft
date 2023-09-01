@@ -38,10 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let arry = [];
     const body = document.querySelector("body");
     const secondNavPanel = document.querySelectorAll(".second-nav-panel");
+    const secondNavPanelOnView = document.querySelectorAll(".second-nav-panel-on-view");
     const secondNavItems = document.querySelectorAll(".second-nav-item");
     
     secondNavItems.forEach((item) => {
       item.addEventListener("mouseenter", function () {
+        console.log('asdasd123');
         const getValue = this.getAttribute("data-target");
         arry.push(getValue);
         const zindex = arry.lastIndexOf(getValue);
@@ -68,8 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const list = document.getElementById("list");
     const listChildren = list?.children;
 
-    console.log(listChildren);
-
     if (listChildren.length) {
       for (let i = 0; i < listChildren.length; i++) {
         // save the id to the localstorage
@@ -85,6 +85,31 @@ document.addEventListener("DOMContentLoaded", function () {
             if (listChildren[j].getAttribute("data-target") !== getValue) {
               document
                 .getElementById(listChildren[j].getAttribute("data-target"))
+                .classList.add("d-none");
+            }
+          }
+        });
+      }
+    }
+
+    const listOnView = document.getElementById("list-on-view");
+    const listChildrenOnView = listOnView?.children;
+
+    if (listChildrenOnView.length) {
+      for (let i = 0; i < listChildrenOnView.length; i++) {
+        // save the id to the localstorage
+        listChildrenOnView[i].addEventListener("click", function () {
+          // get the data target of element
+          const getValue = this.getAttribute("data-target");
+
+          // show the element that has the same id with the data target
+          document.getElementById(getValue).classList.remove("d-none");
+
+          // hide the other element
+          for (let j = 0; j < listChildrenOnView.length; j++) {
+            if (listChildrenOnView[j].getAttribute("data-target") !== getValue) {
+              document
+                .getElementById(listChildrenOnView[j].getAttribute("data-target"))
                 .classList.add("d-none");
             }
           }

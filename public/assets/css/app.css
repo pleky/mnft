@@ -12152,6 +12152,48 @@ body {
   border-radius: 8px;
 }
 
+.second-nav-panel-on-view {
+  background-color: #d9d9d9;
+  width: 100%;
+}
+.second-nav-panel-on-view .list {
+  padding: 0;
+  list-style: none;
+}
+.second-nav-panel-on-view .list .menu {
+  cursor: pointer;
+}
+.second-nav-panel-on-view .list .menu::after {
+  content: "›";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+.second-nav-panel-on-view .list .menu:hover {
+  background-color: #8ea8ed;
+  border-radius: 8px;
+}
+.second-nav-panel-on-view .image-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.second-nav-panel-on-view .grid-item {
+  min-width: 260px;
+  display: flex;
+  gap: 1rem;
+  padding: 16px;
+  align-items: center;
+}
+.second-nav-panel-on-view .image-container {
+  width: 140px;
+  height: 80px;
+  overflow: hidden;
+}
+
 .second-nav-panel {
   background-color: #d9d9d9;
   position: absolute;
@@ -12279,6 +12321,54 @@ body {
     align-items: center;
   }
   .second-nav-panel .image-container {
+    width: 140px;
+    height: 80px;
+    overflow: hidden;
+  }
+  .second-nav-panel-on-view {
+    background-color: #d9d9d9;
+    z-index: 10;
+    width: 100%;
+  }
+  .second-nav-panel-on-view .list {
+    padding: 0;
+    list-style: none;
+  }
+  .second-nav-panel-on-view .list .menu {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  .second-nav-panel-on-view .list .menu::after {
+    content: "›";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+  .second-nav-panel-on-view .list .menu:hover {
+    background-color: #8ea8ed;
+    border-radius: 8px;
+  }
+  .second-nav-panel-on-view .second-nav-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+  }
+  .second-nav-panel-on-view .image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .second-nav-panel-on-view .grid-item {
+    min-width: 260px;
+    display: flex;
+    gap: 1rem;
+    padding: 16px;
+    align-items: center;
+  }
+  .second-nav-panel-on-view .image-container {
     width: 140px;
     height: 80px;
     overflow: hidden;
