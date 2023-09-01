@@ -3134,27 +3134,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // end if innerWidth
 
+  var arry = [];
+  var body = document.querySelector("body");
   var secondNavPanel = document.querySelectorAll(".second-nav-panel");
   var secondNavItems = document.querySelectorAll(".second-nav-item");
-  console.log(secondNavPanel);
-  var body = document.querySelector("body");
   secondNavItems.forEach(function (item) {
     item.addEventListener("mouseenter", function () {
       var getValue = this.getAttribute("data-target");
-      console.log(getValue);
+      arry.push(getValue);
+      var zindex = arry.lastIndexOf(getValue);
+      console.log(arry);
       document.getElementById(getValue).style.visibility = "visible";
-
-      // secondNavPanel.forEach((item) => {
-      //   if(document.getElementById("list") != getValue)
-      //   item.style.visibility = "hidden";
-      // });
+      document.getElementById(getValue).style.zIndex = zindex + 1;
     });
   });
-
   body.addEventListener("click", function (e) {
     secondNavPanel.forEach(function (item) {
       if (e.target.id !== "second-nav-panel" && e.target.id !== "menu" && e.target.id !== "second-nav-item") {
         item.style.visibility = "hidden";
+        arry = [];
       }
     });
   });

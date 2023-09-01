@@ -34,21 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     // end if innerWidth
-  
+    
+    let arry = [];
+    const body = document.querySelector("body");
     const secondNavPanel = document.querySelectorAll(".second-nav-panel");
     const secondNavItems = document.querySelectorAll(".second-nav-item");
-    console.log(secondNavPanel);
-    const body = document.querySelector("body");
+    
     secondNavItems.forEach((item) => {
       item.addEventListener("mouseenter", function () {
         const getValue = this.getAttribute("data-target");
-        console.log(getValue);
+        arry.push(getValue);
+        const zindex = arry.lastIndexOf(getValue);
+        console.log(arry)
+        
         document.getElementById(getValue).style.visibility = "visible";
-
-        // secondNavPanel.forEach((item) => {
-        //   if(document.getElementById("list") != getValue)
-        //   item.style.visibility = "hidden";
-        // });
+        document.getElementById(getValue).style.zIndex = zindex+1;
       });
     });
   
@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
           e.target.id !== "second-nav-item"
         ) {
           item.style.visibility = "hidden";
+          arry = [];
         }
       });
     });
