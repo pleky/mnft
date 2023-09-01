@@ -11,6 +11,7 @@
                         <tr>
                             <th width="13%">No</th>
                             <th>Name</th>
+                            <th>Category</th>
                             <th>Parent</th>
                             <th>Status</th>
                             <th>Aksi</th>
@@ -53,6 +54,10 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'category',
+                        name: 'category'
                     },
                     {
                         data: 'parent',

@@ -65,7 +65,9 @@
   @foreach($menu_pop as $menus_new)
   <section class="second-nav-panel p-4" id="menu-{{ $menus_new->slug }}">
     <div class="container">
-        <a href="/industrial" class="fw-bold mb-4 d-block">View All {{ $menus_new->name }}</a>
+        @if(isset($menus_new->view_all) && !empty($menus_new->view_all))
+          <a href="{{ url('content/' . $menus_new->view_all['parent_id'] . '/' . $menus_new->view_all['slug'] . '/' . $menus_new->view_all['status']) }}" class="fw-bold mb-4 d-block">{{ $menus_new->view_all['name'] }}</a>
+        @endif
         <div class="second-nav-content">
           @if($menus_new->submenu_new)
             <ul class="list" id="list">
@@ -80,7 +82,7 @@
               <div class="image-grid-container no-scrollbar d-none" id="sub-{{ $submenus->slug }}">
                 @if($submenus->subsubmenu_new)
                   @foreach($submenus->subsubmenu_new as $subsubmenus)
-                    <a href="/heavy">
+                    <a href="{{ url('content/' . $subsubmenus->id . '/' . $subsubmenus->slug .'/subsubmenu' ) }}">
                       <div class="bg-white grid-item ">
                         <div class="image-container">
                           <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">

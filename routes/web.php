@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('content/{a}/{b}', 'HomepageController@content');
+Route::get('content/{a}/{b}/{status?}', 'HomepageController@content');
 
 Route::get('about/{a}/{b}', "HomepageController@about");
 
@@ -54,6 +54,7 @@ Route::group(['middleware' => 'cekstatuslogin'], function()
     Route::get("/menu/edit/{id}", "MenuController@edit");
     Route::post("/menu/update/{id}", "MenuController@update");
     Route::get("/menu/delete/{id}", "MenuController@destroy");
+    Route::get("/menu/get-parent-by-category/{category}", "MenuController@getParentMenuByCategory");
 
     Route::get("/contents", "ContentsController@index");
     Route::get("/contents/all", "ContentsController@all");

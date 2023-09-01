@@ -79,4 +79,25 @@ document.addEventListener("DOMContentLoaded", () => {
     btnAddGallery?.addEventListener("click", function () {
         addGallery();
     });
+
+    const btnAddImage = document.getElementById("btnAddImage");
+    btnAddImage?.addEventListener("click", function () {
+        addImage();
+    });
+
+    const btnRemoveImage = document.getElementById("btnRemoveImage");
+    btnRemoveImage?.addEventListener("click", function () {
+        removeImage();
+    });
 });
+
+const addImage = () => {
+    $('#image-input-id').clone().removeAttr("value")
+        .removeAttr("id")
+        .append($('<button type="button" class="mb-3 btn btn-sm btn-danger btn-remove-image">Remove</button>'))
+        .appendTo('#input-image-div');
+    
+    $('.btn-remove-image').on('click', function () {
+        $(this).closest(".image-input").remove();
+    });
+}

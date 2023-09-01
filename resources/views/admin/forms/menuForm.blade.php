@@ -23,19 +23,34 @@
                             <div class="card-body">
                                 {{ csrf_field() }}
                                 <div class="form-group">
+                                    <label for="category">Category</label>
+                                    @if($act === 'add')
+                                    <select class="form-control" name="category" onchange="changeCategory(this.value)">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category }}">{{ $category }}</option>
+                                        @endforeach
+                                    </select>
+                                    @else
+                                    <input type="text" class="form-control" placeholder="Enter category" value="{{ $menu->category ?? '' }}" disabled>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Parent</label>
+                                    @if($act === 'add')
+                                    <select class="form-control" name="parent_id" id="parent_id">
+                                        <option value="">(this menu parent)</option>
+                                        @foreach($menu_parent as $menus)
+                                            <option value="{{ $menus->id }}">{{ $menus->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @else
+                                    <input type="text" class="form-control" placeholder="Enter parent" value="{{ $menu->parent_name ?? '' }}" disabled>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{ $menu->name ?? '' }}">
                                 </div>
-                                @if($act == 'add' || $menu->parent_id)
-                                <div class="form-group">
-                                    <label for="name">Type</label>
-                                    <select class="form-control" name="type">
-                                        @foreach($menu_parent as $menus)
-                                            <option value="{{ $menus->id }}" {{ (isset($menu->parent_id) && $menu->parent_id == $menus->id) ? 'selected' : ''  }} >{{ $menus->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @endif
                                 <div class="form-group">
                                     <label for="name">Order</label>
                                     <input type="number" class="form-control" id="order" name="order" value="{{ $menu->is_order ?? '' }}" placeholder="Enter Order">
@@ -71,6 +86,27 @@
                     $('#menu_form').submit()
                 }
             })
+        }
+
+        function changeCategory(category)
+        {
+            $('#parent_id').empty();
+            $.ajax({
+                url: '/menu/get-parent-by-category/'+ category,
+                type: 'GET',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                },
+                success: function(data) {
+                    if (category == 'PRIMARY' || category == 'SECONDARY') {
+                        $('#parent_id').append('<option value="">(this menu parent)</option>');
+                    }
+                    for (let index = 0; index < data.length; index++) {
+                        const element = data[index];
+                        $('#parent_id').append('<option value="'+element.id+'">'+element.name+'</option>');
+                    }
+                }               
+            });
         }
     </script>
 @endpush
