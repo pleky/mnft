@@ -43,11 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     secondNavItems.forEach((item) => {
       item.addEventListener("mouseenter", function () {
-        console.log('asdasd123');
         const getValue = this.getAttribute("data-target");
         arry.push(getValue);
         const zindex = arry.lastIndexOf(getValue);
-        console.log(arry)
         
         document.getElementById(getValue).style.visibility = "visible";
         document.getElementById(getValue).style.zIndex = zindex+1;
