@@ -233,18 +233,27 @@ body {
     z-index: 10;
     width: 100%;
     visibility: hidden;
+    height: 466px;
+    overflow: auto;
 
     .list {
         padding: 0;
         list-style: none;
 
         .menu {
+            padding: 0 1rem;
+            cursor: pointer;
+            display: flex!important;
+            align-items: center;
+            gap: 10px;
+            
             &::after {
                 content: '\203A';
                 font-family: 'Font Awesome 5 Free';
                 font-weight: 900;
                 font-size: 1.5rem;
-                margin-left: 2rem;
+                margin-left: auto;
+                display: inline-block;
             }
 
             &:hover {

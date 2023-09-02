@@ -153,7 +153,7 @@ class HomepageController extends Controller
     public function gallery() {
 
         $data = $this->menus();
-        $data['gallery'] = GalleryHistory::paginate(12);
+        $data['gallery'] = GalleryHistory::orderBy('created_at', 'DESC')->paginate(12);
 
         return view('content.gallery', [
             'menu' => $data['menus'],

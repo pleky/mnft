@@ -60,7 +60,7 @@
               <p class="text-muted mb-1">Phone: <span class="text-white">{{ $profile->phone }}</span></p>
               <p class="text-muted mb-1">Fax: <span class="text-white">{{ $profile->fax }}</span></p>
               <p class="text-muted mb-1">Email: <span class="text-white">{{ $profile->email }}</span></p>
-              <p class="text-muted">Web: <span class="text-white">{{ $profile->website }} </span></p>
+              <p class="text-muted">Blogspot: <span class="text-white">{{ $profile->website }} </span></p>
             </div>
             <div class="col-md-3">
               <p class="text-white">Our Social Media</p>

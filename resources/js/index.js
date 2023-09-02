@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (listChildren.length) {
       for (let i = 0; i < listChildren.length; i++) {
         // save the id to the localstorage
-        listChildren[i].addEventListener("click", function () {
+        listChildren[i].addEventListener("mouseenter", function () {
           // get the data target of element
           const getValue = this.getAttribute("data-target");
 

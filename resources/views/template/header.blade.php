@@ -72,7 +72,7 @@
           @if($menus_new->submenu_new)
             <ul class="list" id="list">
               @foreach($menus_new->submenu_new as $subb)
-                <li id="menu" data-target="sub-{{ $subb->slug }}" class="menu d-block">{{ $subb->name }}</li>
+                <li id="menu" data-target="sub-{{ $subb->slug }}" class="menu d-flex">{{ $subb->name }}</li>
               @endforeach
             </ul>
           @endif
