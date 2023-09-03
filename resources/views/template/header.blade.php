@@ -19,6 +19,9 @@
     <title>PT Raja Teknik Aditama - Custom Made Parts Specialist</title>
 </head>
 <body>
+  <?php 
+    use App\Menus; 
+  ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white sticky-top header">
      <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.jpg') }} " width="250"/></a>
@@ -58,21 +61,20 @@
   </nav>
   <section class="container-fluid second-nav overflow-x-auto text-center fw-semibold no-scrollbar">
     @foreach($menu_new as $menu_new)
-      <span id="second-nav-item" data-target="menu-{{ $menu_new->slug }}" class="second-nav-item">{{ $menu_new->name }}</span>
+      @php $linkHref = url('content/' . $menu_new->id . '/' . $menu_new->slug . '/' . Menus::ADDITIONAL_INFO_SECONDARY_PARENT) @endphp
+      <span onclick="redirectTo('{{ $linkHref }}')" id="second-nav-item" data-target="menu-{{ $menu_new->slug }}" class="second-nav-item">{{ $menu_new->name }}</span>
     @endforeach
   </section>
 
   @foreach($menu_pop as $menus_new)
   <section class="second-nav-panel p-4" id="menu-{{ $menus_new->slug }}">
     <div class="container">
-        @if(isset($menus_new->view_all) && !empty($menus_new->view_all))
-          <a href="{{ url('content/' . $menus_new->view_all['parent_id'] . '/' . $menus_new->view_all['slug'] . '/' . $menus_new->view_all['status']) }}" class="fw-bold mb-4 d-block">{{ $menus_new->view_all['name'] }}</a>
-        @endif
         <div class="second-nav-content">
           @if($menus_new->submenu_new)
             <ul class="list" id="list">
               @foreach($menus_new->submenu_new as $subb)
-                <li id="menu" data-target="sub-{{ $subb->slug }}" class="menu d-flex">{{ $subb->name }}</li>
+                @php $linkHref = url('content/' . $subb->id . '/' . $subb->slug . '/' . Menus::ADDITIONAL_INFO_SUBSUBMENU) @endphp
+                <li onclick="redirectTo('{{ $linkHref }}')" id="menu" data-target="sub-{{ $subb->slug }}" class="menu d-flex">{{ $subb->name }}</li>
               @endforeach
             </ul>
           @endif
@@ -82,10 +84,10 @@
               <div class="image-grid-container no-scrollbar d-none" id="sub-{{ $submenus->slug }}">
                 @if($submenus->subsubmenu_new)
                   @foreach($submenus->subsubmenu_new as $subsubmenus)
-                    <a href="{{ url('content/' . $subsubmenus->id . '/' . $subsubmenus->slug .'/subsubmenu' ) }}">
-                      <div class="bg-white grid-item ">
+                    <a href="{{ url('content/' . $subsubmenus->id . '/' . $subsubmenus->slug .'/' . Menus::ADDITIONAL_INFO_SUBSUBMENU ) }}">
+                      <div class="bg-white grid-item">
                         <div class="image-container">
-                          <img src="https://source.unsplash.com/random/50x50" class="img-fuild w-100" alt="...">
+                          <img src="{{ (!empty($subsubmenus->image)) ? url('images/'.$subsubmenus->image) : 'https://source.unsplash.com/random/50x50' }}" class="img-fuild w-100" alt="...">
                         </div>
                         <p class="mb-0">{{ $subsubmenus->name }}</p>
                       </div>
@@ -101,4 +103,11 @@
   @endforeach
 
   <div class='w-100 tt'></div>
+
+  <script>
+    function redirectTo(link)
+    {
+      location.href = link;
+    }
+  </script>
 

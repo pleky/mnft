@@ -51,9 +51,10 @@ class MenuController extends Controller
                     if (!empty($parentCheck)) unset($menus[$key]);
                 }
             }
-        } else if ($category === Menus::CATEGORY_VIEW_ALL_SECONDARY) {
-            $menus = Menus::where('category', Menus::CATEGORY_SECONDARY)->whereNull('parent_id')->get()->toArray();
+        } else {
+            throw new \Exception("Wrong category");
         }
+
         return $menus;
     }
 
@@ -69,7 +70,11 @@ class MenuController extends Controller
             'name' => 'required|string|min:3|max:255',
             'order' => 'required',
             'status' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
          ]);
+
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
         
         $slug = strtolower($request->name);
         $slug = str_replace("/","or",$slug);
@@ -82,6 +87,8 @@ class MenuController extends Controller
             $menu->parent_id    = $request->parent_id;
             $menu->is_order     = $request->order;
             $menu->status       = $request->status;
+            $menu->image        = $imageName;
+            $menu->category     = $request->category;
             $menu->save();
 
             return redirect('menu')->with('status',"Insert successfully");
@@ -154,8 +161,9 @@ class MenuController extends Controller
             'name' => 'required|string|min:3|max:255',
             'order' => 'required',
             'status' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
          ]);
-        
+    
         
         try{
             $menu = Menus::find($id);
@@ -167,6 +175,12 @@ class MenuController extends Controller
 
                 $menu->slug         = $slug;
             // }
+
+            if ($request->image) {
+                $imageName = time().'.'.$request->image->extension();  
+                $request->image->move(public_path('images'), $imageName);
+                $menu->image = $imageName;
+            }
             
             $menu->name         = $request->name;
             $menu->is_order     = $request->order;
