@@ -3,6 +3,10 @@
 @section('content')
 @section('title', 'RTA - ' . $content->name)
 @section('meta-description', $content->name)
+
+<?php 
+use App\Menus; 
+?>
 <!-- Porduct desc -->
 <section class="product mt-3 mt-lg-5 pt-lg-5">
     <div class="container">
@@ -28,7 +32,7 @@
                 </div>';
             }
         ?>
-        @if (!empty($additional_info) && $additional_info == 'subsubmenu')
+        @if (!empty($additional_info) && $additional_info == Menus::ADDITIONAL_INFO_SUBSUBMENU)
         <div class="col-md-4">
             {!! $imageDiv !!}
         </div>

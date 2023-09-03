@@ -48,7 +48,8 @@ class HomepageController extends Controller
         $sub_menu_by_type_menu = null;
         if($slug == 'about-us') { 
             $view = "content.about";
-        } else if ($data['content']->category === Menus::CATEGORY_VIEW_ALL_SECONDARY) { //  it's mean need call template content for view-all
+        }
+        if ($additional_info === Menus::ADDITIONAL_INFO_SECONDARY_PARENT) { //  it's mean need call template content for view-all
             $parent_id = $data['content']->parent_id;
             $sub_menu_by_type_menu = $this->searchSubMenuNewByParentId($parent_id, $data['menus_new']);
             $view = "content.view-all-sub-menu";
@@ -116,13 +117,6 @@ class HomepageController extends Controller
         foreach($menus_new as $menu_new) {
             
             $submenu_new = [];
-            // check have view-all content
-            $view_all_menu = Menus::where('status', 1)
-                ->where('category', Menus::CATEGORY_VIEW_ALL_SECONDARY)
-                ->where('parent_id', $menu_new->id)
-                ->first()->toArray();
-
-            $menu_new->view_all = $view_all_menu;
             
             foreach($submenus_new as $key => $subs){
                 if($menu_new['id'] == $subs['parent_id']){

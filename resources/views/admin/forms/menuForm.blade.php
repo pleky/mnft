@@ -19,7 +19,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Add Menu</h3>
                         </div>
-                        <form id="menu_form" method="{{ $method }}" action="{{ $url }}">
+                        <form id="menu_form" method="{{ $method }}" action="{{ $url }}" enctype="multipart/form-data">
                             <div class="card-body">
                                 {{ csrf_field() }}
                                 <div class="form-group">
@@ -54,6 +54,15 @@
                                 <div class="form-group">
                                     <label for="name">Order</label>
                                     <input type="number" class="form-control" id="order" name="order" value="{{ $menu->is_order ?? '' }}" placeholder="Enter Order">
+                                </div>
+                                <div class="form-group">
+                                    @if (isset($menu) && !empty($menu->image))
+                                    <strong><p>Current Img</p></strong>
+                                    <img class="rounded img img-fluid" style="max-width: 100px;" src="{{ url('images/' . $menu->image) }}" alt="">
+                                    <br><br>
+                                    @endif
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" id="image" name="image" placeholder="Enter Image">
                                 </div>
                                 <div class="form-group">
                                     <label class='d-block'>Status</label>

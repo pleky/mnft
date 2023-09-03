@@ -13,6 +13,7 @@ use App\Galleries;
 
 class ContentsController extends Controller
 {
+    private const SUBMENU_LEVEL_LOOP = 3;
     /**
      * Display a listing of the resource.
      *
@@ -63,62 +64,35 @@ class ContentsController extends Controller
 
         $data['menu'] = Menus::select('menus.id', 'menus.parent_id', DB::raw("concat(mn.name, ' - ', menus.name )  as name"), 'menus.status')
                         ->leftJoin('menus as mn', 'menus.parent_id', '=', 'mn.id')
-                        ->where(function($query) {
-                            $query->where('menus.parent_id', [3,4]);
-                            $query->orWhere('menus.category', Menus::CATEGORY_VIEW_ALL_SECONDARY);
-                        })
+                        ->where('menus.parent_id', [3, 4])
                         ->get()->toArray();
 
         // get sub sub menu for category menu
-        $menu1 = [];
+        $secondaryMenu = Menus::where('category', Menus::CATEGORY_SECONDARY)->get()->toArray();
+        foreach ($secondaryMenu as $key => $secondMenu) {
+            $namingMenu = [];
+            $namingMenu[] = $secondMenu['name'];
+            $parentId = $secondMenu['parent_id'];
 
-        $categoryMenu = Menus::where('category', Menus::CATEGORY_SECONDARY)->get()->toArray();
-        
-        foreach($categoryMenu as $key => $category) {
-            if (empty($category['parent_id'])) {
-                $menu1[] = $category;
-                unset($categoryMenu[$key]);
-            }
-        }
-        $categoryMenu = array_values($categoryMenu);
-        foreach ($menu1 as $key1 => $menu1s) {
-            foreach ($categoryMenu as $key => $category) {
-                if ($menu1s['id'] == $category['parent_id']) {
-                    $menu1[$key1]['submenu'][] = $category;
-                    unset($categoryMenu[$key]);
+            for ($i=0; $i <= self::SUBMENU_LEVEL_LOOP; $i++) { 
+                // check if have parent
+                if (!empty($parentId)) {
+                    $parent = Menus::where('id', $parentId)->first();
+                    $parentId = $parent->parent_id;
+                    $namingMenu[] = $parent->name;
+                    if (empty($parentId)) break;
                 }
             }
-        }
-        $categoryMenu = array_values($categoryMenu);
-        foreach ($menu1 as $key2 => $menu1s) {
-            if (isset($menu1s['submenu']) && !empty($menu1s['submenu'])) {
-                foreach ($menu1s['submenu'] as $key1 => $submenu) {
-                    foreach ($categoryMenu as $key => $category) {
-                        if ($category['parent_id'] == $submenu['id']) {
-                            $menu1[$key2]['submenu'][$key1]['submenu'][] = $category; 
-                        }
-                    }
-                }
-            }
+
+            $secondaryMenu[$key]['name'] = implode(' - ', array_reverse($namingMenu));
+            unset($secondaryMenu[$key]['slug']);
+            unset($secondaryMenu[$key]['is_order']);
+            unset($secondaryMenu[$key]['created_at']);
+            unset($secondaryMenu[$key]['updated_at']);
+            unset($secondaryMenu[$key]['category']);
         }
 
-        foreach ($menu1 as $menu) {
-            if (isset($menu['submenu']) && !empty($menu['submenu'])) {
-                foreach ($menu['submenu'] as $submenu) {
-                    if (isset($submenu['submenu']) && !empty($submenu['submenu'])) {
-                        foreach ($submenu['submenu'] as $subsubmenu) {
-                            unset($subsubmenu['is_order']);
-                            unset($subsubmenu['slug']);
-                            unset($subsubmenu['created_at']);
-                            unset($subsubmenu['updated_at']);
-                            $subsubmenu['flag'] = 'subsubmenu';
-                            $subsubmenu['name'] = $menu['name'] . ' - ' . $submenu['name'] . ' - ' . $subsubmenu['name'];
-                            $data['menu'][] = $subsubmenu;
-                        }
-                    }
-                }
-            }
-        }
+        $data['menu'] = array_merge($data['menu'], $secondaryMenu);
 
         return view('admin.forms.contentsForm', $data);
     }
