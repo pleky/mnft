@@ -34,7 +34,7 @@ class HomepageController extends Controller
 
     public function content($parent, $slug, $additional_info = null) {
         $data = $this->menus();
-        $data['content'] = Contents::select('contents.id','mn.name', 'contents.description', 'contents.image', 'mn.parent_id', 'mn.category')
+        $data['content'] = Contents::select('contents.id','mn.name', 'contents.description', 'contents.image', 'mn.parent_id', 'mn.category', 'contents.header_image')
                             ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
                             ->where('mn.slug', $slug)
                             ->first();

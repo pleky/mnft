@@ -36,6 +36,20 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <label for='menuId'>Header Image</label>
+                                    @if(isset($contents))
+                                    <span class="image-input">
+                                        <strong><p>Current Img</p></strong>
+                                            <img class="rounded img img-fluid" style="max-width: 150px;" src="{{ url('images/header_image/' . $contents->header_image) }}" alt="">
+                                            <input type="file" class="form-control" name="header_image" id="header_image" placeholder="Enter Image">
+                                            <p style="font-size: 11px;font-style: italic;">leave blank if you do not wish to change the image</p>
+                                        </span>    
+                                    @else
+                                    <input type="file" class="form-control" name="header_image" id="header_image" placeholder="Enter Image">
+                                    @endif
+                                </div>
+                                <br>
+                                <div class="form-group">
                                     <button class='btn btn-info' type="button" id="btnAddImage">Add Image</button>
                                 </div>
                                 <div class="form-group" id="input-image-div">

@@ -7,6 +7,17 @@
 <?php 
 use App\Menus; 
 ?>
+@if ($content->category == Menus::CATEGORY_SECONDARY)
+<!-- hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-image">
+            <img class="img-fluid" src="{{ url('images/header_image/'.$content->header_image) }}" alt="">
+        </div>
+    </div>
+</section>
+<!-- end hero -->
+@endif
 <!-- Porduct desc -->
 <section class="product mt-3 mt-lg-5 pt-lg-5">
     <div class="container">
