@@ -3,6 +3,15 @@
 @section('content')
 @section('title', 'RTA - ' . $content->name)
 @section('meta-description', $content->name)
+<!-- hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-image">
+            <img class="img-fluid" src="{{ url('images/header_image/'.$content->header_image) }}" alt="">
+        </div>
+    </div>
+</section>
+<!-- end hero -->
 <!-- Porduct desc -->
 <section class="product mt-3 mt-lg-5 pt-lg-5">
     <div class="container">
