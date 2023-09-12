@@ -105,20 +105,26 @@ class ContentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $this->validate($request,[
             'menu' => 'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
          ]);
-        
-        // $imageName = time().'.'.$request->image->extension();  
-        // $request->image->move(public_path('images'), $imageName);
 
         try{
             $content = new Contents;
             $content->menu_id       = $request->menu;
-            // $content->image         = $imageName;
             $content->description   = $request->description;
+
+            if (isset($request->header_image)) {
+                $path = public_path('images/header_image');
+
+                if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+                }
+
+                $headerImage = time().'.'.$request->header_image->extension();  
+                $request->header_image->move($path, $headerImage);
+                $content->header_image = $headerImage;
+            }
 
             // image content
             if (isset($request->image)) {
@@ -182,7 +188,7 @@ class ContentsController extends Controller
         $data['url'] = '/contents/update/'.$id;
         $data['method'] = 'post';
         $data['act'] = 'edit';
-        $data['contents'] = Contents::select('contents.id', 'contents.image', 'contents.description', DB::Raw("concat(mp.name, ' - ', mn.name) as name"))
+        $data['contents'] = Contents::select('contents.id', 'contents.image', 'contents.header_image', 'contents.description', DB::Raw("concat(mp.name, ' - ', mn.name) as name"))
                             ->leftJoin('menus as mn', 'contents.menu_id', '=', 'mn.id')
                             ->leftJoin('menus as mp', 'mn.parent_id', '=', 'mp.id')
                             ->where('contents.id', $id)
@@ -210,6 +216,18 @@ class ContentsController extends Controller
 
         try{
             $dataGallery = Contents::find($id);
+
+            if (isset($request->header_image)) {
+                $path = public_path('images/header_image');
+
+                if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+                }
+
+                $headerImage = time().'.'.$request->header_image->extension();  
+                $request->header_image->move($path, $headerImage);
+                $dataGallery->header_image = $headerImage;
+            }
 
             if(isset($request->image)) {
                 $image_path = public_path('images') . '/' . $dataGallery->image;
